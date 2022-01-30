@@ -22,10 +22,17 @@ namespace GUI_REV_3
         public float Weight;
         public float slaveFrequency;
         
+        //valve state: 0 = unenergized | 1 = energized (group is normally close, loop is normally open)
         public int groupValveState = 0;
-        public int lineValveState = 0;
+        public int loopValveState = 0;
+
         public float tempSet;
-        public float pumpSet;
+
+        //pumpSetting 0 = off | 1 = motor set | 2 = pressure set
+        public int pumpSetting = 0;
+        public float pumpSet = 0;
+
+        public Boolean heating = false;
 
         public delegate void d1(string indata);
 
@@ -77,7 +84,7 @@ namespace GUI_REV_3
 
         public void updateWindow()
         {
-            int numberOfPlotPoints = 600;
+            int numberOfPlotPoints = 300;
 
             if (SerialPort1.IsOpen)
             {
@@ -120,9 +127,38 @@ namespace GUI_REV_3
         {
             if (SerialPort1.IsOpen)
             {
-                SerialPort1.WriteLine("V" + (10 * lineValveState + groupValveState).ToString());
-                SerialPort1.WriteLine("T" + tempSet.ToString());
-                SerialPort1.WriteLine("P" + pumpSet.ToString());
+                
+                //send valve state
+                SerialPort1.WriteLine("V" + loopValveState.ToString() + groupValveState.ToString());
+                
+                
+
+                //Send pump state (M for motor speed, P for pump speed)
+                if(pumpSetting == 1)
+                {
+                    SerialPort1.WriteLine("M" + (Math.Round(PumpSpeedInput.Value)).ToString());
+                
+                }
+                else if (pumpSetting == 2)
+                {
+                    SerialPort1.WriteLine("P" + (Math.Round(PumpPressureInput.Value*10)).ToString());
+                }
+                else
+                {
+
+                    SerialPort1.WriteLine("M0");
+                }
+
+                //Send heating information
+                if (heating)
+                {
+                    SerialPort1.WriteLine("T" + (Math.Round(tempInput.Value * 10)).ToString());
+                }
+                else
+                {
+                    SerialPort1.WriteLine("T0");
+                }
+
             }
         }
      
@@ -151,8 +187,93 @@ namespace GUI_REV_3
 
         private void TempOnButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("T"+(Math.Round(tempInput.Value*10)).ToString());
+            heating = true;
+            HeaterIndicator.Text = "HEATER ON";
+            HeaterIndicator.BackColor = Color.Green;
         }
 
+        private void TempOffButton_Click(object sender, EventArgs e)
+        {
+            heating = false;
+            HeaterIndicator.Text = "HEATER OFF";
+            HeaterIndicator.BackColor = Color.Red;
+        }
+
+        private void pumpSpeedBtn_Click(object sender, EventArgs e)
+        {
+            pumpSetting = 1;
+            PumpIndicator.Text = "SPEED\nCONTROL";
+            PumpIndicator.BackColor = Color.Orange;
+        }
+
+        private void pumpPressBtn_Click(object sender, EventArgs e)
+        {
+            pumpSetting = 2;
+            PumpIndicator.Text = "PRESSURE\nCONTROL";
+            PumpIndicator.BackColor = Color.Green;
+        }
+
+        private void pumpOffBtn_Click(object sender, EventArgs e)
+        {
+            pumpSetting = 0;
+            PumpIndicator.Text = "PUMP OFF";
+            PumpIndicator.BackColor = Color.Red;
+        }
+
+        private void ghOpen_Click(object sender, EventArgs e)
+        {
+            groupValveState = 1;
+            GHValveIndicator.Text = "OPEN";
+            GHValveIndicator.BackColor = Color.Green;
+        }
+
+        private void ghClose_Click(object sender, EventArgs e)
+        {
+            groupValveState = 0;
+            GHValveIndicator.Text = "CLOSED";
+            GHValveIndicator.BackColor = Color.Red;
+        }
+
+        private void loopOpen_Click(object sender, EventArgs e)
+        {
+            loopValveState = 0;
+            LoopValveIndicator.Text = "OPEN";
+            LoopValveIndicator.BackColor = Color.Green;
+        }
+
+        private void loopClose_Click(object sender, EventArgs e)
+        {
+            loopValveState = 1;
+            LoopValveIndicator.Text = "CLOSED";
+            LoopValveIndicator.BackColor = Color.Red;
+        }
+
+        private void pumpIdle_Click(object sender, EventArgs e)
+        {
+            PumpSpeedInput.Value = 25;
+            pumpSpeedBtn_Click(sender, new EventArgs());
+        }
+
+        private void valveIdle_Click(object sender, EventArgs e)
+        {
+            ghClose_Click(sender, new EventArgs());
+            loopOpen_Click(sender, new EventArgs());
+        }
+
+        private void ZeroScale_Click(object sender, EventArgs e)
+        {
+            if (SerialPort1.IsOpen)
+            {
+                SerialPort1.WriteLine("R2");
+            }
+        }
+
+        private void PIDReset_Click(object sender, EventArgs e)
+        {
+            if (SerialPort1.IsOpen)
+            {
+                SerialPort1.WriteLine("R1");
+            }
+        }
     }
 }

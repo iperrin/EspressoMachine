@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.SerialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SensorsPanel = new System.Windows.Forms.Panel();
             this.SerialSearch = new System.Windows.Forms.Button();
@@ -62,14 +62,14 @@
             this.WeightChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
+            this.PumpIndicator = new System.Windows.Forms.Label();
+            this.pumpSpeedBtn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button7 = new System.Windows.Forms.Button();
+            this.PumpSpeedInput = new System.Windows.Forms.NumericUpDown();
+            this.pumpPressBtn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.button8 = new System.Windows.Forms.Button();
+            this.PumpPressureInput = new System.Windows.Forms.NumericUpDown();
+            this.pumpOffBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.HeaterIndicator = new System.Windows.Forms.Label();
@@ -79,10 +79,10 @@
             this.tempInput = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ghClose = new System.Windows.Forms.Button();
+            this.ghOpen = new System.Windows.Forms.Button();
+            this.loopClose = new System.Windows.Forms.Button();
+            this.loopOpen = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -90,17 +90,23 @@
             this.LoopValveIndicator = new System.Windows.Forms.Label();
             this.TemperatureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.PressureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.pumpIdle = new System.Windows.Forms.Button();
+            this.valveIdle = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.PIDReset = new System.Windows.Forms.Button();
+            this.ZeroScale = new System.Windows.Forms.Button();
             this.SensorsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeightChart)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PumpSpeedInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PumpPressureInput)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tempInput)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TemperatureChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PressureChart)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // SerialPort1
@@ -312,27 +318,27 @@
             // WeightChart
             // 
             this.WeightChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea7.Name = "ChartArea1";
-            this.WeightChart.ChartAreas.Add(chartArea7);
-            legend7.Enabled = false;
-            legend7.Name = "Legend1";
-            this.WeightChart.Legends.Add(legend7);
-            this.WeightChart.Location = new System.Drawing.Point(22, 1150);
+            chartArea4.Name = "ChartArea1";
+            this.WeightChart.ChartAreas.Add(chartArea4);
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.WeightChart.Legends.Add(legend4);
+            this.WeightChart.Location = new System.Drawing.Point(22, 1118);
             this.WeightChart.Margin = new System.Windows.Forms.Padding(6);
             this.WeightChart.Name = "WeightChart";
             this.WeightChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series7.BorderWidth = 3;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series7.Legend = "Legend1";
-            series7.Name = "Weight";
-            this.WeightChart.Series.Add(series7);
-            this.WeightChart.Size = new System.Drawing.Size(1358, 325);
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "Weight";
+            this.WeightChart.Series.Add(series4);
+            this.WeightChart.Size = new System.Drawing.Size(1358, 279);
             this.WeightChart.TabIndex = 2;
             this.WeightChart.Text = "WeightChart";
-            title7.Name = "Title1";
-            title7.Text = "Weight";
-            this.WeightChart.Titles.Add(title7);
+            title4.Name = "Title1";
+            title4.Text = "Weight";
+            this.WeightChart.Titles.Add(title4);
             // 
             // panel1
             // 
@@ -350,14 +356,15 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.button9);
+            this.panel3.Controls.Add(this.pumpIdle);
+            this.panel3.Controls.Add(this.PumpIndicator);
+            this.panel3.Controls.Add(this.pumpSpeedBtn);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.numericUpDown1);
-            this.panel3.Controls.Add(this.button7);
+            this.panel3.Controls.Add(this.PumpSpeedInput);
+            this.panel3.Controls.Add(this.pumpPressBtn);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.numericUpDown2);
-            this.panel3.Controls.Add(this.button8);
+            this.panel3.Controls.Add(this.PumpPressureInput);
+            this.panel3.Controls.Add(this.pumpOffBtn);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(312, 24);
             this.panel3.Margin = new System.Windows.Forms.Padding(6);
@@ -365,35 +372,36 @@
             this.panel3.Size = new System.Drawing.Size(253, 395);
             this.panel3.TabIndex = 20;
             // 
-            // label8
+            // PumpIndicator
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Red;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(46, 66);
-            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 15);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "PUMP OFF";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.PumpIndicator.AutoSize = true;
+            this.PumpIndicator.BackColor = System.Drawing.Color.Red;
+            this.PumpIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PumpIndicator.ForeColor = System.Drawing.Color.White;
+            this.PumpIndicator.Location = new System.Drawing.Point(46, 56);
+            this.PumpIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.PumpIndicator.Name = "PumpIndicator";
+            this.PumpIndicator.Size = new System.Drawing.Size(77, 15);
+            this.PumpIndicator.TabIndex = 26;
+            this.PumpIndicator.Text = "PUMP OFF";
+            this.PumpIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button9
+            // pumpSpeedBtn
             // 
-            this.button9.Location = new System.Drawing.Point(13, 120);
-            this.button9.Margin = new System.Windows.Forms.Padding(6);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(224, 42);
-            this.button9.TabIndex = 33;
-            this.button9.Text = "PUMP SPEED";
-            this.button9.UseVisualStyleBackColor = true;
+            this.pumpSpeedBtn.Location = new System.Drawing.Point(13, 119);
+            this.pumpSpeedBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.pumpSpeedBtn.Name = "pumpSpeedBtn";
+            this.pumpSpeedBtn.Size = new System.Drawing.Size(224, 42);
+            this.pumpSpeedBtn.TabIndex = 33;
+            this.pumpSpeedBtn.Text = "PUMP SPEED";
+            this.pumpSpeedBtn.UseVisualStyleBackColor = true;
+            this.pumpSpeedBtn.Click += new System.EventHandler(this.pumpSpeedBtn_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(42, 166);
+            this.label6.Location = new System.Drawing.Point(24, 173);
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 15);
@@ -401,40 +409,46 @@
             this.label6.Text = "Speed:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // numericUpDown1
+            // PumpSpeedInput
             // 
-            this.numericUpDown1.DecimalPlaces = 1;
-            this.numericUpDown1.Increment = new decimal(new int[] {
-            1,
+            this.PumpSpeedInput.DecimalPlaces = 1;
+            this.PumpSpeedInput.Increment = new decimal(new int[] {
+            5,
             0,
             0,
-            65536});
-            this.numericUpDown1.Location = new System.Drawing.Point(136, 162);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(6);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(92, 29);
-            this.numericUpDown1.TabIndex = 32;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            50,
+            0});
+            this.PumpSpeedInput.Location = new System.Drawing.Point(136, 166);
+            this.PumpSpeedInput.Margin = new System.Windows.Forms.Padding(6);
+            this.PumpSpeedInput.Maximum = new decimal(new int[] {
+            95,
+            0,
+            0,
+            0});
+            this.PumpSpeedInput.Name = "PumpSpeedInput";
+            this.PumpSpeedInput.Size = new System.Drawing.Size(92, 29);
+            this.PumpSpeedInput.TabIndex = 32;
+            this.PumpSpeedInput.Value = new decimal(new int[] {
+            25,
             0,
             0,
             0});
             // 
-            // button7
+            // pumpPressBtn
             // 
-            this.button7.Location = new System.Drawing.Point(13, 231);
-            this.button7.Margin = new System.Windows.Forms.Padding(6);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(224, 42);
-            this.button7.TabIndex = 30;
-            this.button7.Text = "PRESSURE SET";
-            this.button7.UseVisualStyleBackColor = true;
+            this.pumpPressBtn.Location = new System.Drawing.Point(13, 199);
+            this.pumpPressBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.pumpPressBtn.Name = "pumpPressBtn";
+            this.pumpPressBtn.Size = new System.Drawing.Size(224, 42);
+            this.pumpPressBtn.TabIndex = 30;
+            this.pumpPressBtn.Text = "PRESSURE SET";
+            this.pumpPressBtn.UseVisualStyleBackColor = true;
+            this.pumpPressBtn.Click += new System.EventHandler(this.pumpPressBtn_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(16, 277);
+            this.label7.Location = new System.Drawing.Point(19, 255);
             this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 15);
@@ -442,39 +456,40 @@
             this.label7.Text = "Pressure:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // numericUpDown2
+            // PumpPressureInput
             // 
-            this.numericUpDown2.DecimalPlaces = 1;
-            this.numericUpDown2.Increment = new decimal(new int[] {
+            this.PumpPressureInput.DecimalPlaces = 1;
+            this.PumpPressureInput.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown2.Location = new System.Drawing.Point(136, 273);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(6);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.PumpPressureInput.Location = new System.Drawing.Point(136, 248);
+            this.PumpPressureInput.Margin = new System.Windows.Forms.Padding(6);
+            this.PumpPressureInput.Maximum = new decimal(new int[] {
             12,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(92, 29);
-            this.numericUpDown2.TabIndex = 29;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.PumpPressureInput.Name = "PumpPressureInput";
+            this.PumpPressureInput.Size = new System.Drawing.Size(92, 29);
+            this.PumpPressureInput.TabIndex = 29;
+            this.PumpPressureInput.Value = new decimal(new int[] {
             6,
             0,
             0,
             0});
             // 
-            // button8
+            // pumpOffBtn
             // 
-            this.button8.Location = new System.Drawing.Point(15, 336);
-            this.button8.Margin = new System.Windows.Forms.Padding(6);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(224, 42);
-            this.button8.TabIndex = 23;
-            this.button8.Text = "PUMP OFF";
-            this.button8.UseVisualStyleBackColor = true;
+            this.pumpOffBtn.Location = new System.Drawing.Point(6, 294);
+            this.pumpOffBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.pumpOffBtn.Name = "pumpOffBtn";
+            this.pumpOffBtn.Size = new System.Drawing.Size(224, 42);
+            this.pumpOffBtn.TabIndex = 23;
+            this.pumpOffBtn.Text = "PUMP OFF";
+            this.pumpOffBtn.UseVisualStyleBackColor = true;
+            this.pumpOffBtn.Click += new System.EventHandler(this.pumpOffBtn_Click);
             // 
             // label3
             // 
@@ -538,6 +553,7 @@
             this.TempOffButton.TabIndex = 24;
             this.TempOffButton.Text = "OFF";
             this.TempOffButton.UseVisualStyleBackColor = true;
+            this.TempOffButton.Click += new System.EventHandler(this.TempOffButton_Click);
             // 
             // TempOnButton
             // 
@@ -560,6 +576,16 @@
             65536});
             this.tempInput.Location = new System.Drawing.Point(139, 282);
             this.tempInput.Margin = new System.Windows.Forms.Padding(6);
+            this.tempInput.Maximum = new decimal(new int[] {
+            95,
+            0,
+            0,
+            0});
+            this.tempInput.Minimum = new decimal(new int[] {
+            85,
+            0,
+            0,
+            0});
             this.tempInput.Name = "tempInput";
             this.tempInput.Size = new System.Drawing.Size(92, 29);
             this.tempInput.TabIndex = 25;
@@ -584,10 +610,11 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.button3);
-            this.panel4.Controls.Add(this.button4);
-            this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.valveIdle);
+            this.panel4.Controls.Add(this.ghClose);
+            this.panel4.Controls.Add(this.ghOpen);
+            this.panel4.Controls.Add(this.loopClose);
+            this.panel4.Controls.Add(this.loopOpen);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label1);
@@ -599,45 +626,49 @@
             this.panel4.Size = new System.Drawing.Size(253, 395);
             this.panel4.TabIndex = 21;
             // 
-            // button3
+            // ghClose
             // 
-            this.button3.Location = new System.Drawing.Point(130, 177);
-            this.button3.Margin = new System.Windows.Forms.Padding(6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 42);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "CLOSE";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ghClose.Location = new System.Drawing.Point(130, 127);
+            this.ghClose.Margin = new System.Windows.Forms.Padding(6);
+            this.ghClose.Name = "ghClose";
+            this.ghClose.Size = new System.Drawing.Size(99, 42);
+            this.ghClose.TabIndex = 22;
+            this.ghClose.Text = "CLOSE";
+            this.ghClose.UseVisualStyleBackColor = true;
+            this.ghClose.Click += new System.EventHandler(this.ghClose_Click);
             // 
-            // button4
+            // ghOpen
             // 
-            this.button4.Location = new System.Drawing.Point(20, 177);
-            this.button4.Margin = new System.Windows.Forms.Padding(6);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 42);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "OPEN";
-            this.button4.UseVisualStyleBackColor = true;
+            this.ghOpen.Location = new System.Drawing.Point(20, 127);
+            this.ghOpen.Margin = new System.Windows.Forms.Padding(6);
+            this.ghOpen.Name = "ghOpen";
+            this.ghOpen.Size = new System.Drawing.Size(99, 42);
+            this.ghOpen.TabIndex = 21;
+            this.ghOpen.Text = "OPEN";
+            this.ghOpen.UseVisualStyleBackColor = true;
+            this.ghOpen.Click += new System.EventHandler(this.ghOpen_Click);
             // 
-            // button2
+            // loopClose
             // 
-            this.button2.Location = new System.Drawing.Point(134, 336);
-            this.button2.Margin = new System.Windows.Forms.Padding(6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 42);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "CLOSE";
-            this.button2.UseVisualStyleBackColor = true;
+            this.loopClose.Location = new System.Drawing.Point(134, 278);
+            this.loopClose.Margin = new System.Windows.Forms.Padding(6);
+            this.loopClose.Name = "loopClose";
+            this.loopClose.Size = new System.Drawing.Size(99, 42);
+            this.loopClose.TabIndex = 20;
+            this.loopClose.Text = "CLOSE";
+            this.loopClose.UseVisualStyleBackColor = true;
+            this.loopClose.Click += new System.EventHandler(this.loopClose_Click);
             // 
-            // button1
+            // loopOpen
             // 
-            this.button1.Location = new System.Drawing.Point(24, 336);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 42);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "OPEN";
-            this.button1.UseVisualStyleBackColor = true;
+            this.loopOpen.Location = new System.Drawing.Point(24, 278);
+            this.loopOpen.Margin = new System.Windows.Forms.Padding(6);
+            this.loopOpen.Name = "loopOpen";
+            this.loopOpen.Size = new System.Drawing.Size(99, 42);
+            this.loopOpen.TabIndex = 19;
+            this.loopOpen.Text = "OPEN";
+            this.loopOpen.UseVisualStyleBackColor = true;
+            this.loopOpen.Click += new System.EventHandler(this.loopOpen_Click);
             // 
             // label9
             // 
@@ -654,7 +685,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(97, 260);
+            this.label2.Location = new System.Drawing.Point(105, 202);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
@@ -666,7 +697,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(57, 98);
+            this.label1.Location = new System.Drawing.Point(83, 48);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 15);
@@ -680,7 +711,7 @@
             this.GHValveIndicator.BackColor = System.Drawing.Color.Red;
             this.GHValveIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GHValveIndicator.ForeColor = System.Drawing.Color.White;
-            this.GHValveIndicator.Location = new System.Drawing.Point(68, 135);
+            this.GHValveIndicator.Location = new System.Drawing.Point(88, 82);
             this.GHValveIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.GHValveIndicator.Name = "GHValveIndicator";
             this.GHValveIndicator.Size = new System.Drawing.Size(62, 15);
@@ -694,7 +725,7 @@
             this.LoopValveIndicator.BackColor = System.Drawing.Color.Green;
             this.LoopValveIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoopValveIndicator.ForeColor = System.Drawing.Color.White;
-            this.LoopValveIndicator.Location = new System.Drawing.Point(88, 294);
+            this.LoopValveIndicator.Location = new System.Drawing.Point(99, 234);
             this.LoopValveIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.LoopValveIndicator.Name = "LoopValveIndicator";
             this.LoopValveIndicator.Size = new System.Drawing.Size(45, 15);
@@ -705,58 +736,113 @@
             // TemperatureChart
             // 
             this.TemperatureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea8.Name = "ChartArea1";
-            this.TemperatureChart.ChartAreas.Add(chartArea8);
-            legend8.Enabled = false;
-            legend8.Name = "Legend1";
-            this.TemperatureChart.Legends.Add(legend8);
-            this.TemperatureChart.Location = new System.Drawing.Point(22, 814);
+            chartArea5.Name = "ChartArea1";
+            this.TemperatureChart.ChartAreas.Add(chartArea5);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.TemperatureChart.Legends.Add(legend5);
+            this.TemperatureChart.Location = new System.Drawing.Point(22, 792);
             this.TemperatureChart.Margin = new System.Windows.Forms.Padding(6);
             this.TemperatureChart.Name = "TemperatureChart";
             this.TemperatureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series8.BorderWidth = 3;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series8.Legend = "Legend1";
-            series8.Name = "Temperature";
-            this.TemperatureChart.Series.Add(series8);
-            this.TemperatureChart.Size = new System.Drawing.Size(1358, 325);
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series5.Legend = "Legend1";
+            series5.Name = "Temperature";
+            this.TemperatureChart.Series.Add(series5);
+            this.TemperatureChart.Size = new System.Drawing.Size(1358, 289);
             this.TemperatureChart.TabIndex = 17;
             this.TemperatureChart.Text = "chart1";
-            title8.Name = "Title1";
-            title8.Text = "Temperature";
-            this.TemperatureChart.Titles.Add(title8);
+            title5.Name = "Title1";
+            title5.Text = "Temperature";
+            this.TemperatureChart.Titles.Add(title5);
             // 
             // PressureChart
             // 
             this.PressureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea9.Name = "ChartArea1";
-            this.PressureChart.ChartAreas.Add(chartArea9);
-            legend9.Enabled = false;
-            legend9.Name = "Legend1";
-            this.PressureChart.Legends.Add(legend9);
+            chartArea6.Name = "ChartArea1";
+            this.PressureChart.ChartAreas.Add(chartArea6);
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.PressureChart.Legends.Add(legend6);
             this.PressureChart.Location = new System.Drawing.Point(22, 478);
             this.PressureChart.Margin = new System.Windows.Forms.Padding(6);
             this.PressureChart.Name = "PressureChart";
             this.PressureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series9.BorderWidth = 3;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series9.Legend = "Legend1";
-            series9.Name = "Pressure";
-            this.PressureChart.Series.Add(series9);
-            this.PressureChart.Size = new System.Drawing.Size(1358, 325);
+            series6.BorderWidth = 3;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series6.Legend = "Legend1";
+            series6.Name = "Pressure";
+            this.PressureChart.Series.Add(series6);
+            this.PressureChart.Size = new System.Drawing.Size(1358, 290);
             this.PressureChart.TabIndex = 18;
             this.PressureChart.Text = "PressureChart";
-            title9.Name = "Title1";
-            title9.Text = "Pressure";
-            this.PressureChart.Titles.Add(title9);
+            title6.Name = "Title1";
+            title6.Text = "Pressure";
+            this.PressureChart.Titles.Add(title6);
+            // 
+            // pumpIdle
+            // 
+            this.pumpIdle.Location = new System.Drawing.Point(6, 345);
+            this.pumpIdle.Margin = new System.Windows.Forms.Padding(6);
+            this.pumpIdle.Name = "pumpIdle";
+            this.pumpIdle.Size = new System.Drawing.Size(224, 42);
+            this.pumpIdle.TabIndex = 34;
+            this.pumpIdle.Text = "PUMP IDLE";
+            this.pumpIdle.UseVisualStyleBackColor = true;
+            this.pumpIdle.Click += new System.EventHandler(this.pumpIdle_Click);
+            // 
+            // valveIdle
+            // 
+            this.valveIdle.Location = new System.Drawing.Point(20, 337);
+            this.valveIdle.Margin = new System.Windows.Forms.Padding(6);
+            this.valveIdle.Name = "valveIdle";
+            this.valveIdle.Size = new System.Drawing.Size(224, 42);
+            this.valveIdle.TabIndex = 35;
+            this.valveIdle.Text = "VALVE IDLE";
+            this.valveIdle.UseVisualStyleBackColor = true;
+            this.valveIdle.Click += new System.EventHandler(this.valveIdle_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.PIDReset);
+            this.panel5.Controls.Add(this.ZeroScale);
+            this.panel5.Location = new System.Drawing.Point(1419, 22);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(255, 445);
+            this.panel5.TabIndex = 19;
+            // 
+            // PIDReset
+            // 
+            this.PIDReset.Location = new System.Drawing.Point(36, 81);
+            this.PIDReset.Margin = new System.Windows.Forms.Padding(6);
+            this.PIDReset.Name = "PIDReset";
+            this.PIDReset.Size = new System.Drawing.Size(192, 42);
+            this.PIDReset.TabIndex = 37;
+            this.PIDReset.Text = "RESET PID";
+            this.PIDReset.UseVisualStyleBackColor = true;
+            this.PIDReset.Click += new System.EventHandler(this.PIDReset_Click);
+            // 
+            // ZeroScale
+            // 
+            this.ZeroScale.Location = new System.Drawing.Point(36, 26);
+            this.ZeroScale.Margin = new System.Windows.Forms.Padding(6);
+            this.ZeroScale.Name = "ZeroScale";
+            this.ZeroScale.Size = new System.Drawing.Size(192, 42);
+            this.ZeroScale.TabIndex = 36;
+            this.ZeroScale.Text = "ZERO SCALE";
+            this.ZeroScale.UseVisualStyleBackColor = true;
+            this.ZeroScale.Click += new System.EventHandler(this.ZeroScale_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1399, 1421);
+            this.ClientSize = new System.Drawing.Size(2317, 1421);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.PressureChart);
             this.Controls.Add(this.TemperatureChart);
             this.Controls.Add(this.WeightChart);
@@ -771,8 +857,8 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PumpSpeedInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PumpPressureInput)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tempInput)).EndInit();
@@ -780,6 +866,7 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TemperatureChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PressureChart)).EndInit();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -808,24 +895,24 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ghClose;
+        private System.Windows.Forms.Button ghOpen;
+        private System.Windows.Forms.Button loopClose;
+        private System.Windows.Forms.Button loopOpen;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button TempOffButton;
         private System.Windows.Forms.Button TempOnButton;
         private System.Windows.Forms.NumericUpDown tempInput;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label PumpIndicator;
+        private System.Windows.Forms.Button pumpSpeedBtn;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.NumericUpDown PumpSpeedInput;
+        private System.Windows.Forms.Button pumpPressBtn;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.NumericUpDown PumpPressureInput;
+        private System.Windows.Forms.Button pumpOffBtn;
         private System.Windows.Forms.Label HeaterIndicator;
         private System.Windows.Forms.DataVisualization.Charting.Chart TemperatureChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart PressureChart;
@@ -835,6 +922,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button SerialDisconnect;
         private System.Windows.Forms.Button SerialSearch;
+        private System.Windows.Forms.Button pumpIdle;
+        private System.Windows.Forms.Button valveIdle;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button PIDReset;
+        private System.Windows.Forms.Button ZeroScale;
     }
 }
 
