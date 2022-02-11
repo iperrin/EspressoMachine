@@ -15,8 +15,11 @@
 #define heater 5
 #define ducer A3
 
-//146 element lookup for 85:0.1:99.5
+//146 element lookup for 85:0.1:99.5 (duty cycle corresponding to temperature target)
 int dutyCycleLookup[] = {23, 23, 23, 23, 23, 23, 23, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 30, 30, 30, 30, 30, 30, 30, 30, 30, 31, 31, 31, 31, 31, 31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 33, 33, 33, 33, 33, 33, 34, 34, 34, 34, 34, 35, 35, 35, 35, 35, 36, 36, 36, 37, 37, 37, 38, 38, 38, 39, 39, 40, 40, 40, 41, 41, 42, 42, 43, 44, 45, 47, 50};
+
+//121 elemeent lookup for pressures 0:0.1:12 (motor speed corresponding to temperature target)
+int motorSpeedLookup[] = {0,6,7,8,8,9,10,11,11,12,13,13,14,14,15,16,16,17,17,17,18,18,19,19,20,20,21,21,22,22,23,23,23,24,24,25,25,26,26,26,27,27,28,28,28,29,29,29,30,30,30,31,31,31,32,32,32,32,33,33,33,34,34,34,34,35,35,35,36,36,36,36,37,37,37,37,38,38,38,38,39,39,39,39,40,40,40,40,40,41,41,41,41,42,42,42,42,43,43,43,43,44,44,44,44,45,45,45,45,45,46,46,46,46,47,47,47,47,48,48,48};
 
 //Weight system setup - weight tracking variable and initialize sensor on DAC
 movingAvg filteredWeight(10);
@@ -35,20 +38,17 @@ MAX31865 rtd0;
 Adafruit_MCP4725 dac;
 
 // Pressure control PID parameters
-#define OUTPUT_MIN 0.1
-#define OUTPUT_MAX 0.7
+#define OUTPUT_MIN -1
+#define OUTPUT_MAX 1
 #define KP 0.01
 #define KI 0.04
-#define KD 0.5
-double PID_setPoint = 0;
-double PID_Output = 0.2;
-double MAX_SPEED = 1;
-double MIN_SPEED = 0;
+#define KD 0
+double PID_Output = 0;
 
 
 // Target values supplied over serial
-double pumpSpeed = 0.34;  //0-1 value given by
-double pumpSet = 0;    //target pressure -1 if using pumpSpeed
+double pumpSpeed = 0;  //0-1 value given by
+double pressureSet = 0;    //target pressure -1 if using pumpSpeed
 double tempSet = 85;    //celcius
 boolean groupState = false; //Energize group - normally closed
 boolean loopState = false;  //Energize loop  - normally open
@@ -64,7 +64,7 @@ int heaterDutyCycle = 0;
 int heaterDutyCycleCounter = 0;
 int heaterDutyCycleLimit = 100;
 
-AutoPID myPID(&pressure, &PID_setPoint, &PID_Output, MIN_SPEED, MAX_SPEED, KP, KI, KD);
+AutoPID myPID(&pressure, &pressureSet, &PID_Output, OUTPUT_MIN, OUTPUT_MAX, KP, KI, KD);
 
 //Variable for tracking refresh rate
 long int timeSave = 0;
@@ -109,11 +109,6 @@ void setup() {
 
 void loop() {
 
-  if (pumpSet != -1) {
-  } else {
-    updatePump();
-  }
-
   //updateSensors
   updatePressure();
   updateTemperature();
@@ -124,6 +119,7 @@ void loop() {
   updatePump();
   updateHeater();
 
+  //communications update
   updateMaster();
   checkInput();
 
@@ -148,27 +144,29 @@ void checkInput() {
 
     //processing new valve configruation
     }else if (d1 == 'V') {
-      if (Serial.read() == '1'){
+      char nextChar = Serial.read();
+      if (nextChar == '1'){
         loopState = true;
-      }else{
+      }else if(nextChar == '0'){
         loopState = false;
       }
-      
-      if(Serial.read() == '1'){
+
+      nextChar = Serial.read();
+      if(nextChar == '1'){
         groupState = true;
-      }else{
+      }else if(nextChar == '0'){
         groupState = false;
       }
     //processing direct motor speed setting
     }else if (d1 == 'M') {
       data = Serial.parseInt();
-      pumpSet = -1;
+      pressureSet = -1;
       pumpSpeed = ((float)data) / 100;
 
     //processing new pressure settting
     } else if (d1 == 'P') {
       data = Serial.parseInt();
-      pumpSet = ((float)data) / 10;
+      pressureSet = ((float)data) / 10;
     
     //check for a reset/cal value
     }else if (d1 == 'R'){
@@ -232,6 +230,8 @@ void updateMaster() {
   String UpdateFrequency = "F";
   long int timeMeasure = millis();
   float freq = 1000/(timeMeasure-timeSave);
+
+  freq = 100*pumpSpeed;
   
   timeSave = timeMeasure;
 
@@ -301,20 +301,32 @@ void updateHeater() {
 void updateValves() {
 
   if (groupState) {
-    digitalWrite(groupValve, LOW);
-  } else {
     digitalWrite(groupValve, HIGH);
+  } else {
+    digitalWrite(groupValve, LOW);
   }
 
   if (loopState) {
-    digitalWrite(loopValve, LOW);
-  } else {
     digitalWrite(loopValve, HIGH);
+  } else {
+    digitalWrite(loopValve, LOW);
   }
 
 }
 
 void updatePump() {
+
+  //run PID update
+  if(pressureSet>0){
+    myPID.run();
+    int baseSpeedIndex = (int)(10*pressureSet);
+    pumpSpeed = (float)motorSpeedLookup[baseSpeedIndex];
+    pumpSpeed = (pumpSpeed/100);
+    pumpSpeed = pumpSpeed+PID_Output/10;
+  }else{
+    myPID.stop();
+  }
+  
   dac.setVoltage((int)(pumpSpeed * 4096), false);
 }
 

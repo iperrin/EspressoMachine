@@ -22,6 +22,9 @@ namespace GUI_REV_3
         public float Weight;
         public float slaveFrequency;
         
+        //Autosequence state variables
+        public int AS_Loop_Counter = 0;
+
         //valve state: 0 = unenergized | 1 = energized (group is normally close, loop is normally open)
         public int groupValveState = 0;
         public int loopValveState = 0;
@@ -274,6 +277,61 @@ namespace GUI_REV_3
             {
                 SerialPort1.WriteLine("R1");
             }
+        }
+
+        private void AS_START_Click(object sender, EventArgs e)
+        {
+            AS_Timer.Start();
+            AS_Loop_Counter = 0;
+        }
+
+        private void AS_STOP_Click(object sender, EventArgs e)
+        {
+            AS_Timer.Stop();
+            valveIdle_Click(sender, new EventArgs());
+            pumpIdle_Click(sender, new EventArgs());
+            TempOffButton_Click(sender, new EventArgs());
+
+            AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
+            AS_INDICATOR.BackColor = Color.Red;
+
+        }
+
+        private void AS_Timer_Tick(object sender, EventArgs e)
+        {
+
+            loopClose_Click(sender, new EventArgs());
+            ghOpen_Click(sender, new EventArgs());
+            TempOnButton_Click(sender, new EventArgs());
+            pumpPressBtn_Click(sender, new EventArgs());
+
+            float brewTime = AS_Loop_Counter / 10;
+            AS_TIMER_DISPLAY.Text = Convert.ToString(brewTime)+" s";
+
+
+            if (AS_Loop_Counter < 10 * AS_PF_DURATION.Value)
+            {
+                //preinfusion
+                AS_INDICATOR.Text = "PREINFUSION";
+                AS_INDICATOR.BackColor = Color.Green;
+                PumpPressureInput.Value = AS_PF_PRESSURE.Value;
+            }
+            else if (AS_Loop_Counter < 10 * (AS_PF_DURATION.Value + AS_PB_Duration.Value))
+            {
+                //main brew
+                AS_INDICATOR.Text = "PEAK PRESSURE";
+                AS_INDICATOR.BackColor = Color.Green;
+                PumpPressureInput.Value = AS_BREW_PRESSURE.Value;
+            }
+            else
+            {
+                //ramp down
+                AS_INDICATOR.Text = "RAMP DOWN";
+                AS_INDICATOR.BackColor = Color.Green;
+                PumpPressureInput.Value = AS_RD_PRESSURE.Value;
+            }
+
+            AS_Loop_Counter++;
         }
     }
 }

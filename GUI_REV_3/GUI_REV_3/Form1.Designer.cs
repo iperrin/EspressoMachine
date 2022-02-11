@@ -62,6 +62,7 @@
             this.WeightChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pumpIdle = new System.Windows.Forms.Button();
             this.PumpIndicator = new System.Windows.Forms.Label();
             this.pumpSpeedBtn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -79,6 +80,7 @@
             this.tempInput = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.valveIdle = new System.Windows.Forms.Button();
             this.ghClose = new System.Windows.Forms.Button();
             this.ghOpen = new System.Windows.Forms.Button();
             this.loopClose = new System.Windows.Forms.Button();
@@ -90,11 +92,27 @@
             this.LoopValveIndicator = new System.Windows.Forms.Label();
             this.TemperatureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.PressureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.pumpIdle = new System.Windows.Forms.Button();
-            this.valveIdle = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.PIDReset = new System.Windows.Forms.Button();
             this.ZeroScale = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.AS_TIMER_DISPLAY = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.AS_RD_PRESSURE = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.AS_PB_Duration = new System.Windows.Forms.NumericUpDown();
+            this.AS_INDICATOR = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.AS_BREW_PRESSURE = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.AS_PF_DURATION = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.AS_PF_PRESSURE = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.AS_STOP = new System.Windows.Forms.Button();
+            this.AS_START = new System.Windows.Forms.Button();
+            this.AS_Timer = new System.Windows.Forms.Timer(this.components);
             this.SensorsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeightChart)).BeginInit();
             this.panel1.SuspendLayout();
@@ -107,6 +125,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.TemperatureChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PressureChart)).BeginInit();
             this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_RD_PRESSURE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_PB_Duration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_BREW_PRESSURE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_PF_DURATION)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_PF_PRESSURE)).BeginInit();
             this.SuspendLayout();
             // 
             // SerialPort1
@@ -134,18 +158,16 @@
             this.SensorsPanel.Controls.Add(this.TemperatureLabel);
             this.SensorsPanel.Controls.Add(this.PressureLabel);
             this.SensorsPanel.Controls.Add(this.SensorsTitle);
-            this.SensorsPanel.Location = new System.Drawing.Point(22, 22);
-            this.SensorsPanel.Margin = new System.Windows.Forms.Padding(6);
+            this.SensorsPanel.Location = new System.Drawing.Point(12, 12);
             this.SensorsPanel.Name = "SensorsPanel";
-            this.SensorsPanel.Size = new System.Drawing.Size(444, 445);
+            this.SensorsPanel.Size = new System.Drawing.Size(242, 241);
             this.SensorsPanel.TabIndex = 1;
             // 
             // SerialSearch
             // 
-            this.SerialSearch.Location = new System.Drawing.Point(257, 308);
-            this.SerialSearch.Margin = new System.Windows.Forms.Padding(6);
+            this.SerialSearch.Location = new System.Drawing.Point(140, 167);
             this.SerialSearch.Name = "SerialSearch";
-            this.SerialSearch.Size = new System.Drawing.Size(122, 42);
+            this.SerialSearch.Size = new System.Drawing.Size(67, 23);
             this.SerialSearch.TabIndex = 32;
             this.SerialSearch.Text = "SEARCH";
             this.SerialSearch.UseVisualStyleBackColor = true;
@@ -154,10 +176,9 @@
             // SerialPortSelect
             // 
             this.SerialPortSelect.FormattingEnabled = true;
-            this.SerialPortSelect.Location = new System.Drawing.Point(141, 312);
-            this.SerialPortSelect.Margin = new System.Windows.Forms.Padding(6);
+            this.SerialPortSelect.Location = new System.Drawing.Point(77, 169);
             this.SerialPortSelect.Name = "SerialPortSelect";
-            this.SerialPortSelect.Size = new System.Drawing.Size(108, 32);
+            this.SerialPortSelect.Size = new System.Drawing.Size(61, 21);
             this.SerialPortSelect.TabIndex = 31;
             this.SerialPortSelect.Text = "COM5";
             // 
@@ -165,8 +186,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(73, 264);
-            this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label11.Location = new System.Drawing.Point(40, 143);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(151, 20);
             this.label11.TabIndex = 30;
@@ -174,10 +194,9 @@
             // 
             // SerialConnect
             // 
-            this.SerialConnect.Location = new System.Drawing.Point(220, 362);
-            this.SerialConnect.Margin = new System.Windows.Forms.Padding(6);
+            this.SerialConnect.Location = new System.Drawing.Point(120, 196);
             this.SerialConnect.Name = "SerialConnect";
-            this.SerialConnect.Size = new System.Drawing.Size(161, 42);
+            this.SerialConnect.Size = new System.Drawing.Size(88, 23);
             this.SerialConnect.TabIndex = 29;
             this.SerialConnect.Text = "CONNECT";
             this.SerialConnect.UseVisualStyleBackColor = true;
@@ -187,8 +206,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(48, 319);
-            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label10.Location = new System.Drawing.Point(26, 173);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 15);
             this.label10.TabIndex = 28;
@@ -197,10 +215,9 @@
             // 
             // SerialDisconnect
             // 
-            this.SerialDisconnect.Location = new System.Drawing.Point(48, 362);
-            this.SerialDisconnect.Margin = new System.Windows.Forms.Padding(6);
+            this.SerialDisconnect.Location = new System.Drawing.Point(26, 196);
             this.SerialDisconnect.Name = "SerialDisconnect";
-            this.SerialDisconnect.Size = new System.Drawing.Size(161, 42);
+            this.SerialDisconnect.Size = new System.Drawing.Size(88, 23);
             this.SerialDisconnect.TabIndex = 26;
             this.SerialDisconnect.Text = "DISCONNECT";
             this.SerialDisconnect.UseVisualStyleBackColor = true;
@@ -210,8 +227,7 @@
             // 
             this.SlaveFrequencyValue.AutoSize = true;
             this.SlaveFrequencyValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SlaveFrequencyValue.Location = new System.Drawing.Point(277, 183);
-            this.SlaveFrequencyValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.SlaveFrequencyValue.Location = new System.Drawing.Point(151, 99);
             this.SlaveFrequencyValue.Name = "SlaveFrequencyValue";
             this.SlaveFrequencyValue.Size = new System.Drawing.Size(14, 15);
             this.SlaveFrequencyValue.TabIndex = 15;
@@ -221,8 +237,7 @@
             // 
             this.WeightValue.AutoSize = true;
             this.WeightValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightValue.Location = new System.Drawing.Point(277, 148);
-            this.WeightValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.WeightValue.Location = new System.Drawing.Point(151, 80);
             this.WeightValue.Name = "WeightValue";
             this.WeightValue.Size = new System.Drawing.Size(14, 15);
             this.WeightValue.TabIndex = 14;
@@ -232,8 +247,7 @@
             // 
             this.SlaveFrequencyLabel.AutoSize = true;
             this.SlaveFrequencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SlaveFrequencyLabel.Location = new System.Drawing.Point(48, 181);
-            this.SlaveFrequencyLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.SlaveFrequencyLabel.Location = new System.Drawing.Point(26, 98);
             this.SlaveFrequencyLabel.Name = "SlaveFrequencyLabel";
             this.SlaveFrequencyLabel.Size = new System.Drawing.Size(112, 15);
             this.SlaveFrequencyLabel.TabIndex = 9;
@@ -244,8 +258,7 @@
             // 
             this.TemperatureValue.AutoSize = true;
             this.TemperatureValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperatureValue.Location = new System.Drawing.Point(277, 113);
-            this.TemperatureValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.TemperatureValue.Location = new System.Drawing.Point(151, 61);
             this.TemperatureValue.Name = "TemperatureValue";
             this.TemperatureValue.Size = new System.Drawing.Size(14, 15);
             this.TemperatureValue.TabIndex = 13;
@@ -255,8 +268,7 @@
             // 
             this.PressureValue.AutoSize = true;
             this.PressureValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PressureValue.Location = new System.Drawing.Point(277, 76);
-            this.PressureValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.PressureValue.Location = new System.Drawing.Point(151, 41);
             this.PressureValue.Name = "PressureValue";
             this.PressureValue.Size = new System.Drawing.Size(14, 15);
             this.PressureValue.TabIndex = 12;
@@ -266,8 +278,7 @@
             // 
             this.WeightLabel.AutoSize = true;
             this.WeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightLabel.Location = new System.Drawing.Point(160, 146);
-            this.WeightLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.WeightLabel.Location = new System.Drawing.Point(87, 79);
             this.WeightLabel.Name = "WeightLabel";
             this.WeightLabel.Size = new System.Drawing.Size(51, 15);
             this.WeightLabel.TabIndex = 8;
@@ -278,8 +289,7 @@
             // 
             this.TemperatureLabel.AutoSize = true;
             this.TemperatureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperatureLabel.Location = new System.Drawing.Point(99, 111);
-            this.TemperatureLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.TemperatureLabel.Location = new System.Drawing.Point(54, 60);
             this.TemperatureLabel.Name = "TemperatureLabel";
             this.TemperatureLabel.Size = new System.Drawing.Size(84, 15);
             this.TemperatureLabel.TabIndex = 7;
@@ -290,8 +300,7 @@
             // 
             this.PressureLabel.AutoSize = true;
             this.PressureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PressureLabel.Location = new System.Drawing.Point(139, 78);
-            this.PressureLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.PressureLabel.Location = new System.Drawing.Point(76, 42);
             this.PressureLabel.Name = "PressureLabel";
             this.PressureLabel.Size = new System.Drawing.Size(62, 15);
             this.PressureLabel.TabIndex = 6;
@@ -302,8 +311,7 @@
             // 
             this.SensorsTitle.AutoSize = true;
             this.SensorsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SensorsTitle.Location = new System.Drawing.Point(150, 26);
-            this.SensorsTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.SensorsTitle.Location = new System.Drawing.Point(82, 14);
             this.SensorsTitle.Name = "SensorsTitle";
             this.SensorsTitle.Size = new System.Drawing.Size(75, 20);
             this.SensorsTitle.TabIndex = 4;
@@ -323,8 +331,7 @@
             legend4.Enabled = false;
             legend4.Name = "Legend1";
             this.WeightChart.Legends.Add(legend4);
-            this.WeightChart.Location = new System.Drawing.Point(22, 1118);
-            this.WeightChart.Margin = new System.Windows.Forms.Padding(6);
+            this.WeightChart.Location = new System.Drawing.Point(12, 606);
             this.WeightChart.Name = "WeightChart";
             this.WeightChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series4.BorderWidth = 3;
@@ -333,7 +340,7 @@
             series4.Legend = "Legend1";
             series4.Name = "Weight";
             this.WeightChart.Series.Add(series4);
-            this.WeightChart.Size = new System.Drawing.Size(1358, 279);
+            this.WeightChart.Size = new System.Drawing.Size(741, 151);
             this.WeightChart.TabIndex = 2;
             this.WeightChart.Text = "WeightChart";
             title4.Name = "Title1";
@@ -346,10 +353,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Location = new System.Drawing.Point(495, 22);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6);
+            this.panel1.Location = new System.Drawing.Point(261, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(886, 445);
+            this.panel1.Size = new System.Drawing.Size(493, 241);
             this.panel1.TabIndex = 16;
             // 
             // panel3
@@ -366,11 +372,20 @@
             this.panel3.Controls.Add(this.PumpPressureInput);
             this.panel3.Controls.Add(this.pumpOffBtn);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(312, 24);
-            this.panel3.Margin = new System.Windows.Forms.Padding(6);
+            this.panel3.Location = new System.Drawing.Point(170, 13);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(253, 395);
+            this.panel3.Size = new System.Drawing.Size(139, 215);
             this.panel3.TabIndex = 20;
+            // 
+            // pumpIdle
+            // 
+            this.pumpIdle.Location = new System.Drawing.Point(3, 187);
+            this.pumpIdle.Name = "pumpIdle";
+            this.pumpIdle.Size = new System.Drawing.Size(122, 23);
+            this.pumpIdle.TabIndex = 34;
+            this.pumpIdle.Text = "PUMP IDLE";
+            this.pumpIdle.UseVisualStyleBackColor = true;
+            this.pumpIdle.Click += new System.EventHandler(this.pumpIdle_Click);
             // 
             // PumpIndicator
             // 
@@ -378,8 +393,7 @@
             this.PumpIndicator.BackColor = System.Drawing.Color.Red;
             this.PumpIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PumpIndicator.ForeColor = System.Drawing.Color.White;
-            this.PumpIndicator.Location = new System.Drawing.Point(46, 56);
-            this.PumpIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.PumpIndicator.Location = new System.Drawing.Point(25, 30);
             this.PumpIndicator.Name = "PumpIndicator";
             this.PumpIndicator.Size = new System.Drawing.Size(77, 15);
             this.PumpIndicator.TabIndex = 26;
@@ -388,10 +402,9 @@
             // 
             // pumpSpeedBtn
             // 
-            this.pumpSpeedBtn.Location = new System.Drawing.Point(13, 119);
-            this.pumpSpeedBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.pumpSpeedBtn.Location = new System.Drawing.Point(7, 64);
             this.pumpSpeedBtn.Name = "pumpSpeedBtn";
-            this.pumpSpeedBtn.Size = new System.Drawing.Size(224, 42);
+            this.pumpSpeedBtn.Size = new System.Drawing.Size(122, 23);
             this.pumpSpeedBtn.TabIndex = 33;
             this.pumpSpeedBtn.Text = "PUMP SPEED";
             this.pumpSpeedBtn.UseVisualStyleBackColor = true;
@@ -401,8 +414,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(24, 173);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label6.Location = new System.Drawing.Point(16, 90);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 15);
             this.label6.TabIndex = 31;
@@ -412,20 +424,14 @@
             // PumpSpeedInput
             // 
             this.PumpSpeedInput.DecimalPlaces = 1;
-            this.PumpSpeedInput.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.PumpSpeedInput.Location = new System.Drawing.Point(136, 166);
-            this.PumpSpeedInput.Margin = new System.Windows.Forms.Padding(6);
+            this.PumpSpeedInput.Location = new System.Drawing.Point(74, 90);
             this.PumpSpeedInput.Maximum = new decimal(new int[] {
             95,
             0,
             0,
             0});
             this.PumpSpeedInput.Name = "PumpSpeedInput";
-            this.PumpSpeedInput.Size = new System.Drawing.Size(92, 29);
+            this.PumpSpeedInput.Size = new System.Drawing.Size(50, 20);
             this.PumpSpeedInput.TabIndex = 32;
             this.PumpSpeedInput.Value = new decimal(new int[] {
             25,
@@ -435,10 +441,9 @@
             // 
             // pumpPressBtn
             // 
-            this.pumpPressBtn.Location = new System.Drawing.Point(13, 199);
-            this.pumpPressBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.pumpPressBtn.Location = new System.Drawing.Point(7, 108);
             this.pumpPressBtn.Name = "pumpPressBtn";
-            this.pumpPressBtn.Size = new System.Drawing.Size(224, 42);
+            this.pumpPressBtn.Size = new System.Drawing.Size(122, 23);
             this.pumpPressBtn.TabIndex = 30;
             this.pumpPressBtn.Text = "PRESSURE SET";
             this.pumpPressBtn.UseVisualStyleBackColor = true;
@@ -448,8 +453,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(19, 255);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label7.Location = new System.Drawing.Point(10, 135);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 15);
             this.label7.TabIndex = 28;
@@ -464,28 +468,26 @@
             0,
             0,
             65536});
-            this.PumpPressureInput.Location = new System.Drawing.Point(136, 248);
-            this.PumpPressureInput.Margin = new System.Windows.Forms.Padding(6);
+            this.PumpPressureInput.Location = new System.Drawing.Point(74, 134);
             this.PumpPressureInput.Maximum = new decimal(new int[] {
-            12,
+            11,
             0,
             0,
             0});
             this.PumpPressureInput.Name = "PumpPressureInput";
-            this.PumpPressureInput.Size = new System.Drawing.Size(92, 29);
+            this.PumpPressureInput.Size = new System.Drawing.Size(50, 20);
             this.PumpPressureInput.TabIndex = 29;
             this.PumpPressureInput.Value = new decimal(new int[] {
-            6,
+            9,
             0,
             0,
             0});
             // 
             // pumpOffBtn
             // 
-            this.pumpOffBtn.Location = new System.Drawing.Point(6, 294);
-            this.pumpOffBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.pumpOffBtn.Location = new System.Drawing.Point(3, 159);
             this.pumpOffBtn.Name = "pumpOffBtn";
-            this.pumpOffBtn.Size = new System.Drawing.Size(224, 42);
+            this.pumpOffBtn.Size = new System.Drawing.Size(122, 23);
             this.pumpOffBtn.TabIndex = 23;
             this.pumpOffBtn.Text = "PUMP OFF";
             this.pumpOffBtn.UseVisualStyleBackColor = true;
@@ -495,8 +497,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(15, 13);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Location = new System.Drawing.Point(8, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 20);
             this.label3.TabIndex = 23;
@@ -512,10 +513,9 @@
             this.panel2.Controls.Add(this.TempOnButton);
             this.panel2.Controls.Add(this.tempInput);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(28, 24);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6);
+            this.panel2.Location = new System.Drawing.Point(15, 13);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(253, 395);
+            this.panel2.Size = new System.Drawing.Size(139, 215);
             this.panel2.TabIndex = 19;
             // 
             // HeaterIndicator
@@ -524,8 +524,7 @@
             this.HeaterIndicator.BackColor = System.Drawing.Color.Red;
             this.HeaterIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HeaterIndicator.ForeColor = System.Drawing.Color.White;
-            this.HeaterIndicator.Location = new System.Drawing.Point(42, 157);
-            this.HeaterIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.HeaterIndicator.Location = new System.Drawing.Point(23, 85);
             this.HeaterIndicator.Name = "HeaterIndicator";
             this.HeaterIndicator.Size = new System.Drawing.Size(91, 15);
             this.HeaterIndicator.TabIndex = 23;
@@ -536,8 +535,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 286);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Location = new System.Drawing.Point(11, 155);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 15);
             this.label5.TabIndex = 16;
@@ -546,10 +544,9 @@
             // 
             // TempOffButton
             // 
-            this.TempOffButton.Location = new System.Drawing.Point(132, 336);
-            this.TempOffButton.Margin = new System.Windows.Forms.Padding(6);
+            this.TempOffButton.Location = new System.Drawing.Point(72, 182);
             this.TempOffButton.Name = "TempOffButton";
-            this.TempOffButton.Size = new System.Drawing.Size(99, 42);
+            this.TempOffButton.Size = new System.Drawing.Size(54, 23);
             this.TempOffButton.TabIndex = 24;
             this.TempOffButton.Text = "OFF";
             this.TempOffButton.UseVisualStyleBackColor = true;
@@ -557,10 +554,9 @@
             // 
             // TempOnButton
             // 
-            this.TempOnButton.Location = new System.Drawing.Point(22, 336);
-            this.TempOnButton.Margin = new System.Windows.Forms.Padding(6);
+            this.TempOnButton.Location = new System.Drawing.Point(12, 182);
             this.TempOnButton.Name = "TempOnButton";
-            this.TempOnButton.Size = new System.Drawing.Size(99, 42);
+            this.TempOnButton.Size = new System.Drawing.Size(54, 23);
             this.TempOnButton.TabIndex = 23;
             this.TempOnButton.Text = "ON";
             this.TempOnButton.UseVisualStyleBackColor = true;
@@ -574,8 +570,7 @@
             0,
             0,
             65536});
-            this.tempInput.Location = new System.Drawing.Point(139, 282);
-            this.tempInput.Margin = new System.Windows.Forms.Padding(6);
+            this.tempInput.Location = new System.Drawing.Point(76, 153);
             this.tempInput.Maximum = new decimal(new int[] {
             95,
             0,
@@ -587,7 +582,7 @@
             0,
             0});
             this.tempInput.Name = "tempInput";
-            this.tempInput.Size = new System.Drawing.Size(92, 29);
+            this.tempInput.Size = new System.Drawing.Size(50, 20);
             this.tempInput.TabIndex = 25;
             this.tempInput.Value = new decimal(new int[] {
             95,
@@ -599,8 +594,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(18, 13);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Location = new System.Drawing.Point(10, 7);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 20);
             this.label4.TabIndex = 24;
@@ -620,18 +614,26 @@
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.GHValveIndicator);
             this.panel4.Controls.Add(this.LoopValveIndicator);
-            this.panel4.Location = new System.Drawing.Point(594, 24);
-            this.panel4.Margin = new System.Windows.Forms.Padding(6);
+            this.panel4.Location = new System.Drawing.Point(324, 13);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(253, 395);
+            this.panel4.Size = new System.Drawing.Size(139, 215);
             this.panel4.TabIndex = 21;
+            // 
+            // valveIdle
+            // 
+            this.valveIdle.Location = new System.Drawing.Point(11, 183);
+            this.valveIdle.Name = "valveIdle";
+            this.valveIdle.Size = new System.Drawing.Size(122, 23);
+            this.valveIdle.TabIndex = 35;
+            this.valveIdle.Text = "VALVE IDLE";
+            this.valveIdle.UseVisualStyleBackColor = true;
+            this.valveIdle.Click += new System.EventHandler(this.valveIdle_Click);
             // 
             // ghClose
             // 
-            this.ghClose.Location = new System.Drawing.Point(130, 127);
-            this.ghClose.Margin = new System.Windows.Forms.Padding(6);
+            this.ghClose.Location = new System.Drawing.Point(71, 69);
             this.ghClose.Name = "ghClose";
-            this.ghClose.Size = new System.Drawing.Size(99, 42);
+            this.ghClose.Size = new System.Drawing.Size(54, 23);
             this.ghClose.TabIndex = 22;
             this.ghClose.Text = "CLOSE";
             this.ghClose.UseVisualStyleBackColor = true;
@@ -639,10 +641,9 @@
             // 
             // ghOpen
             // 
-            this.ghOpen.Location = new System.Drawing.Point(20, 127);
-            this.ghOpen.Margin = new System.Windows.Forms.Padding(6);
+            this.ghOpen.Location = new System.Drawing.Point(11, 69);
             this.ghOpen.Name = "ghOpen";
-            this.ghOpen.Size = new System.Drawing.Size(99, 42);
+            this.ghOpen.Size = new System.Drawing.Size(54, 23);
             this.ghOpen.TabIndex = 21;
             this.ghOpen.Text = "OPEN";
             this.ghOpen.UseVisualStyleBackColor = true;
@@ -650,10 +651,9 @@
             // 
             // loopClose
             // 
-            this.loopClose.Location = new System.Drawing.Point(134, 278);
-            this.loopClose.Margin = new System.Windows.Forms.Padding(6);
+            this.loopClose.Location = new System.Drawing.Point(73, 151);
             this.loopClose.Name = "loopClose";
-            this.loopClose.Size = new System.Drawing.Size(99, 42);
+            this.loopClose.Size = new System.Drawing.Size(54, 23);
             this.loopClose.TabIndex = 20;
             this.loopClose.Text = "CLOSE";
             this.loopClose.UseVisualStyleBackColor = true;
@@ -661,10 +661,9 @@
             // 
             // loopOpen
             // 
-            this.loopOpen.Location = new System.Drawing.Point(24, 278);
-            this.loopOpen.Margin = new System.Windows.Forms.Padding(6);
+            this.loopOpen.Location = new System.Drawing.Point(13, 151);
             this.loopOpen.Name = "loopOpen";
-            this.loopOpen.Size = new System.Drawing.Size(99, 42);
+            this.loopOpen.Size = new System.Drawing.Size(54, 23);
             this.loopOpen.TabIndex = 19;
             this.loopOpen.Text = "OPEN";
             this.loopOpen.UseVisualStyleBackColor = true;
@@ -674,8 +673,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(28, 13);
-            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label9.Location = new System.Drawing.Point(15, 7);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(116, 20);
             this.label9.TabIndex = 4;
@@ -685,8 +683,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(105, 202);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(57, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 16;
@@ -697,8 +694,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(83, 48);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(45, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 15);
             this.label1.TabIndex = 16;
@@ -711,8 +707,7 @@
             this.GHValveIndicator.BackColor = System.Drawing.Color.Red;
             this.GHValveIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GHValveIndicator.ForeColor = System.Drawing.Color.White;
-            this.GHValveIndicator.Location = new System.Drawing.Point(88, 82);
-            this.GHValveIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.GHValveIndicator.Location = new System.Drawing.Point(48, 44);
             this.GHValveIndicator.Name = "GHValveIndicator";
             this.GHValveIndicator.Size = new System.Drawing.Size(62, 15);
             this.GHValveIndicator.TabIndex = 17;
@@ -725,8 +720,7 @@
             this.LoopValveIndicator.BackColor = System.Drawing.Color.Green;
             this.LoopValveIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoopValveIndicator.ForeColor = System.Drawing.Color.White;
-            this.LoopValveIndicator.Location = new System.Drawing.Point(99, 234);
-            this.LoopValveIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.LoopValveIndicator.Location = new System.Drawing.Point(54, 127);
             this.LoopValveIndicator.Name = "LoopValveIndicator";
             this.LoopValveIndicator.Size = new System.Drawing.Size(45, 15);
             this.LoopValveIndicator.TabIndex = 18;
@@ -741,8 +735,7 @@
             legend5.Enabled = false;
             legend5.Name = "Legend1";
             this.TemperatureChart.Legends.Add(legend5);
-            this.TemperatureChart.Location = new System.Drawing.Point(22, 792);
-            this.TemperatureChart.Margin = new System.Windows.Forms.Padding(6);
+            this.TemperatureChart.Location = new System.Drawing.Point(12, 429);
             this.TemperatureChart.Name = "TemperatureChart";
             this.TemperatureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series5.BorderWidth = 3;
@@ -751,7 +744,7 @@
             series5.Legend = "Legend1";
             series5.Name = "Temperature";
             this.TemperatureChart.Series.Add(series5);
-            this.TemperatureChart.Size = new System.Drawing.Size(1358, 289);
+            this.TemperatureChart.Size = new System.Drawing.Size(741, 157);
             this.TemperatureChart.TabIndex = 17;
             this.TemperatureChart.Text = "chart1";
             title5.Name = "Title1";
@@ -766,8 +759,7 @@
             legend6.Enabled = false;
             legend6.Name = "Legend1";
             this.PressureChart.Legends.Add(legend6);
-            this.PressureChart.Location = new System.Drawing.Point(22, 478);
-            this.PressureChart.Margin = new System.Windows.Forms.Padding(6);
+            this.PressureChart.Location = new System.Drawing.Point(12, 259);
             this.PressureChart.Name = "PressureChart";
             this.PressureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series6.BorderWidth = 3;
@@ -776,51 +768,29 @@
             series6.Legend = "Legend1";
             series6.Name = "Pressure";
             this.PressureChart.Series.Add(series6);
-            this.PressureChart.Size = new System.Drawing.Size(1358, 290);
+            this.PressureChart.Size = new System.Drawing.Size(741, 157);
             this.PressureChart.TabIndex = 18;
             this.PressureChart.Text = "PressureChart";
             title6.Name = "Title1";
             title6.Text = "Pressure";
             this.PressureChart.Titles.Add(title6);
             // 
-            // pumpIdle
-            // 
-            this.pumpIdle.Location = new System.Drawing.Point(6, 345);
-            this.pumpIdle.Margin = new System.Windows.Forms.Padding(6);
-            this.pumpIdle.Name = "pumpIdle";
-            this.pumpIdle.Size = new System.Drawing.Size(224, 42);
-            this.pumpIdle.TabIndex = 34;
-            this.pumpIdle.Text = "PUMP IDLE";
-            this.pumpIdle.UseVisualStyleBackColor = true;
-            this.pumpIdle.Click += new System.EventHandler(this.pumpIdle_Click);
-            // 
-            // valveIdle
-            // 
-            this.valveIdle.Location = new System.Drawing.Point(20, 337);
-            this.valveIdle.Margin = new System.Windows.Forms.Padding(6);
-            this.valveIdle.Name = "valveIdle";
-            this.valveIdle.Size = new System.Drawing.Size(224, 42);
-            this.valveIdle.TabIndex = 35;
-            this.valveIdle.Text = "VALVE IDLE";
-            this.valveIdle.UseVisualStyleBackColor = true;
-            this.valveIdle.Click += new System.EventHandler(this.valveIdle_Click);
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.Controls.Add(this.PIDReset);
             this.panel5.Controls.Add(this.ZeroScale);
-            this.panel5.Location = new System.Drawing.Point(1419, 22);
+            this.panel5.Location = new System.Drawing.Point(765, 12);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(255, 445);
+            this.panel5.Size = new System.Drawing.Size(139, 241);
             this.panel5.TabIndex = 19;
             // 
             // PIDReset
             // 
-            this.PIDReset.Location = new System.Drawing.Point(36, 81);
-            this.PIDReset.Margin = new System.Windows.Forms.Padding(6);
+            this.PIDReset.Location = new System.Drawing.Point(20, 44);
             this.PIDReset.Name = "PIDReset";
-            this.PIDReset.Size = new System.Drawing.Size(192, 42);
+            this.PIDReset.Size = new System.Drawing.Size(105, 23);
             this.PIDReset.TabIndex = 37;
             this.PIDReset.Text = "RESET PID";
             this.PIDReset.UseVisualStyleBackColor = true;
@@ -828,27 +798,299 @@
             // 
             // ZeroScale
             // 
-            this.ZeroScale.Location = new System.Drawing.Point(36, 26);
-            this.ZeroScale.Margin = new System.Windows.Forms.Padding(6);
+            this.ZeroScale.Location = new System.Drawing.Point(20, 14);
             this.ZeroScale.Name = "ZeroScale";
-            this.ZeroScale.Size = new System.Drawing.Size(192, 42);
+            this.ZeroScale.Size = new System.Drawing.Size(105, 23);
             this.ZeroScale.TabIndex = 36;
             this.ZeroScale.Text = "ZERO SCALE";
             this.ZeroScale.UseVisualStyleBackColor = true;
             this.ZeroScale.Click += new System.EventHandler(this.ZeroScale_Click);
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.label17);
+            this.panel6.Controls.Add(this.AS_TIMER_DISPLAY);
+            this.panel6.Controls.Add(this.label16);
+            this.panel6.Controls.Add(this.AS_RD_PRESSURE);
+            this.panel6.Controls.Add(this.label15);
+            this.panel6.Controls.Add(this.AS_PB_Duration);
+            this.panel6.Controls.Add(this.AS_INDICATOR);
+            this.panel6.Controls.Add(this.label14);
+            this.panel6.Controls.Add(this.AS_BREW_PRESSURE);
+            this.panel6.Controls.Add(this.label13);
+            this.panel6.Controls.Add(this.AS_PF_DURATION);
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Controls.Add(this.AS_PF_PRESSURE);
+            this.panel6.Controls.Add(this.label8);
+            this.panel6.Controls.Add(this.AS_STOP);
+            this.panel6.Controls.Add(this.AS_START);
+            this.panel6.Location = new System.Drawing.Point(917, 12);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(216, 241);
+            this.panel6.TabIndex = 38;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(35, 174);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(69, 15);
+            this.label17.TabIndex = 50;
+            this.label17.Text = "Brew Time:";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // AS_TIMER_DISPLAY
+            // 
+            this.AS_TIMER_DISPLAY.AutoSize = true;
+            this.AS_TIMER_DISPLAY.Location = new System.Drawing.Point(115, 174);
+            this.AS_TIMER_DISPLAY.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AS_TIMER_DISPLAY.Name = "AS_TIMER_DISPLAY";
+            this.AS_TIMER_DISPLAY.Size = new System.Drawing.Size(13, 13);
+            this.AS_TIMER_DISPLAY.TabIndex = 49;
+            this.AS_TIMER_DISPLAY.Text = "0";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(10, 127);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(126, 15);
+            this.label16.TabIndex = 47;
+            this.label16.Text = "Rampdown Pressure:";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // AS_RD_PRESSURE
+            // 
+            this.AS_RD_PRESSURE.DecimalPlaces = 1;
+            this.AS_RD_PRESSURE.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.AS_RD_PRESSURE.Location = new System.Drawing.Point(138, 127);
+            this.AS_RD_PRESSURE.Maximum = new decimal(new int[] {
+            11,
+            0,
+            0,
+            0});
+            this.AS_RD_PRESSURE.Name = "AS_RD_PRESSURE";
+            this.AS_RD_PRESSURE.Size = new System.Drawing.Size(50, 20);
+            this.AS_RD_PRESSURE.TabIndex = 48;
+            this.AS_RD_PRESSURE.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(44, 105);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(91, 15);
+            this.label15.TabIndex = 45;
+            this.label15.Text = "Peak Duration: ";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // AS_PB_Duration
+            // 
+            this.AS_PB_Duration.DecimalPlaces = 1;
+            this.AS_PB_Duration.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.AS_PB_Duration.Location = new System.Drawing.Point(138, 105);
+            this.AS_PB_Duration.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.AS_PB_Duration.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AS_PB_Duration.Name = "AS_PB_Duration";
+            this.AS_PB_Duration.Size = new System.Drawing.Size(50, 20);
+            this.AS_PB_Duration.TabIndex = 46;
+            this.AS_PB_Duration.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // AS_INDICATOR
+            // 
+            this.AS_INDICATOR.AutoSize = true;
+            this.AS_INDICATOR.BackColor = System.Drawing.Color.Red;
+            this.AS_INDICATOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AS_INDICATOR.ForeColor = System.Drawing.Color.White;
+            this.AS_INDICATOR.Location = new System.Drawing.Point(32, 150);
+            this.AS_INDICATOR.Name = "AS_INDICATOR";
+            this.AS_INDICATOR.Size = new System.Drawing.Size(152, 15);
+            this.AS_INDICATOR.TabIndex = 26;
+            this.AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
+            this.AS_INDICATOR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(44, 83);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 15);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "Brew Pressure:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // AS_BREW_PRESSURE
+            // 
+            this.AS_BREW_PRESSURE.DecimalPlaces = 1;
+            this.AS_BREW_PRESSURE.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.AS_BREW_PRESSURE.Location = new System.Drawing.Point(138, 82);
+            this.AS_BREW_PRESSURE.Maximum = new decimal(new int[] {
+            11,
+            0,
+            0,
+            0});
+            this.AS_BREW_PRESSURE.Name = "AS_BREW_PRESSURE";
+            this.AS_BREW_PRESSURE.Size = new System.Drawing.Size(50, 20);
+            this.AS_BREW_PRESSURE.TabIndex = 44;
+            this.AS_BREW_PRESSURE.Value = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(13, 61);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(125, 15);
+            this.label13.TabIndex = 41;
+            this.label13.Text = "Preinfusion Duration: ";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // AS_PF_DURATION
+            // 
+            this.AS_PF_DURATION.DecimalPlaces = 1;
+            this.AS_PF_DURATION.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.AS_PF_DURATION.Location = new System.Drawing.Point(138, 60);
+            this.AS_PF_DURATION.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.AS_PF_DURATION.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AS_PF_DURATION.Name = "AS_PF_DURATION";
+            this.AS_PF_DURATION.Size = new System.Drawing.Size(50, 20);
+            this.AS_PF_DURATION.TabIndex = 42;
+            this.AS_PF_DURATION.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(13, 38);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(124, 15);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Preinfusion Pressure:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // AS_PF_PRESSURE
+            // 
+            this.AS_PF_PRESSURE.DecimalPlaces = 1;
+            this.AS_PF_PRESSURE.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.AS_PF_PRESSURE.Location = new System.Drawing.Point(138, 37);
+            this.AS_PF_PRESSURE.Maximum = new decimal(new int[] {
+            11,
+            0,
+            0,
+            0});
+            this.AS_PF_PRESSURE.Name = "AS_PF_PRESSURE";
+            this.AS_PF_PRESSURE.Size = new System.Drawing.Size(50, 20);
+            this.AS_PF_PRESSURE.TabIndex = 40;
+            this.AS_PF_PRESSURE.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(46, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(133, 20);
+            this.label8.TabIndex = 38;
+            this.label8.Text = "Auto Sequence";
+            // 
+            // AS_STOP
+            // 
+            this.AS_STOP.Location = new System.Drawing.Point(111, 197);
+            this.AS_STOP.Name = "AS_STOP";
+            this.AS_STOP.Size = new System.Drawing.Size(88, 36);
+            this.AS_STOP.TabIndex = 37;
+            this.AS_STOP.Text = "STOP";
+            this.AS_STOP.UseVisualStyleBackColor = true;
+            this.AS_STOP.Click += new System.EventHandler(this.AS_STOP_Click);
+            // 
+            // AS_START
+            // 
+            this.AS_START.Location = new System.Drawing.Point(16, 197);
+            this.AS_START.Name = "AS_START";
+            this.AS_START.Size = new System.Drawing.Size(88, 36);
+            this.AS_START.TabIndex = 36;
+            this.AS_START.Text = "START";
+            this.AS_START.UseVisualStyleBackColor = true;
+            this.AS_START.Click += new System.EventHandler(this.AS_START_Click);
+            // 
+            // AS_Timer
+            // 
+            this.AS_Timer.Tick += new System.EventHandler(this.AS_Timer_Tick);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2317, 1421);
+            this.ClientSize = new System.Drawing.Size(1149, 770);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.PressureChart);
             this.Controls.Add(this.TemperatureChart);
             this.Controls.Add(this.WeightChart);
             this.Controls.Add(this.SensorsPanel);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "Espresso Yourself";
             this.SensorsPanel.ResumeLayout(false);
@@ -867,6 +1109,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.TemperatureChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PressureChart)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_RD_PRESSURE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_PB_Duration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_BREW_PRESSURE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_PF_DURATION)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_PF_PRESSURE)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -927,6 +1176,24 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button PIDReset;
         private System.Windows.Forms.Button ZeroScale;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label AS_INDICATOR;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown AS_BREW_PRESSURE;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown AS_PF_DURATION;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown AS_PF_PRESSURE;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button AS_STOP;
+        private System.Windows.Forms.Button AS_START;
+        private System.Windows.Forms.Timer AS_Timer;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown AS_RD_PRESSURE;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.NumericUpDown AS_PB_Duration;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label AS_TIMER_DISPLAY;
     }
 }
 
