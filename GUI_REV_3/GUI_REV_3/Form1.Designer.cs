@@ -541,7 +541,7 @@
             this.panel5.Controls.Add(this.PIDReset);
             this.panel5.Controls.Add(this.ZeroScale);
             this.panel5.Location = new System.Drawing.Point(15, 159);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(139, 70);
             this.panel5.TabIndex = 19;
@@ -878,7 +878,7 @@
             this.panel6.Controls.Add(this.AS_STOP);
             this.panel6.Controls.Add(this.AS_START);
             this.panel6.Location = new System.Drawing.Point(296, 13);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(218, 241);
             this.panel6.TabIndex = 38;
@@ -1178,7 +1178,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Espresso Yourself";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.SensorsPanel.ResumeLayout(false);
             this.SensorsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeightChart)).EndInit();
