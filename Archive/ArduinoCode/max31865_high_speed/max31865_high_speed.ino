@@ -66,7 +66,7 @@
 
 // CS pin used for the connection with the sensor
 // other connections are controlled by the SPI library)
-const int CS_PIN = 10;
+const int CS_PIN = 9;
 
 int long last = 0;
 
@@ -92,15 +92,12 @@ void setup() {
   
   // give the sensor time to set up
   delay(100);
-
-  pinMode(9, INPUT);
   
 }
 
 
 void loop() 
 {
-  if(digitalRead(9) == LOW){
     // Get the latest temperature and status values from the MAX31865
     rtd0.sample();
     
@@ -125,8 +122,7 @@ void loop()
     last = millis();
   
     Serial.println();
-
-  }
+delay(500);
   
 }
 

@@ -21,9 +21,12 @@ namespace GUI_REV_3
         public float Temperature;
         public float Weight;
         public float slaveFrequency;
+        public float GHTemperature;
+        public int AS_state;
         
         //Autosequence state variables
         public int AS_Loop_Counter = 0;
+        public int AS_peak_press_counter = 0;
 
         //valve state: 0 = unenergized | 1 = energized (group is normally close, loop is normally open)
         public int groupValveState = 0;
@@ -66,7 +69,7 @@ namespace GUI_REV_3
 
         public void Write2Form(String indata)
         {
-            if(indata.Length != 34 || indata[0] != 'S')
+            if(indata.Length != 42 || indata[0] != 'S')
             {
                 return;
             }
@@ -77,10 +80,13 @@ namespace GUI_REV_3
             Temperature = (Convert.ToSingle(indata.Substring(9, 8)) / 100) - 1000;
             TemperatureValue.Text = Convert.ToString(Temperature) + " C";
 
-            Weight = (Convert.ToSingle(indata.Substring(17, 8)) / 100) - 1000;
+            GHTemperature = (Convert.ToSingle(indata.Substring(17, 8)) / 100) - 1000;
+            GHTemperatureValue.Text = Convert.ToString(GHTemperature) + " C";
+
+            Weight = (Convert.ToSingle(indata.Substring(25, 8)) / 100) - 1000;
             WeightValue.Text = Convert.ToString(Weight) + " g";
 
-            slaveFrequency = (Convert.ToSingle(indata.Substring(25, 8)) / 100) - 1000;
+            slaveFrequency = (Convert.ToSingle(indata.Substring(33, 8)) / 100) - 1000;
             SlaveFrequencyValue.Text = Convert.ToString(slaveFrequency) + " Hz";
 
         }
@@ -96,9 +102,14 @@ namespace GUI_REV_3
                 {
                     TemperatureChart.Series[0].Points.RemoveAt(0);
                 }
+                TemperatureChart.Series[1].Points.AddY(GHTemperature);
+                if (TemperatureChart.Series[1].Points.Count > numberOfPlotPoints)
+                {
+                    TemperatureChart.Series[1].Points.RemoveAt(0);
+                }
                 TemperatureChart.ResetAutoValues();
-                TemperatureChart.ChartAreas[0].AxisY.Minimum = ((int)TemperatureChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0]) - 1;
-                TemperatureChart.ChartAreas[0].AxisY.Maximum = ((int)TemperatureChart.Series[0].Points.FindMaxByValue("Y1", 0).YValues[0]) + 1;
+                TemperatureChart.ChartAreas[0].AxisY.Minimum = Math.Min(((int)TemperatureChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0]),((int)TemperatureChart.Series[1].Points.FindMinByValue("Y1", 0).YValues[0]));
+                TemperatureChart.ChartAreas[0].AxisY.Maximum = Math.Max(((int)TemperatureChart.Series[0].Points.FindMaxByValue("Y1", 0).YValues[0]) + 1, ((int)TemperatureChart.Series[1].Points.FindMaxByValue("Y1", 0).YValues[0]) + 1);
 
                 PressureChart.Series[0].Points.AddY(Pressure);
                 if (PressureChart.Series[0].Points.Count > numberOfPlotPoints)
@@ -300,38 +311,75 @@ namespace GUI_REV_3
         private void AS_Timer_Tick(object sender, EventArgs e)
         {
 
-            loopClose_Click(sender, new EventArgs());
-            ghOpen_Click(sender, new EventArgs());
-            TempOnButton_Click(sender, new EventArgs());
-            pumpPressBtn_Click(sender, new EventArgs());
+            //autosequence start
+            if (AS_Loop_Counter == 0)
+            {
+                loopClose_Click(sender, new EventArgs());
+                ghOpen_Click(sender, new EventArgs());
+                TempOnButton_Click(sender, new EventArgs());
+                AS_state = 1;
+            }
 
+            //update timer
             float brewTime = AS_Loop_Counter / 10;
             AS_TIMER_DISPLAY.Text = Convert.ToString(brewTime)+" s";
 
 
-            if (AS_Loop_Counter < 10 * AS_PF_DURATION.Value)
+            //state definitions
+            //AS_state == 1 ==> preinfusion
+            //AS_state == 2 ==> main brew
+            //AS_state == 3 ==> ramp down
+
+            if(AS_state == 1)
+            {
+                //check for end of preinfusion conditions
+                if (AS_Loop_Counter > 10*AS_PF_DURATION.Value || Pressure > (float)AS_PF_PRESSURE.Value)
+                {
+                    AS_state = 2;
+                    AS_peak_press_counter = 0;
+                }
+            }else if (AS_state == 2)
+            {
+                //check for end of main brew conditions
+                if (AS_peak_press_counter > 10*AS_PB_Duration.Value)
+                {
+                    AS_state = 3;
+                }
+            }
+
+
+            if (AS_state == 1)
             {
                 //preinfusion
                 AS_INDICATOR.Text = "PREINFUSION";
                 AS_INDICATOR.BackColor = Color.Green;
-                PumpPressureInput.Value = AS_PF_PRESSURE.Value;
+                PumpSpeedInput.Value = AS_PF_SPEED.Value;
             }
-            else if (AS_Loop_Counter < 10 * (AS_PF_DURATION.Value + AS_PB_Duration.Value))
+            else if (AS_state == 2)
             {
                 //main brew
+                pumpPressBtn_Click(sender, new EventArgs());
                 AS_INDICATOR.Text = "PEAK PRESSURE";
                 AS_INDICATOR.BackColor = Color.Green;
                 PumpPressureInput.Value = AS_BREW_PRESSURE.Value;
+                AS_peak_press_counter++;
             }
             else
             {
                 //ramp down
+                pumpPressBtn_Click(sender, new EventArgs());
                 AS_INDICATOR.Text = "RAMP DOWN";
                 AS_INDICATOR.BackColor = Color.Green;
                 PumpPressureInput.Value = AS_RD_PRESSURE.Value;
             }
 
             AS_Loop_Counter++;
+        }
+
+        private void valveExtract_Click(object sender, EventArgs e)
+        {
+            ghOpen_Click(sender, new EventArgs());
+            loopClose_Click(sender, new EventArgs());
         }
     }
 }
