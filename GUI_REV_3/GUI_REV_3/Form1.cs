@@ -91,38 +91,46 @@ namespace GUI_REV_3
 
         }
 
-        public void updateWindow()
+        public void updatePlots()
         {
             int numberOfPlotPoints = 300;
 
-            if (SerialPort1.IsOpen)
+            if (SerialPort1.IsOpen && livePlot.Checked)
             {
                 TemperatureChart.Series[0].Points.AddY(Temperature);
-                if (TemperatureChart.Series[0].Points.Count > numberOfPlotPoints)
-                {
-                    TemperatureChart.Series[0].Points.RemoveAt(0);
-                }
                 TemperatureChart.Series[1].Points.AddY(GHTemperature);
-                if (TemperatureChart.Series[1].Points.Count > numberOfPlotPoints)
-                {
-                    TemperatureChart.Series[1].Points.RemoveAt(0);
-                }
-                TemperatureChart.ResetAutoValues();
-                TemperatureChart.ChartAreas[0].AxisY.Minimum = Math.Min(((int)TemperatureChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0]),((int)TemperatureChart.Series[1].Points.FindMinByValue("Y1", 0).YValues[0]));
-                TemperatureChart.ChartAreas[0].AxisY.Maximum = Math.Max(((int)TemperatureChart.Series[0].Points.FindMaxByValue("Y1", 0).YValues[0]) + 1, ((int)TemperatureChart.Series[1].Points.FindMaxByValue("Y1", 0).YValues[0]) + 1);
-
                 PressureChart.Series[0].Points.AddY(Pressure);
-                if (PressureChart.Series[0].Points.Count > numberOfPlotPoints)
-                {
-                    PressureChart.Series[0].Points.RemoveAt(0);
-                }
-                PressureChart.ResetAutoValues();
-
                 WeightChart.Series[0].Points.AddY(Weight);
-                if (WeightChart.Series[0].Points.Count > numberOfPlotPoints)
+
+
+                if (movingPlot.Checked)
                 {
-                    WeightChart.Series[0].Points.RemoveAt(0);
+                    while (TemperatureChart.Series[0].Points.Count > numberOfPlotPoints)
+                    {
+                        TemperatureChart.Series[0].Points.RemoveAt(0);
+                    }
+
+                    while (TemperatureChart.Series[1].Points.Count > numberOfPlotPoints)
+                    {
+                        TemperatureChart.Series[1].Points.RemoveAt(0);
+                    }
+
+                    while (PressureChart.Series[0].Points.Count > numberOfPlotPoints)
+                    {
+                        PressureChart.Series[0].Points.RemoveAt(0);
+                    }
+
+                    while (WeightChart.Series[0].Points.Count > numberOfPlotPoints)
+                    {
+                        WeightChart.Series[0].Points.RemoveAt(0);
+                    }
                 }
+                
+
+                TemperatureChart.ResetAutoValues();
+                TemperatureChart.ChartAreas[0].AxisY.Minimum = Math.Min(((int)TemperatureChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0]), ((int)TemperatureChart.Series[1].Points.FindMinByValue("Y1", 0).YValues[0]));
+                TemperatureChart.ChartAreas[0].AxisY.Maximum = Math.Max(((int)TemperatureChart.Series[0].Points.FindMaxByValue("Y1", 0).YValues[0]) + 1, ((int)TemperatureChart.Series[1].Points.FindMaxByValue("Y1", 0).YValues[0]) + 1);
+                PressureChart.ResetAutoValues();
                 WeightChart.ResetAutoValues();
 
             }
@@ -132,7 +140,7 @@ namespace GUI_REV_3
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            updateWindow();
+            updatePlots();
             updateSlave();
 
         }
@@ -292,6 +300,9 @@ namespace GUI_REV_3
 
         private void AS_START_Click(object sender, EventArgs e)
         {
+            plotClear_Click(sender, new EventArgs());
+            livePlot.Checked = true;
+            movingPlot.Checked = false;
             AS_Timer.Start();
             AS_Loop_Counter = 0;
         }
@@ -302,6 +313,8 @@ namespace GUI_REV_3
             valveIdle_Click(sender, new EventArgs());
             pumpIdle_Click(sender, new EventArgs());
             TempOffButton_Click(sender, new EventArgs());
+
+            livePlot.Checked = false;
 
             AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
             AS_INDICATOR.BackColor = Color.Red;
@@ -380,6 +393,29 @@ namespace GUI_REV_3
         {
             ghOpen_Click(sender, new EventArgs());
             loopClose_Click(sender, new EventArgs());
+        }
+
+        private void plotClear_Click(object sender, EventArgs e)
+        {
+            while (TemperatureChart.Series[0].Points.Count > 1)
+            {
+                TemperatureChart.Series[0].Points.RemoveAt(0);
+            }
+
+            while (TemperatureChart.Series[1].Points.Count > 1)
+            {
+                TemperatureChart.Series[1].Points.RemoveAt(0);
+            }
+
+            while (PressureChart.Series[0].Points.Count > 1)
+            {
+                PressureChart.Series[0].Points.RemoveAt(0);
+            }
+
+            while (WeightChart.Series[0].Points.Count > 1)
+            {
+                WeightChart.Series[0].Points.RemoveAt(0);
+            }
         }
     }
 }
