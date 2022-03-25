@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.IO.Ports;
+using System.Diagnostics;
 
 
 
@@ -23,10 +24,11 @@ namespace GUI_REV_3
         public float slaveFrequency;
         public float GHTemperature;
         public int AS_state;
+        public Stopwatch stopWatch;
         
         //Autosequence state variables
         public int AS_Loop_Counter = 0;
-        public int AS_peak_press_counter = 0;
+        public float AS_peak_press_start_time = 0;
 
         //valve state: 0 = unenergized | 1 = energized (group is normally close, loop is normally open)
         public int groupValveState = 0;
@@ -39,6 +41,9 @@ namespace GUI_REV_3
         public float pumpSet = 0;
 
         public Boolean heating = false;
+
+        public Boolean plotting = true;
+
 
         public delegate void d1(string indata);
 
@@ -95,15 +100,15 @@ namespace GUI_REV_3
         {
             int numberOfPlotPoints = 300;
 
-            if (SerialPort1.IsOpen && livePlot.Checked)
+            if (SerialPort1.IsOpen && plotting)
             {
                 TemperatureChart.Series[0].Points.AddY(Temperature);
                 TemperatureChart.Series[1].Points.AddY(GHTemperature);
                 PressureChart.Series[0].Points.AddY(Pressure);
                 WeightChart.Series[0].Points.AddY(Weight);
 
-
-                if (movingPlot.Checked)
+                //only clears data if the autosequence isnt active
+                if (!AS_Timer.Enabled)
                 {
                     while (TemperatureChart.Series[0].Points.Count > numberOfPlotPoints)
                     {
@@ -301,10 +306,10 @@ namespace GUI_REV_3
         private void AS_START_Click(object sender, EventArgs e)
         {
             plotClear_Click(sender, new EventArgs());
-            livePlot.Checked = true;
-            movingPlot.Checked = false;
             AS_Timer.Start();
             AS_Loop_Counter = 0;
+            stopWatch = new Stopwatch();
+            stopWatch.Start();
         }
 
         private void AS_STOP_Click(object sender, EventArgs e)
@@ -313,8 +318,9 @@ namespace GUI_REV_3
             valveIdle_Click(sender, new EventArgs());
             pumpIdle_Click(sender, new EventArgs());
             TempOffButton_Click(sender, new EventArgs());
+            stopWatch.Stop();
 
-            livePlot.Checked = false;
+            plotting = false;
 
             AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
             AS_INDICATOR.BackColor = Color.Red;
@@ -334,9 +340,8 @@ namespace GUI_REV_3
             }
 
             //update timer
-            float brewTime = AS_Loop_Counter / 10;
-            AS_TIMER_DISPLAY.Text = Convert.ToString(brewTime)+" s";
-
+            float brewTime = ((float)stopWatch.ElapsedMilliseconds)/1000;
+            AS_TIMER_DISPLAY.Text = Convert.ToString(Math.Round(brewTime,1))+" s";
 
             //state definitions
             //AS_state == 1 ==> preinfusion
@@ -346,15 +351,15 @@ namespace GUI_REV_3
             if(AS_state == 1)
             {
                 //check for end of preinfusion conditions
-                if (AS_Loop_Counter > 10*AS_PF_DURATION.Value || Pressure > (float)AS_PF_PRESSURE.Value)
+                if (brewTime > (float)AS_PF_DURATION.Value || Pressure > (float)AS_PF_PRESSURE.Value)
                 {
                     AS_state = 2;
-                    AS_peak_press_counter = 0;
+                    AS_peak_press_start_time = brewTime;
                 }
             }else if (AS_state == 2)
             {
                 //check for end of main brew conditions
-                if (AS_peak_press_counter > 10*AS_PB_Duration.Value)
+                if (brewTime-AS_peak_press_start_time > (float)AS_PB_Duration.Value)
                 {
                     AS_state = 3;
                 }
@@ -375,7 +380,6 @@ namespace GUI_REV_3
                 AS_INDICATOR.Text = "PEAK PRESSURE";
                 AS_INDICATOR.BackColor = Color.Green;
                 PumpPressureInput.Value = AS_BREW_PRESSURE.Value;
-                AS_peak_press_counter++;
             }
             else
             {
@@ -416,6 +420,9 @@ namespace GUI_REV_3
             {
                 WeightChart.Series[0].Points.RemoveAt(0);
             }
+
+            plotting = true;
+
         }
     }
 }
