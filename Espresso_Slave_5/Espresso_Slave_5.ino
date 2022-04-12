@@ -10,13 +10,20 @@
 #include <movingAvg.h>
 
 // Pinouts
-#define groupValve 3
-#define loopValve 4
+//unused pins: D4 (relay 2), A1 A2 A3
+
 #define heater 2
+#define gh_heater 3
+#define groupValve 6
+#define loopValve 5
 #define ducer A0
 
 //146 element lookup for 85:0.1:99.5 (duty cycle corresponding to temperature target)
 int dutyCycleLookup[] = {23, 23, 23, 23, 23, 23, 23, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 30, 30, 30, 30, 30, 30, 30, 30, 30, 31, 31, 31, 31, 31, 31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 33, 33, 33, 33, 33, 33, 34, 34, 34, 34, 34, 35, 35, 35, 35, 35, 36, 36, 36, 37, 37, 37, 38, 38, 38, 39, 39, 40, 40, 40, 41, 41, 42, 42, 43, 44, 45, 47, 50};
+
+//146 element lookup for 85:0.1:99.5 (duty cycle corresponding to temperature target)
+int GH_dutyCycleLookup[] = {23, 23, 23, 23, 23, 23, 23, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 30, 30, 30, 30, 30, 30, 30, 30, 30, 31, 31, 31, 31, 31, 31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 33, 33, 33, 33, 33, 33, 34, 34, 34, 34, 34, 35, 35, 35, 35, 35, 36, 36, 36, 37, 37, 37, 38, 38, 38, 39, 39, 40, 40, 40, 41, 41, 42, 42, 43, 44, 45, 47, 50};
+
 
 //121 elemeent lookup for pressures 0:0.1:12 (motor speed corresponding to temperature target)
 int motorSpeedLookup[] = {0, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16, 16, 17, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 23, 24, 24, 25, 25, 26, 26, 26, 27, 27, 28, 28, 28, 29, 29, 29, 30, 30, 30, 31, 31, 31, 32, 32, 32, 32, 33, 33, 33, 34, 34, 34, 34, 35, 35, 35, 36, 36, 36, 36, 37, 37, 37, 37, 38, 38, 38, 38, 39, 39, 39, 39, 40, 40, 40, 40, 40, 41, 41, 41, 41, 42, 42, 42, 42, 43, 43, 43, 43, 44, 44, 44, 44, 45, 45, 45, 45, 45, 46, 46, 46, 46, 47, 47, 47, 47, 48, 48, 48};
@@ -32,9 +39,9 @@ DFRobot_HX711_I2C MyScale(&Wire, 0x64);
 boolean previousDataErrorFlag = false;
 
 //Set temp SPI CS pin
-const int CS_0_PIN = 10;
+const int CS_0_PIN = 9;
 MAX31865 rtd0;
-const int CS_1_PIN = 9;
+const int CS_1_PIN = 10;
 MAX31865 rtd1;
 
 #define ref_res_0 429
@@ -71,6 +78,10 @@ int heaterDutyCycle = 0;
 int heaterDutyCycleCounter = 0;
 int heaterDutyCycleLimit = 100;
 
+int gh_heaterDutyCycle = 0;
+int gh_heaterDutyCycleCounter = 0;
+int gh_heaterDutyCycleLimit = 100;
+
 AutoPID myPID(&pressure, &pressureSet, &PID_Output, OUTPUT_MIN, OUTPUT_MAX, KP, KI, KD);
 
 //Variable for tracking refresh rate
@@ -106,9 +117,11 @@ void setup() {
   pinMode(groupValve, OUTPUT);
   pinMode(loopValve, OUTPUT);
   pinMode(heater, OUTPUT);
+  pinMode(gh_heater, OUTPUT);
   digitalWrite(groupValve, LOW);
   digitalWrite(loopValve, LOW);
   digitalWrite(heater, LOW);
+  digitalWrite(gh_heater, HIGH);
 
   //start I2C DAC and initialize pump
   dac.begin(0x62);
@@ -320,11 +333,16 @@ void updateHeater() {
     heaterDutyCycleCounter = heaterDutyCycleCounter % heaterDutyCycleLimit;
     if (heaterDutyCycleCounter < heaterDutyCycle) {
       digitalWrite(heater, HIGH);
+      digitalWrite(gh_heater, LOW);
     } else {
       digitalWrite(heater, LOW);
+      digitalWrite(gh_heater, HIGH);
     }
+
+    
   } else {
     digitalWrite(heater, LOW);
+    digitalWrite(gh_heater, HIGH);
   }
 
 }
