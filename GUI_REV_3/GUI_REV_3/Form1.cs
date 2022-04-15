@@ -317,7 +317,11 @@ namespace GUI_REV_3
             AS_Timer.Stop();
             valveIdle_Click(sender, new EventArgs());
             pumpIdle_Click(sender, new EventArgs());
-            TempOffButton_Click(sender, new EventArgs());
+            if (!stayHot.Checked)
+            {
+                TempOffButton_Click(sender, new EventArgs());
+            }
+            
             stopWatch.Stop();
 
             plotting = false;
