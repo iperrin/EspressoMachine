@@ -44,7 +44,7 @@ MAX31865 rtd0;
 const int CS_1_PIN = 10;
 MAX31865 rtd1;
 
-#define ref_res_0 429
+#define ref_res_0 430
 #define ref_res_1 430
 
 // DAC
@@ -329,15 +329,29 @@ void updateHeater() {
       heaterDutyCycle = baseTempSetting + 3;
     }
 
+    //stochastic main heater
+    if(random(100)<=heaterDutyCycle){
+      digitalWrite(heater, HIGH);
+    }else{
+      digitalWrite(heater, LOW);
+    }
+
+
+
+
+
     heaterDutyCycleCounter++;
     heaterDutyCycleCounter = heaterDutyCycleCounter % heaterDutyCycleLimit;
     if (heaterDutyCycleCounter < heaterDutyCycle) {
-      digitalWrite(heater, HIGH);
       digitalWrite(gh_heater, LOW);
     } else {
-      digitalWrite(heater, LOW);
       digitalWrite(gh_heater, HIGH);
     }
+
+
+    
+
+    
 
     
   } else {
