@@ -1,0 +1,139 @@
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\bin\Debug\GUI_REV_3.exe.config
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\bin\Debug\GUI_REV_3.exe
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\bin\Debug\GUI_REV_3.pdb
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\bin\Debug\CircularProgressBar.dll
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\bin\Debug\WinFormAnimation.dll
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\bin\Debug\CircularProgressBar.xml
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.AssemblyReference.cache
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.SuggestedBindingRedirects.cache
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.Form1.resources
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.Properties.Resources.resources
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.GenerateResource.cache
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.CoreCompileInputs.cache
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.CopyComplete
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.exe
+C:\Users\Isaac\Documents\Espresso Machine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.pdb
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\GUI_REV_3.exe.config
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\GUI_REV_3.exe
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\GUI_REV_3.pdb
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\CircularProgressBar.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\WinFormAnimation.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\CircularProgressBar.xml
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.AssemblyReference.cache
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.SuggestedBindingRedirects.cache
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.Form1.resources
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.Properties.Resources.resources
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.GenerateResource.cache
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.CoreCompileInputs.cache
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.CopyComplete
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.exe
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.pdb
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\bin\Debug\GUI_REV_3.exe.config
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\bin\Debug\GUI_REV_3.exe
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\bin\Debug\GUI_REV_3.pdb
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\bin\Debug\CircularProgressBar.dll
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\bin\Debug\WinFormAnimation.dll
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\bin\Debug\CircularProgressBar.xml
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.AssemblyReference.cache
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.SuggestedBindingRedirects.cache
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.Form1.resources
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.Properties.Resources.resources
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.GenerateResource.cache
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.CoreCompileInputs.cache
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.csproj.CopyComplete
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.exe
+C:\Users\Isaac\Documents\EspressoMachine\GUI_REV_3\GUI_REV_3\obj\Debug\GUI_REV_3.pdb
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\AtkSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\CairoSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Eto.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Eto.Gtk.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Eto.Gtk3.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Eto.WinForms.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Eto.Wpf.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\GdkSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\GioSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\GLibSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\GtkSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\OxyPlot.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\OxyPlot.Eto.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\PangoSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Eto.xml
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\OxyPlot.xml
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3\GUI_REV_3\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\GUI_REV_3.exe.config
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\GUI_REV_3.exe
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\GUI_REV_3.pdb
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\AtkSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\CairoSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\CircularProgressBar.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Eto.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Eto.Gtk.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Eto.Gtk3.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Eto.OxyPlot.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Eto.OxyPlot.Wpf.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Eto.WinForms.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Eto.Wpf.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\GdkSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\GioSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\GLibSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\GtkSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\OxyPlot.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\OxyPlot.Eto.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\OxyPlot.WindowsForms.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\PangoSharp.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\WinFormAnimation.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\CircularProgressBar.xml
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Eto.xml
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\OxyPlot.pdb
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\OxyPlot.xml
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\OxyPlot.WindowsForms.xml
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\obj\Debug\GUI_REV_3.csproj.AssemblyReference.cache
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\obj\Debug\GUI_REV_3.csproj.SuggestedBindingRedirects.cache
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\obj\Debug\GUI_REV_3.Form1.resources
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\obj\Debug\GUI_REV_3.Properties.Resources.resources
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\obj\Debug\GUI_REV_3.csproj.GenerateResource.cache
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\obj\Debug\GUI_REV_3.csproj.CoreCompileInputs.cache
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\obj\Debug\GUI_REV_3.csproj.CopyComplete
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\obj\Debug\GUI_REV_3.exe
+C:\Users\Isaac\Documents\Espresso Machine\_EspressoMachineRepo\GUI_REV_3 - NO GRAPHICS\obj\Debug\GUI_REV_3.pdb
