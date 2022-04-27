@@ -6,6 +6,7 @@
 #include <HX711.h>
 #include <PwFusion_MAX31865.h>
 #include <movingAvg.h>
+#include <limits.h>
 
 #define heater 2
 #define gh_heater 3
@@ -17,10 +18,14 @@
 int motorSpeedLookup[] = {0, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16, 16, 17, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 23, 24, 24, 25, 25, 26, 26, 26, 27, 27, 28, 28, 28, 29, 29, 29, 30, 30, 30, 31, 31, 31, 32, 32, 32, 32, 33, 33, 33, 34, 34, 34, 34, 35, 35, 35, 36, 36, 36, 36, 37, 37, 37, 37, 38, 38, 38, 38, 39, 39, 39, 39, 40, 40, 40, 40, 40, 41, 41, 41, 41, 42, 42, 42, 42, 43, 43, 43, 43, 44, 44, 44, 44, 45, 45, 45, 45, 45, 46, 46, 46, 46, 47, 47, 47, 47, 48, 48, 48};
 
 //Weight system setup - weight tracking variable and initialize sensor on DAC
-movingAvg filteredWeight(10);
 movingAvg filteredTemp_0(25);
 movingAvg filteredTemp_1(25);
 movingAvg filteredPressure(25);
+
+//weight averaging and filtering scheme
+#define weightAveragingSize 10
+int weightData[weightAveragingSize];
+int weightAveragingIndex = 1;
 
 //Set temp SPI CS pin
 const int CS_0_PIN = 9;
@@ -78,10 +83,14 @@ void setup() {
 
   //Serial.println("_startup");
 
-  filteredWeight.begin();
   filteredTemp_0.begin();
   filteredTemp_1.begin();
   filteredPressure.begin();
+
+  //intialize weight filtering scheme
+  for(int i = 0; i<weightAveragingSize; i++){
+    weightData[i] = 0;
+  }
 
   //initialize SPI bus, temp CS pin, and configure RTD sensor
   SPI.begin();
@@ -149,7 +158,7 @@ void loop() {
 
 void checkInput() {
   int data;
-  while (Serial.available()>10) {
+  while (Serial.available()>20) {
     char d1 = Serial.read();
 
     if (d1 == 'T') {
@@ -182,6 +191,8 @@ void checkInput() {
       //processing direct motor speed setting
     } else if (d1 == 'M') {
       data = Serial.parseInt();
+      if(data>100 || data<0)
+        return;
       pressureSet = -1;
       pumpSpeed = ((float)data) / 100;
 
@@ -283,29 +294,27 @@ void updateMaster() {
 
 void updateWeight() {
 
-  float rawData = 0;
-  float semifilteredData = 0;
+  float rawData = scale.get_units();
+  weightData[weightAveragingIndex] = (int)(100*rawData);
+  weightAveragingIndex++;
+  weightAveragingIndex = weightAveragingIndex%weightAveragingSize;
 
-  int cycles = 4;
-  
-  for(int i = 1; i<=cycles; i++){
-   //read weight
-    rawData = scale.get_units();
-  
-    //if data reading is more than 100g away from current reading, skip, but don't skip twice
-    if (((rawData - weight) > 100 || (rawData - weight) < -100) && !previousDataErrorFlag) {
-  
-      previousDataErrorFlag = true;
-      return;
-    }
+  float weightOutput = weightData[0];
+  int minWeight = weightData[0];
+  int maxWeight = weightData[0];
 
-    semifilteredData = semifilteredData + rawData/(float)cycles;
-    
+  for(int i = 1; i<weightAveragingSize; i++){
+    weightOutput+=weightData[i];
+    minWeight = min(minWeight, weightData[i]);
+    maxWeight = max(maxWeight, weightData[i]);
   }
 
-  filteredWeight.reading((int)(100 * semifilteredData));
-  float fweight = filteredWeight.getAvg();
-  weight = fweight / 100;
+  weightOutput-=minWeight;
+  weightOutput-=maxWeight;
+
+  weightOutput = weightOutput/(weightAveragingSize-2);
+
+  weight = weightOutput / 100;
   previousDataErrorFlag = false;
 
 }

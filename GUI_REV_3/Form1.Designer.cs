@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.SerialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SensorsPanel = new System.Windows.Forms.Panel();
             this.plotClear = new System.Windows.Forms.Button();
@@ -167,7 +167,7 @@
             this.SensorsPanel.Controls.Add(this.TemperatureLabel);
             this.SensorsPanel.Controls.Add(this.PressureLabel);
             this.SensorsPanel.Location = new System.Drawing.Point(13, 17);
-            this.SensorsPanel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.SensorsPanel.Margin = new System.Windows.Forms.Padding(6);
             this.SensorsPanel.Name = "SensorsPanel";
             this.SensorsPanel.Size = new System.Drawing.Size(1270, 127);
             this.SensorsPanel.TabIndex = 1;
@@ -175,7 +175,7 @@
             // plotClear
             // 
             this.plotClear.Location = new System.Drawing.Point(579, 22);
-            this.plotClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.plotClear.Margin = new System.Windows.Forms.Padding(4);
             this.plotClear.Name = "plotClear";
             this.plotClear.Size = new System.Drawing.Size(97, 85);
             this.plotClear.TabIndex = 35;
@@ -190,7 +190,7 @@
             this.GHTemperatureValue.Location = new System.Drawing.Point(455, 57);
             this.GHTemperatureValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.GHTemperatureValue.Name = "GHTemperatureValue";
-            this.GHTemperatureValue.Size = new System.Drawing.Size(24, 25);
+            this.GHTemperatureValue.Size = new System.Drawing.Size(14, 15);
             this.GHTemperatureValue.TabIndex = 34;
             this.GHTemperatureValue.Text = "0";
             // 
@@ -201,7 +201,7 @@
             this.label18.Location = new System.Drawing.Point(255, 55);
             this.label18.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(183, 25);
+            this.label18.Size = new System.Drawing.Size(105, 15);
             this.label18.TabIndex = 33;
             this.label18.Text = "GH Temperature: ";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -209,7 +209,7 @@
             // SerialSearch
             // 
             this.SerialSearch.Location = new System.Drawing.Point(1116, 11);
-            this.SerialSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.SerialSearch.Margin = new System.Windows.Forms.Padding(6);
             this.SerialSearch.Name = "SerialSearch";
             this.SerialSearch.Size = new System.Drawing.Size(123, 42);
             this.SerialSearch.TabIndex = 32;
@@ -221,7 +221,7 @@
             // 
             this.SerialPortSelect.FormattingEnabled = true;
             this.SerialPortSelect.Location = new System.Drawing.Point(1003, 17);
-            this.SerialPortSelect.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.SerialPortSelect.Margin = new System.Windows.Forms.Padding(6);
             this.SerialPortSelect.Name = "SerialPortSelect";
             this.SerialPortSelect.Size = new System.Drawing.Size(108, 32);
             this.SerialPortSelect.TabIndex = 31;
@@ -230,7 +230,7 @@
             // SerialConnect
             // 
             this.SerialConnect.Location = new System.Drawing.Point(1078, 57);
-            this.SerialConnect.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.SerialConnect.Margin = new System.Windows.Forms.Padding(6);
             this.SerialConnect.Name = "SerialConnect";
             this.SerialConnect.Size = new System.Drawing.Size(161, 42);
             this.SerialConnect.TabIndex = 29;
@@ -245,7 +245,7 @@
             this.label10.Location = new System.Drawing.Point(906, 17);
             this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(82, 25);
+            this.label10.Size = new System.Drawing.Size(46, 15);
             this.label10.TabIndex = 28;
             this.label10.Text = "PORT: ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -253,7 +253,7 @@
             // SerialDisconnect
             // 
             this.SerialDisconnect.Location = new System.Drawing.Point(906, 57);
-            this.SerialDisconnect.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.SerialDisconnect.Margin = new System.Windows.Forms.Padding(6);
             this.SerialDisconnect.Name = "SerialDisconnect";
             this.SerialDisconnect.Size = new System.Drawing.Size(161, 42);
             this.SerialDisconnect.TabIndex = 26;
@@ -268,7 +268,7 @@
             this.SlaveFrequencyValue.Location = new System.Drawing.Point(180, 89);
             this.SlaveFrequencyValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.SlaveFrequencyValue.Name = "SlaveFrequencyValue";
-            this.SlaveFrequencyValue.Size = new System.Drawing.Size(24, 25);
+            this.SlaveFrequencyValue.Size = new System.Drawing.Size(14, 15);
             this.SlaveFrequencyValue.TabIndex = 15;
             this.SlaveFrequencyValue.Text = "0";
             // 
@@ -279,7 +279,7 @@
             this.WeightValue.Location = new System.Drawing.Point(180, 52);
             this.WeightValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.WeightValue.Name = "WeightValue";
-            this.WeightValue.Size = new System.Drawing.Size(24, 25);
+            this.WeightValue.Size = new System.Drawing.Size(14, 15);
             this.WeightValue.TabIndex = 14;
             this.WeightValue.Text = "0";
             // 
@@ -290,7 +290,7 @@
             this.SlaveFrequencyLabel.Location = new System.Drawing.Point(11, 87);
             this.SlaveFrequencyLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.SlaveFrequencyLabel.Name = "SlaveFrequencyLabel";
-            this.SlaveFrequencyLabel.Size = new System.Drawing.Size(143, 25);
+            this.SlaveFrequencyLabel.Size = new System.Drawing.Size(81, 15);
             this.SlaveFrequencyLabel.TabIndex = 9;
             this.SlaveFrequencyLabel.Text = "Sensor Rate: ";
             this.SlaveFrequencyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -302,7 +302,7 @@
             this.TemperatureValue.Location = new System.Drawing.Point(455, 26);
             this.TemperatureValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.TemperatureValue.Name = "TemperatureValue";
-            this.TemperatureValue.Size = new System.Drawing.Size(24, 25);
+            this.TemperatureValue.Size = new System.Drawing.Size(14, 15);
             this.TemperatureValue.TabIndex = 13;
             this.TemperatureValue.Text = "0";
             // 
@@ -313,7 +313,7 @@
             this.PressureValue.Location = new System.Drawing.Point(180, 17);
             this.PressureValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.PressureValue.Name = "PressureValue";
-            this.PressureValue.Size = new System.Drawing.Size(24, 25);
+            this.PressureValue.Size = new System.Drawing.Size(14, 15);
             this.PressureValue.TabIndex = 12;
             this.PressureValue.Text = "0";
             // 
@@ -324,7 +324,7 @@
             this.WeightLabel.Location = new System.Drawing.Point(62, 50);
             this.WeightLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.WeightLabel.Name = "WeightLabel";
-            this.WeightLabel.Size = new System.Drawing.Size(91, 25);
+            this.WeightLabel.Size = new System.Drawing.Size(51, 15);
             this.WeightLabel.TabIndex = 8;
             this.WeightLabel.Text = "Weight: ";
             this.WeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -336,7 +336,7 @@
             this.TemperatureLabel.Location = new System.Drawing.Point(292, 24);
             this.TemperatureLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.TemperatureLabel.Name = "TemperatureLabel";
-            this.TemperatureLabel.Size = new System.Drawing.Size(146, 25);
+            this.TemperatureLabel.Size = new System.Drawing.Size(84, 15);
             this.TemperatureLabel.TabIndex = 7;
             this.TemperatureLabel.Text = "Temperature: ";
             this.TemperatureLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -348,7 +348,7 @@
             this.PressureLabel.Location = new System.Drawing.Point(42, 18);
             this.PressureLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.PressureLabel.Name = "PressureLabel";
-            this.PressureLabel.Size = new System.Drawing.Size(110, 25);
+            this.PressureLabel.Size = new System.Drawing.Size(62, 15);
             this.PressureLabel.TabIndex = 6;
             this.PressureLabel.Text = "Pressure: ";
             this.PressureLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -362,27 +362,27 @@
             // WeightChart
             // 
             this.WeightChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea4.Name = "ChartArea1";
-            this.WeightChart.ChartAreas.Add(chartArea4);
-            legend4.Enabled = false;
-            legend4.Name = "Legend1";
-            this.WeightChart.Legends.Add(legend4);
+            chartArea7.Name = "ChartArea1";
+            this.WeightChart.ChartAreas.Add(chartArea7);
+            legend7.Enabled = false;
+            legend7.Name = "Legend1";
+            this.WeightChart.Legends.Add(legend7);
             this.WeightChart.Location = new System.Drawing.Point(16, 1674);
-            this.WeightChart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.WeightChart.Margin = new System.Windows.Forms.Padding(6);
             this.WeightChart.Name = "WeightChart";
             this.WeightChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series5.BorderWidth = 3;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series5.Legend = "Legend1";
-            series5.Name = "Weight";
-            this.WeightChart.Series.Add(series5);
+            series9.BorderWidth = 3;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series9.Legend = "Legend1";
+            series9.Name = "Weight";
+            this.WeightChart.Series.Add(series9);
             this.WeightChart.Size = new System.Drawing.Size(1261, 478);
             this.WeightChart.TabIndex = 2;
             this.WeightChart.Text = "WeightChart";
-            title4.Name = "Title1";
-            title4.Text = "Weight";
-            this.WeightChart.Titles.Add(title4);
+            title7.Name = "Title1";
+            title7.Text = "Weight";
+            this.WeightChart.Titles.Add(title7);
             // 
             // panel1
             // 
@@ -392,7 +392,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(16, 157);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(864, 445);
             this.panel1.TabIndex = 16;
@@ -412,7 +412,7 @@
             this.panel3.Controls.Add(this.pumpOffBtn);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(312, 24);
-            this.panel3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel3.Margin = new System.Windows.Forms.Padding(6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(253, 395);
             this.panel3.TabIndex = 20;
@@ -420,7 +420,7 @@
             // pumpIdle
             // 
             this.pumpIdle.Location = new System.Drawing.Point(6, 345);
-            this.pumpIdle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pumpIdle.Margin = new System.Windows.Forms.Padding(6);
             this.pumpIdle.Name = "pumpIdle";
             this.pumpIdle.Size = new System.Drawing.Size(224, 42);
             this.pumpIdle.TabIndex = 34;
@@ -437,7 +437,7 @@
             this.PumpIndicator.Location = new System.Drawing.Point(60, 69);
             this.PumpIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.PumpIndicator.Name = "PumpIndicator";
-            this.PumpIndicator.Size = new System.Drawing.Size(129, 25);
+            this.PumpIndicator.Size = new System.Drawing.Size(77, 15);
             this.PumpIndicator.TabIndex = 26;
             this.PumpIndicator.Text = "PUMP OFF";
             this.PumpIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -445,7 +445,7 @@
             // pumpSpeedBtn
             // 
             this.pumpSpeedBtn.Location = new System.Drawing.Point(13, 118);
-            this.pumpSpeedBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pumpSpeedBtn.Margin = new System.Windows.Forms.Padding(6);
             this.pumpSpeedBtn.Name = "pumpSpeedBtn";
             this.pumpSpeedBtn.Size = new System.Drawing.Size(224, 42);
             this.pumpSpeedBtn.TabIndex = 33;
@@ -460,7 +460,7 @@
             this.label6.Location = new System.Drawing.Point(29, 166);
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 25);
+            this.label6.Size = new System.Drawing.Size(46, 15);
             this.label6.TabIndex = 31;
             this.label6.Text = "Speed:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -469,7 +469,7 @@
             // 
             this.PumpSpeedInput.DecimalPlaces = 1;
             this.PumpSpeedInput.Location = new System.Drawing.Point(136, 166);
-            this.PumpSpeedInput.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.PumpSpeedInput.Margin = new System.Windows.Forms.Padding(6);
             this.PumpSpeedInput.Maximum = new decimal(new int[] {
             95,
             0,
@@ -487,7 +487,7 @@
             // pumpPressBtn
             // 
             this.pumpPressBtn.Location = new System.Drawing.Point(13, 199);
-            this.pumpPressBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pumpPressBtn.Margin = new System.Windows.Forms.Padding(6);
             this.pumpPressBtn.Name = "pumpPressBtn";
             this.pumpPressBtn.Size = new System.Drawing.Size(224, 42);
             this.pumpPressBtn.TabIndex = 30;
@@ -502,7 +502,7 @@
             this.label7.Location = new System.Drawing.Point(18, 249);
             this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 25);
+            this.label7.Size = new System.Drawing.Size(59, 15);
             this.label7.TabIndex = 28;
             this.label7.Text = "Pressure:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -516,7 +516,7 @@
             0,
             65536});
             this.PumpPressureInput.Location = new System.Drawing.Point(136, 247);
-            this.PumpPressureInput.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.PumpPressureInput.Margin = new System.Windows.Forms.Padding(6);
             this.PumpPressureInput.Maximum = new decimal(new int[] {
             11,
             0,
@@ -534,7 +534,7 @@
             // pumpOffBtn
             // 
             this.pumpOffBtn.Location = new System.Drawing.Point(6, 294);
-            this.pumpOffBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pumpOffBtn.Margin = new System.Windows.Forms.Padding(6);
             this.pumpOffBtn.Name = "pumpOffBtn";
             this.pumpOffBtn.Size = new System.Drawing.Size(224, 42);
             this.pumpOffBtn.TabIndex = 23;
@@ -549,7 +549,7 @@
             this.label3.Location = new System.Drawing.Point(15, 13);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(199, 32);
+            this.label3.Size = new System.Drawing.Size(117, 20);
             this.label3.TabIndex = 23;
             this.label3.Text = "Pump Control";
             // 
@@ -560,7 +560,7 @@
             this.panel5.Controls.Add(this.PIDReset);
             this.panel5.Controls.Add(this.ZeroScale);
             this.panel5.Location = new System.Drawing.Point(28, 294);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(253, 128);
             this.panel5.TabIndex = 19;
@@ -568,7 +568,7 @@
             // PIDReset
             // 
             this.PIDReset.Location = new System.Drawing.Point(35, 66);
-            this.PIDReset.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.PIDReset.Margin = new System.Windows.Forms.Padding(6);
             this.PIDReset.Name = "PIDReset";
             this.PIDReset.Size = new System.Drawing.Size(192, 42);
             this.PIDReset.TabIndex = 37;
@@ -579,7 +579,7 @@
             // ZeroScale
             // 
             this.ZeroScale.Location = new System.Drawing.Point(33, 13);
-            this.ZeroScale.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ZeroScale.Margin = new System.Windows.Forms.Padding(6);
             this.ZeroScale.Name = "ZeroScale";
             this.ZeroScale.Size = new System.Drawing.Size(192, 42);
             this.ZeroScale.TabIndex = 36;
@@ -599,7 +599,7 @@
             this.panel2.Controls.Add(this.tempInput);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(28, 24);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(253, 242);
             this.panel2.TabIndex = 19;
@@ -610,9 +610,9 @@
             this.stayHot.Checked = true;
             this.stayHot.CheckState = System.Windows.Forms.CheckState.Checked;
             this.stayHot.Location = new System.Drawing.Point(44, 140);
-            this.stayHot.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.stayHot.Margin = new System.Windows.Forms.Padding(6);
             this.stayHot.Name = "stayHot";
-            this.stayHot.Size = new System.Drawing.Size(113, 29);
+            this.stayHot.Size = new System.Drawing.Size(98, 28);
             this.stayHot.TabIndex = 26;
             this.stayHot.Text = "Stay Hot";
             this.stayHot.UseVisualStyleBackColor = true;
@@ -626,7 +626,7 @@
             this.HeaterIndicator.Location = new System.Drawing.Point(38, 57);
             this.HeaterIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.HeaterIndicator.Name = "HeaterIndicator";
-            this.HeaterIndicator.Size = new System.Drawing.Size(155, 25);
+            this.HeaterIndicator.Size = new System.Drawing.Size(91, 15);
             this.HeaterIndicator.TabIndex = 23;
             this.HeaterIndicator.Text = "HEATER OFF";
             this.HeaterIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -638,7 +638,7 @@
             this.label5.Location = new System.Drawing.Point(16, 100);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 25);
+            this.label5.Size = new System.Drawing.Size(59, 15);
             this.label5.TabIndex = 16;
             this.label5.Text = "Set Point:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -646,7 +646,7 @@
             // TempOffButton
             // 
             this.TempOffButton.Location = new System.Drawing.Point(130, 183);
-            this.TempOffButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TempOffButton.Margin = new System.Windows.Forms.Padding(6);
             this.TempOffButton.Name = "TempOffButton";
             this.TempOffButton.Size = new System.Drawing.Size(99, 42);
             this.TempOffButton.TabIndex = 24;
@@ -657,7 +657,7 @@
             // TempOnButton
             // 
             this.TempOnButton.Location = new System.Drawing.Point(20, 183);
-            this.TempOnButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TempOnButton.Margin = new System.Windows.Forms.Padding(6);
             this.TempOnButton.Name = "TempOnButton";
             this.TempOnButton.Size = new System.Drawing.Size(99, 42);
             this.TempOnButton.TabIndex = 23;
@@ -674,7 +674,7 @@
             0,
             65536});
             this.tempInput.Location = new System.Drawing.Point(136, 96);
-            this.tempInput.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tempInput.Margin = new System.Windows.Forms.Padding(6);
             this.tempInput.Maximum = new decimal(new int[] {
             95,
             0,
@@ -701,7 +701,7 @@
             this.label4.Location = new System.Drawing.Point(18, 13);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(197, 32);
+            this.label4.Size = new System.Drawing.Size(116, 20);
             this.label4.TabIndex = 24;
             this.label4.Text = "Temp Control";
             // 
@@ -721,7 +721,7 @@
             this.panel4.Controls.Add(this.GHValveIndicator);
             this.panel4.Controls.Add(this.LoopValveIndicator);
             this.panel4.Location = new System.Drawing.Point(576, 26);
-            this.panel4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel4.Margin = new System.Windows.Forms.Padding(6);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(253, 395);
             this.panel4.TabIndex = 21;
@@ -729,7 +729,7 @@
             // valveExtract
             // 
             this.valveExtract.Location = new System.Drawing.Point(20, 295);
-            this.valveExtract.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.valveExtract.Margin = new System.Windows.Forms.Padding(6);
             this.valveExtract.Name = "valveExtract";
             this.valveExtract.Size = new System.Drawing.Size(224, 42);
             this.valveExtract.TabIndex = 36;
@@ -740,7 +740,7 @@
             // valveIdle
             // 
             this.valveIdle.Location = new System.Drawing.Point(20, 338);
-            this.valveIdle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.valveIdle.Margin = new System.Windows.Forms.Padding(6);
             this.valveIdle.Name = "valveIdle";
             this.valveIdle.Size = new System.Drawing.Size(224, 42);
             this.valveIdle.TabIndex = 35;
@@ -751,7 +751,7 @@
             // ghClose
             // 
             this.ghClose.Location = new System.Drawing.Point(130, 114);
-            this.ghClose.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ghClose.Margin = new System.Windows.Forms.Padding(6);
             this.ghClose.Name = "ghClose";
             this.ghClose.Size = new System.Drawing.Size(99, 42);
             this.ghClose.TabIndex = 22;
@@ -762,7 +762,7 @@
             // ghOpen
             // 
             this.ghOpen.Location = new System.Drawing.Point(20, 114);
-            this.ghOpen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ghOpen.Margin = new System.Windows.Forms.Padding(6);
             this.ghOpen.Name = "ghOpen";
             this.ghOpen.Size = new System.Drawing.Size(99, 42);
             this.ghOpen.TabIndex = 21;
@@ -773,7 +773,7 @@
             // loopClose
             // 
             this.loopClose.Location = new System.Drawing.Point(134, 234);
-            this.loopClose.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.loopClose.Margin = new System.Windows.Forms.Padding(6);
             this.loopClose.Name = "loopClose";
             this.loopClose.Size = new System.Drawing.Size(99, 42);
             this.loopClose.TabIndex = 20;
@@ -784,7 +784,7 @@
             // loopOpen
             // 
             this.loopOpen.Location = new System.Drawing.Point(24, 234);
-            this.loopOpen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.loopOpen.Margin = new System.Windows.Forms.Padding(6);
             this.loopOpen.Name = "loopOpen";
             this.loopOpen.Size = new System.Drawing.Size(99, 42);
             this.loopOpen.TabIndex = 19;
@@ -799,7 +799,7 @@
             this.label9.Location = new System.Drawing.Point(28, 13);
             this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(198, 32);
+            this.label9.Size = new System.Drawing.Size(116, 20);
             this.label9.TabIndex = 4;
             this.label9.Text = "Valve Control";
             // 
@@ -810,7 +810,7 @@
             this.label2.Location = new System.Drawing.Point(104, 166);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 25);
+            this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 16;
             this.label2.Text = "Loop:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -822,7 +822,7 @@
             this.label1.Location = new System.Drawing.Point(82, 48);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 25);
+            this.label1.Size = new System.Drawing.Size(77, 15);
             this.label1.TabIndex = 16;
             this.label1.Text = "Group Head:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -836,7 +836,7 @@
             this.GHValveIndicator.Location = new System.Drawing.Point(88, 81);
             this.GHValveIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.GHValveIndicator.Name = "GHValveIndicator";
-            this.GHValveIndicator.Size = new System.Drawing.Size(104, 25);
+            this.GHValveIndicator.Size = new System.Drawing.Size(62, 15);
             this.GHValveIndicator.TabIndex = 17;
             this.GHValveIndicator.Text = "CLOSED";
             this.GHValveIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -850,7 +850,7 @@
             this.LoopValveIndicator.Location = new System.Drawing.Point(99, 199);
             this.LoopValveIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.LoopValveIndicator.Name = "LoopValveIndicator";
-            this.LoopValveIndicator.Size = new System.Drawing.Size(75, 25);
+            this.LoopValveIndicator.Size = new System.Drawing.Size(45, 15);
             this.LoopValveIndicator.TabIndex = 18;
             this.LoopValveIndicator.Text = "OPEN";
             this.LoopValveIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -858,59 +858,59 @@
             // TemperatureChart
             // 
             this.TemperatureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea5.Name = "ChartArea1";
-            this.TemperatureChart.ChartAreas.Add(chartArea5);
-            legend5.Enabled = false;
-            legend5.Name = "Legend1";
-            this.TemperatureChart.Legends.Add(legend5);
+            chartArea8.Name = "ChartArea1";
+            this.TemperatureChart.ChartAreas.Add(chartArea8);
+            legend8.Enabled = false;
+            legend8.Name = "Legend1";
+            this.TemperatureChart.Legends.Add(legend8);
             this.TemperatureChart.Location = new System.Drawing.Point(16, 1150);
-            this.TemperatureChart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TemperatureChart.Margin = new System.Windows.Forms.Padding(6);
             this.TemperatureChart.Name = "TemperatureChart";
             this.TemperatureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series6.BorderWidth = 3;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series6.Legend = "Legend1";
-            series6.Name = "Temperature";
-            series7.BorderWidth = 3;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series7.EmptyPointStyle.BorderWidth = 3;
-            series7.Legend = "Legend1";
-            series7.Name = "Temperature_GH";
-            this.TemperatureChart.Series.Add(series6);
-            this.TemperatureChart.Series.Add(series7);
+            series10.BorderWidth = 3;
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series10.Legend = "Legend1";
+            series10.Name = "Temperature";
+            series11.BorderWidth = 3;
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series11.EmptyPointStyle.BorderWidth = 3;
+            series11.Legend = "Legend1";
+            series11.Name = "Temperature_GH";
+            this.TemperatureChart.Series.Add(series10);
+            this.TemperatureChart.Series.Add(series11);
             this.TemperatureChart.Size = new System.Drawing.Size(1261, 497);
             this.TemperatureChart.TabIndex = 17;
             this.TemperatureChart.Text = "chart1";
-            title5.Name = "Title1";
-            title5.Text = "Temperature";
-            this.TemperatureChart.Titles.Add(title5);
+            title8.Name = "Title1";
+            title8.Text = "Temperature";
+            this.TemperatureChart.Titles.Add(title8);
             // 
             // PressureChart
             // 
             this.PressureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea6.Name = "ChartArea1";
-            this.PressureChart.ChartAreas.Add(chartArea6);
-            legend6.Enabled = false;
-            legend6.Name = "Legend1";
-            this.PressureChart.Legends.Add(legend6);
+            chartArea9.Name = "ChartArea1";
+            this.PressureChart.ChartAreas.Add(chartArea9);
+            legend9.Enabled = false;
+            legend9.Name = "Legend1";
+            this.PressureChart.Legends.Add(legend9);
             this.PressureChart.Location = new System.Drawing.Point(20, 630);
-            this.PressureChart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.PressureChart.Margin = new System.Windows.Forms.Padding(6);
             this.PressureChart.Name = "PressureChart";
             this.PressureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series8.BorderWidth = 3;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series8.Legend = "Legend1";
-            series8.Name = "Pressure";
-            this.PressureChart.Series.Add(series8);
+            series12.BorderWidth = 3;
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series12.Legend = "Legend1";
+            series12.Name = "Pressure";
+            this.PressureChart.Series.Add(series12);
             this.PressureChart.Size = new System.Drawing.Size(1261, 486);
             this.PressureChart.TabIndex = 18;
             this.PressureChart.Text = "PressureChart";
-            title6.Name = "Title1";
-            title6.Text = "Pressure";
-            this.PressureChart.Titles.Add(title6);
+            title9.Name = "Title1";
+            title9.Text = "Pressure";
+            this.PressureChart.Titles.Add(title9);
             // 
             // panel6
             // 
@@ -934,7 +934,7 @@
             this.panel6.Controls.Add(this.AS_STOP);
             this.panel6.Controls.Add(this.AS_START);
             this.panel6.Location = new System.Drawing.Point(882, 157);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(400, 445);
             this.panel6.TabIndex = 38;
@@ -946,7 +946,7 @@
             this.label19.Location = new System.Drawing.Point(16, 131);
             this.label19.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(224, 25);
+            this.label19.Size = new System.Drawing.Size(127, 15);
             this.label19.TabIndex = 51;
             this.label19.Text = "Preinfusion Pressure: ";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -955,7 +955,7 @@
             // 
             this.AS_PF_SPEED.DecimalPlaces = 1;
             this.AS_PF_SPEED.Location = new System.Drawing.Point(253, 52);
-            this.AS_PF_SPEED.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_PF_SPEED.Margin = new System.Windows.Forms.Padding(6);
             this.AS_PF_SPEED.Maximum = new decimal(new int[] {
             50,
             0,
@@ -982,7 +982,7 @@
             this.label17.Location = new System.Drawing.Point(64, 329);
             this.label17.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(119, 25);
+            this.label17.Size = new System.Drawing.Size(69, 15);
             this.label17.TabIndex = 50;
             this.label17.Text = "Brew Time:";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -993,7 +993,7 @@
             this.AS_TIMER_DISPLAY.Location = new System.Drawing.Point(211, 329);
             this.AS_TIMER_DISPLAY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AS_TIMER_DISPLAY.Name = "AS_TIMER_DISPLAY";
-            this.AS_TIMER_DISPLAY.Size = new System.Drawing.Size(23, 25);
+            this.AS_TIMER_DISPLAY.Size = new System.Drawing.Size(20, 24);
             this.AS_TIMER_DISPLAY.TabIndex = 49;
             this.AS_TIMER_DISPLAY.Text = "0";
             // 
@@ -1004,7 +1004,7 @@
             this.label16.Location = new System.Drawing.Point(18, 247);
             this.label16.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(217, 25);
+            this.label16.Size = new System.Drawing.Size(126, 15);
             this.label16.TabIndex = 47;
             this.label16.Text = "Rampdown Pressure:";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1018,7 +1018,7 @@
             0,
             65536});
             this.AS_RD_PRESSURE.Location = new System.Drawing.Point(253, 247);
-            this.AS_RD_PRESSURE.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_RD_PRESSURE.Margin = new System.Windows.Forms.Padding(6);
             this.AS_RD_PRESSURE.Maximum = new decimal(new int[] {
             11,
             0,
@@ -1040,7 +1040,7 @@
             this.label15.Location = new System.Drawing.Point(81, 209);
             this.label15.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(160, 25);
+            this.label15.Size = new System.Drawing.Size(91, 15);
             this.label15.TabIndex = 45;
             this.label15.Text = "Peak Duration: ";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1049,7 +1049,7 @@
             // 
             this.AS_PF_PRESSURE.DecimalPlaces = 1;
             this.AS_PF_PRESSURE.Location = new System.Drawing.Point(253, 129);
-            this.AS_PF_PRESSURE.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_PF_PRESSURE.Margin = new System.Windows.Forms.Padding(6);
             this.AS_PF_PRESSURE.Maximum = new decimal(new int[] {
             12,
             0,
@@ -1078,7 +1078,7 @@
             0,
             65536});
             this.AS_PB_Duration.Location = new System.Drawing.Point(253, 209);
-            this.AS_PB_Duration.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_PB_Duration.Margin = new System.Windows.Forms.Padding(6);
             this.AS_PB_Duration.Maximum = new decimal(new int[] {
             20,
             0,
@@ -1107,7 +1107,7 @@
             this.AS_INDICATOR.Location = new System.Drawing.Point(59, 294);
             this.AS_INDICATOR.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.AS_INDICATOR.Name = "AS_INDICATOR";
-            this.AS_INDICATOR.Size = new System.Drawing.Size(258, 25);
+            this.AS_INDICATOR.Size = new System.Drawing.Size(152, 15);
             this.AS_INDICATOR.TabIndex = 26;
             this.AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
             this.AS_INDICATOR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1119,7 +1119,7 @@
             this.label14.Location = new System.Drawing.Point(81, 170);
             this.label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(158, 25);
+            this.label14.Size = new System.Drawing.Size(90, 15);
             this.label14.TabIndex = 43;
             this.label14.Text = "Brew Pressure:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1133,7 +1133,7 @@
             0,
             65536});
             this.AS_BREW_PRESSURE.Location = new System.Drawing.Point(253, 168);
-            this.AS_BREW_PRESSURE.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_BREW_PRESSURE.Margin = new System.Windows.Forms.Padding(6);
             this.AS_BREW_PRESSURE.Maximum = new decimal(new int[] {
             11,
             0,
@@ -1155,7 +1155,7 @@
             this.label13.Location = new System.Drawing.Point(24, 92);
             this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(215, 25);
+            this.label13.Size = new System.Drawing.Size(123, 15);
             this.label13.TabIndex = 41;
             this.label13.Text = "Preinfusion Timeout: ";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1169,7 +1169,7 @@
             0,
             65536});
             this.AS_PF_DURATION.Location = new System.Drawing.Point(253, 90);
-            this.AS_PF_DURATION.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_PF_DURATION.Margin = new System.Windows.Forms.Padding(6);
             this.AS_PF_DURATION.Maximum = new decimal(new int[] {
             20,
             0,
@@ -1196,7 +1196,7 @@
             this.label12.Location = new System.Drawing.Point(24, 52);
             this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(194, 25);
+            this.label12.Size = new System.Drawing.Size(111, 15);
             this.label12.TabIndex = 39;
             this.label12.Text = "Preinfusion Speed:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1208,14 +1208,14 @@
             this.label8.Location = new System.Drawing.Point(84, 9);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(222, 32);
+            this.label8.Size = new System.Drawing.Size(133, 20);
             this.label8.TabIndex = 38;
             this.label8.Text = "Auto Sequence";
             // 
             // AS_STOP
             // 
             this.AS_STOP.Location = new System.Drawing.Point(204, 364);
-            this.AS_STOP.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_STOP.Margin = new System.Windows.Forms.Padding(6);
             this.AS_STOP.Name = "AS_STOP";
             this.AS_STOP.Size = new System.Drawing.Size(161, 66);
             this.AS_STOP.TabIndex = 37;
@@ -1226,7 +1226,7 @@
             // AS_START
             // 
             this.AS_START.Location = new System.Drawing.Point(29, 364);
-            this.AS_START.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_START.Margin = new System.Windows.Forms.Padding(6);
             this.AS_START.Name = "AS_START";
             this.AS_START.Size = new System.Drawing.Size(161, 66);
             this.AS_START.TabIndex = 36;
@@ -1243,14 +1243,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1292, 1422);
+            this.ClientSize = new System.Drawing.Size(1292, 1421);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.PressureChart);
             this.Controls.Add(this.TemperatureChart);
             this.Controls.Add(this.WeightChart);
             this.Controls.Add(this.SensorsPanel);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "Espresso Yourself";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

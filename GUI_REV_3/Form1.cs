@@ -155,37 +155,41 @@ namespace GUI_REV_3
         {
             if (SerialPort1.IsOpen)
             {
-                
+
+                String report = "";
+
                 //send valve state
-                SerialPort1.WriteLine("V" + loopValveState.ToString() + groupValveState.ToString());
+                report = report+"V" + loopValveState.ToString() + groupValveState.ToString();
                 
                 
 
                 //Send pump state (M for motor speed, P for pump speed)
                 if(pumpSetting == 1)
                 {
-                    SerialPort1.WriteLine("M" + (Math.Round(PumpSpeedInput.Value)).ToString());
+                    report = report+"M" + (Math.Round(PumpSpeedInput.Value)).ToString();
                 
                 }
                 else if (pumpSetting == 2)
                 {
-                    SerialPort1.WriteLine("P" + (Math.Round(PumpPressureInput.Value*10)).ToString());
+                    report = report + "P" + (Math.Round(PumpPressureInput.Value*10)).ToString();
                 }
                 else
                 {
 
-                    SerialPort1.WriteLine("M0");
+                    report = report + "M0";
                 }
 
                 //Send heating information
                 if (heating)
                 {
-                    SerialPort1.WriteLine("T" + (Math.Round(tempInput.Value * 10)).ToString());
+                    report = report + "T" + (Math.Round(tempInput.Value * 10)).ToString();
                 }
                 else
                 {
-                    SerialPort1.WriteLine("T0");
+                    report = report + "T0";
                 }
+
+                SerialPort1.WriteLine(report);
 
             }
         }
@@ -313,7 +317,7 @@ namespace GUI_REV_3
             stopWatch.Start();
         }
 
-        private void AS_STOP_Click(object sender, EventArgs e)
+        private async void AS_STOP_Click(object sender, EventArgs e)
         {
             AS_Timer.Stop();
             valveIdle_Click(sender, new EventArgs());
@@ -325,10 +329,12 @@ namespace GUI_REV_3
             
             stopWatch.Stop();
 
-            plotting = false;
-
             AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
             AS_INDICATOR.BackColor = Color.Red;
+
+            await Task.Delay(2000);
+            
+            plotting = false;
 
         }
 
