@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.SerialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SensorsPanel = new System.Windows.Forms.Panel();
             this.plotClear = new System.Windows.Forms.Button();
@@ -362,27 +362,27 @@
             // WeightChart
             // 
             this.WeightChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea7.Name = "ChartArea1";
-            this.WeightChart.ChartAreas.Add(chartArea7);
-            legend7.Enabled = false;
-            legend7.Name = "Legend1";
-            this.WeightChart.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.WeightChart.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.WeightChart.Legends.Add(legend1);
             this.WeightChart.Location = new System.Drawing.Point(16, 1674);
             this.WeightChart.Margin = new System.Windows.Forms.Padding(6);
             this.WeightChart.Name = "WeightChart";
             this.WeightChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series9.BorderWidth = 3;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series9.Legend = "Legend1";
-            series9.Name = "Weight";
-            this.WeightChart.Series.Add(series9);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Legend = "Legend1";
+            series1.Name = "Weight";
+            this.WeightChart.Series.Add(series1);
             this.WeightChart.Size = new System.Drawing.Size(1261, 478);
             this.WeightChart.TabIndex = 2;
             this.WeightChart.Text = "WeightChart";
-            title7.Name = "Title1";
-            title7.Text = "Weight";
-            this.WeightChart.Titles.Add(title7);
+            title1.Name = "Title1";
+            title1.Text = "Weight";
+            this.WeightChart.Titles.Add(title1);
             // 
             // panel1
             // 
@@ -689,7 +689,7 @@
             this.tempInput.Size = new System.Drawing.Size(92, 29);
             this.tempInput.TabIndex = 25;
             this.tempInput.Value = new decimal(new int[] {
-            95,
+            93,
             0,
             0,
             0});
@@ -858,59 +858,59 @@
             // TemperatureChart
             // 
             this.TemperatureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea8.Name = "ChartArea1";
-            this.TemperatureChart.ChartAreas.Add(chartArea8);
-            legend8.Enabled = false;
-            legend8.Name = "Legend1";
-            this.TemperatureChart.Legends.Add(legend8);
+            chartArea2.Name = "ChartArea1";
+            this.TemperatureChart.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.TemperatureChart.Legends.Add(legend2);
             this.TemperatureChart.Location = new System.Drawing.Point(16, 1150);
             this.TemperatureChart.Margin = new System.Windows.Forms.Padding(6);
             this.TemperatureChart.Name = "TemperatureChart";
             this.TemperatureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series10.BorderWidth = 3;
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series10.Legend = "Legend1";
-            series10.Name = "Temperature";
-            series11.BorderWidth = 3;
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series11.EmptyPointStyle.BorderWidth = 3;
-            series11.Legend = "Legend1";
-            series11.Name = "Temperature_GH";
-            this.TemperatureChart.Series.Add(series10);
-            this.TemperatureChart.Series.Add(series11);
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.Name = "Temperature";
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.EmptyPointStyle.BorderWidth = 3;
+            series3.Legend = "Legend1";
+            series3.Name = "Temperature_GH";
+            this.TemperatureChart.Series.Add(series2);
+            this.TemperatureChart.Series.Add(series3);
             this.TemperatureChart.Size = new System.Drawing.Size(1261, 497);
             this.TemperatureChart.TabIndex = 17;
             this.TemperatureChart.Text = "chart1";
-            title8.Name = "Title1";
-            title8.Text = "Temperature";
-            this.TemperatureChart.Titles.Add(title8);
+            title2.Name = "Title1";
+            title2.Text = "Temperature";
+            this.TemperatureChart.Titles.Add(title2);
             // 
             // PressureChart
             // 
             this.PressureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea9.Name = "ChartArea1";
-            this.PressureChart.ChartAreas.Add(chartArea9);
-            legend9.Enabled = false;
-            legend9.Name = "Legend1";
-            this.PressureChart.Legends.Add(legend9);
+            chartArea3.Name = "ChartArea1";
+            this.PressureChart.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.PressureChart.Legends.Add(legend3);
             this.PressureChart.Location = new System.Drawing.Point(20, 630);
             this.PressureChart.Margin = new System.Windows.Forms.Padding(6);
             this.PressureChart.Name = "PressureChart";
             this.PressureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series12.BorderWidth = 3;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series12.Legend = "Legend1";
-            series12.Name = "Pressure";
-            this.PressureChart.Series.Add(series12);
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "Pressure";
+            this.PressureChart.Series.Add(series4);
             this.PressureChart.Size = new System.Drawing.Size(1261, 486);
             this.PressureChart.TabIndex = 18;
             this.PressureChart.Text = "PressureChart";
-            title9.Name = "Title1";
-            title9.Text = "Pressure";
-            this.PressureChart.Titles.Add(title9);
+            title3.Name = "Title1";
+            title3.Text = "Pressure";
+            this.PressureChart.Titles.Add(title3);
             // 
             // panel6
             // 

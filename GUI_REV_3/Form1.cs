@@ -311,6 +311,7 @@ namespace GUI_REV_3
         private void AS_START_Click(object sender, EventArgs e)
         {
             plotClear_Click(sender, new EventArgs());
+            ZeroScale_Click(sender, new EventArgs());
             AS_Timer.Start();
             AS_Loop_Counter = 0;
             stopWatch = new Stopwatch();
