@@ -47,6 +47,7 @@ boolean previousDataErrorFlag = false;
 // DAC
 Adafruit_MCP4725 dac;
 
+
 // Target values supplied over serial
 double pumpSpeed = 0.25;  //0-1 value given by
 double pressureSet = 0;    //target pressure -1 if using pumpSpeed
@@ -156,53 +157,65 @@ void loop() {
 
 }
 
+
 void checkInput() {
   int data;
-  while (Serial.available()>20) {
+  while (Serial.available()>12) {
     char d1 = Serial.read();
 
-    if (d1 == 'T') {
-      //processing new temp value
-      data = Serial.parseInt();
-      float newTemp = (float)data;
-      newTemp = newTemp / 10;
-      if (newTemp > 84.9 && newTemp < 99.6) {
-        tempSet = newTemp;
-        heating = true;
-      } else {
-        heating = false;
+    if(d1 == 'S'){
+
+      String valveMessage = readSerialString(2);
+      String motorMessage = readSerialString(4);
+      String TempMessage = readSerialString(3);
+      char termination = Serial.read();
+
+//      Serial.println("V: "+valveMessage);
+//      Serial.println("M: "+motorMessage);
+//      Serial.println("T: "+TempMessage);
+//      Serial.println(termination);
+//      Serial.println("\n");   
+
+      //if message has valid termination - nothing dropped
+      if(termination == 'K'){
+
+        //process valve
+        if(valveMessage.charAt(0) == '1')
+          loopState = true;
+        else if(valveMessage.charAt(0) == '0')
+          loopState = false;
+
+        if(valveMessage.charAt(1) == '1')
+          groupState = true;
+        else if(valveMessage.charAt(1) == '0')
+          groupState = false;
+
+          
+        //process motor state
+        char pumpMode = motorMessage.charAt(0);
+        int pumpValue = motorMessage.substring(1).toInt();
+        if(pumpMode == 'M'){
+        
+          pressureSet = -1;
+          pumpSpeed = ((float)pumpValue) / 100;
+        
+        }else if(pumpMode == 'P'){
+
+          pressureSet = (float)pumpValue / 10;
+          
+        }
+
+        //process temp state
+        int tempInput = TempMessage.toInt();
+        if(tempInput != 0){
+          heating = true;
+          tempSet = ((double)tempInput)/10;
+        }else
+          heating = false;
+
       }
-
-      //processing new valve configruation
-    } else if (d1 == 'V') {
-      char nextChar = Serial.read();
-      if (nextChar == '1') {
-        loopState = true;
-      } else if (nextChar == '0') {
-        loopState = false;
-      }
-
-      nextChar = Serial.read();
-      if (nextChar == '1') {
-        groupState = true;
-      } else if (nextChar == '0') {
-        groupState = false;
-      }
-      //processing direct motor speed setting
-    } else if (d1 == 'M') {
-      data = Serial.parseInt();
-      if(data>100 || data<0)
-        return;
-      pressureSet = -1;
-      pumpSpeed = ((float)data) / 100;
-
-      //processing new pressure settting
-    } else if (d1 == 'P') {
-      data = Serial.parseInt();
-      pressureSet = ((float)data) / 10;
-
-      //check for a reset/cal value
-    } else if (d1 == 'R') {
+        
+    }else if (d1 =='R'){
       char d2 = Serial.read();
       if (d2 == '1') {
         //clear PID constants
@@ -212,9 +225,16 @@ void checkInput() {
         //calibrate scale
         scale.tare();
       }
-    }
-
+   }
   }
+}
+
+String readSerialString(int spots){
+  String output = "";
+  for(int i = 0; i<spots; i++)
+    if(Serial.available())
+      output = output+String((char)Serial.read());
+  return output;
 }
 
 void updateMaster() {

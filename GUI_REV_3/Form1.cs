@@ -156,40 +156,86 @@ namespace GUI_REV_3
             if (SerialPort1.IsOpen)
             {
 
-                String report = "";
+                //communication structions
+                //SVVMMMMTTTK
+                
+                //S is start character
+                //VV are valve states 1/0 represent on/off
+                //MMMM are motor state - first character is M/P to represent demand
+                //TTT is the desired temperature
+                //K is termination character
 
-                //send valve state
-                report = report+"V" + loopValveState.ToString() + groupValveState.ToString();
+
+                //start communication with S - 1 character
+                String report = "S";
+
+                //send valve state - 3 characters
+                report = report+ loopValveState.ToString() + groupValveState.ToString();
                 
                 
 
-                //Send pump state (M for motor speed, P for pump speed)
+                //Send pump state (M for motor speed, P for pump speed) - 4 characters
                 if(pumpSetting == 1)
                 {
-                    report = report+"M" + (Math.Round(PumpSpeedInput.Value)).ToString();
+                    String motorSpeed = (Math.Round(PumpSpeedInput.Value)).ToString();
+
+                    while (motorSpeed.Length != 2)
+                    {
+                        if (motorSpeed.Length < 2)
+                        {
+                            motorSpeed = "0" + motorSpeed;
+                        }
+                        else if (motorSpeed.Length > 2)
+                        {
+                            motorSpeed = "00";
+                        }
+                    }
+
+                    report = report + "M0" + motorSpeed; 
                 
                 }
                 else if (pumpSetting == 2)
                 {
-                    report = report + "P" + (Math.Round(PumpPressureInput.Value*10)).ToString();
+                    
+                    String pumpSetting = (Math.Round(PumpPressureInput.Value * 10)).ToString();
+
+                    while (pumpSetting.Length != 3)
+                    {
+                        if (pumpSetting.Length < 3)
+                        {
+                            pumpSetting = "0" + pumpSetting;
+
+                        }
+                        else if (pumpSetting.Length > 3)
+                        {
+                            pumpSetting = "000";
+                        }
+                    }
+
+                    report = report + "P" + pumpSetting;
+
                 }
                 else
                 {
 
-                    report = report + "M0";
+                    report = report + "M000";
                 }
 
-                //Send heating information
+                //Send heating information - 3 characters
                 if (heating)
                 {
-                    report = report + "T" + (Math.Round(tempInput.Value * 10)).ToString();
+                    report = report + (Math.Round(tempInput.Value * 10)).ToString();
                 }
                 else
                 {
-                    report = report + "T0";
+                    report = report + "000";
                 }
 
-                SerialPort1.WriteLine(report);
+                report = report + "K";
+
+                SerialPort1.Write(report);
+
+                Console.WriteLine(report);
 
             }
         }
