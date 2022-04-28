@@ -406,6 +406,15 @@ namespace GUI_REV_3
             //AS_state == 2 ==> main brew
             //AS_state == 3 ==> ramp down
 
+            //check for weight target
+            if (weightShutOff.Checked)
+            {
+                if (Weight > ((float)targetWeight.Value - 0.5))
+                {
+                    AS_STOP_Click(sender, new EventArgs());
+                }
+            }
+
             if(AS_state == 1)
             {
                 //check for end of preinfusion conditions
