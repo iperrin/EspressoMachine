@@ -18,12 +18,12 @@ namespace GUI_REV_3
 
     public partial class Form1 : Form
     {
-        public float Pressure;
-        public float Temperature;
-        public float Weight;
-        public float slaveFrequency;
-        public float GHTemperature;
-        public int AS_state = -1;
+        public float Pressure = 2;
+        public float Temperature = 95;
+        public float Weight = 20;
+        public float slaveFrequency = 100;
+        public float GHTemperature = 95;
+        public int AS_state;
         public Stopwatch stopWatch;
         
         //Autosequence state variables
@@ -108,7 +108,7 @@ namespace GUI_REV_3
                 WeightChart.Series[0].Points.AddY(Weight);
 
                 //only clears data if the autosequence isnt active
-                if (AS_state == -1)
+                if (!AS_Timer.Enabled)
                 {
                     while (TemperatureChart.Series[0].Points.Count > numberOfPlotPoints)
                     {
@@ -368,6 +368,14 @@ namespace GUI_REV_3
 
         private void AS_Timer_Tick(object sender, EventArgs e)
         {
+            //state definitions
+            //AS_state == -1 ==> autosequence ending
+            //AS_state == 0 ==> initialization
+            //AS_state == 1 ==> preinfusion
+            //AS_state == 2 ==> main brew
+            //AS_state == 3 ==> ramp down
+            //AS_state == 4 ==> stopping
+
             //autosequence initialization
             if (AS_state == 0)
             {
@@ -381,18 +389,12 @@ namespace GUI_REV_3
                 AS_state = 1;
             }
 
+            float brewTime = ((float)stopWatch.ElapsedMilliseconds) / 1000;
             //update timer
-            float brewTime = ((float)stopWatch.ElapsedMilliseconds)/1000;
-            AS_TIMER_DISPLAY.Text = Convert.ToString(Math.Round(brewTime,1))+" s";
-
-            //state definitions
-            //AS_state == 0 ==> initialization
-            //AS_state == 1 ==> preinfusion
-            //AS_state == 2 ==> main brew
-            //AS_state == 3 ==> ramp down
-            //AS_state == 4 ==> stopping
-
-
+            if (AS_state > -1 || AS_state < 4)
+            {
+                AS_TIMER_DISPLAY.Text = Convert.ToString(Math.Round(brewTime, 1)) + " s";
+            }
 
             //check for weight target
             if (weightShutOff.Checked)
@@ -445,7 +447,7 @@ namespace GUI_REV_3
                 AS_INDICATOR.BackColor = Color.Green;
                 PumpPressureInput.Value = AS_RD_PRESSURE.Value;
             }
-            else
+            else if (AS_state == 4)
             {
                 //shutting off
                 AS_INDICATOR.Text = "STOPPING";
@@ -462,7 +464,7 @@ namespace GUI_REV_3
 
                 AS_state = -1;
                 stopWatch.Stop();
-                AS_Timer.Stop();
+                
             }
 
         }
@@ -471,6 +473,7 @@ namespace GUI_REV_3
         {
             await Task.Delay(1000);
             plotting = false;
+            AS_Timer.Stop();
             AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
             AS_INDICATOR.BackColor = Color.Red;
 
