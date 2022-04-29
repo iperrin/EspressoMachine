@@ -23,7 +23,7 @@ namespace GUI_REV_3
         public float Weight;
         public float slaveFrequency;
         public float GHTemperature;
-        public int AS_state;
+        public int AS_state = -1;
         public Stopwatch stopWatch;
         
         //Autosequence state variables
@@ -427,6 +427,7 @@ namespace GUI_REV_3
                 AS_INDICATOR.Text = "PREINFUSION";
                 AS_INDICATOR.BackColor = Color.Green;
                 PumpSpeedInput.Value = AS_PF_SPEED.Value;
+                pumpSpeedBtn_Click(sender, EventArgs.Empty);
             }
             else if (AS_state == 2)
             {
@@ -459,9 +460,9 @@ namespace GUI_REV_3
                     TempOffButton_Click(sender, new EventArgs());
                 }
 
+                AS_state = -1;
                 stopWatch.Stop();
                 AS_Timer.Stop();
-
             }
 
         }
@@ -472,6 +473,7 @@ namespace GUI_REV_3
             plotting = false;
             AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
             AS_INDICATOR.BackColor = Color.Red;
+
         }
 
         private void valveExtract_Click(object sender, EventArgs e)
