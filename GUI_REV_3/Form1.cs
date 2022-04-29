@@ -108,7 +108,7 @@ namespace GUI_REV_3
                 WeightChart.Series[0].Points.AddY(Weight);
 
                 //only clears data if the autosequence isnt active
-                if (!AS_Timer.Enabled)
+                if (AS_state == -1)
                 {
                     while (TemperatureChart.Series[0].Points.Count > numberOfPlotPoints)
                     {
