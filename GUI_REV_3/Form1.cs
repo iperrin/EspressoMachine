@@ -356,41 +356,25 @@ namespace GUI_REV_3
 
         private void AS_START_Click(object sender, EventArgs e)
         {
-            plotClear_Click(sender, new EventArgs());
-            ZeroScale_Click(sender, new EventArgs());
             AS_Timer.Start();
-            AS_Loop_Counter = 0;
-            stopWatch = new Stopwatch();
-            stopWatch.Start();
+            AS_state = 0;
         }
 
         private async void AS_STOP_Click(object sender, EventArgs e)
         {
-            AS_Timer.Stop();
-            valveIdle_Click(sender, new EventArgs());
-            pumpIdle_Click(sender, new EventArgs());
-            if (!stayHot.Checked)
-            {
-                TempOffButton_Click(sender, new EventArgs());
-            }
-            
-            stopWatch.Stop();
-
-            AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
-            AS_INDICATOR.BackColor = Color.Red;
-
-            await Task.Delay(2000);
-            
-            plotting = false;
+            AS_state = 4;
 
         }
 
         private void AS_Timer_Tick(object sender, EventArgs e)
         {
-
-            //autosequence start
-            if (AS_Loop_Counter == 0)
+            //autosequence initialization
+            if (AS_state == 0)
             {
+                stopWatch = new Stopwatch();
+                stopWatch.Start();
+                plotClear_Click(sender, new EventArgs());
+                ZeroScale_Click(sender, new EventArgs());
                 loopClose_Click(sender, new EventArgs());
                 ghOpen_Click(sender, new EventArgs());
                 TempOnButton_Click(sender, new EventArgs());
@@ -402,16 +386,20 @@ namespace GUI_REV_3
             AS_TIMER_DISPLAY.Text = Convert.ToString(Math.Round(brewTime,1))+" s";
 
             //state definitions
+            //AS_state == 0 ==> initialization
             //AS_state == 1 ==> preinfusion
             //AS_state == 2 ==> main brew
             //AS_state == 3 ==> ramp down
+            //AS_state == 4 ==> stopping
+
+
 
             //check for weight target
             if (weightShutOff.Checked)
             {
                 if (Weight > ((float)targetWeight.Value - 0.5))
                 {
-                    AS_STOP_Click(sender, new EventArgs());
+                    AS_state = 4;
                 }
             }
 
@@ -432,7 +420,7 @@ namespace GUI_REV_3
                 }
             }
 
-
+ 
             if (AS_state == 1)
             {
                 //preinfusion
@@ -448,7 +436,7 @@ namespace GUI_REV_3
                 AS_INDICATOR.BackColor = Color.Green;
                 PumpPressureInput.Value = AS_BREW_PRESSURE.Value;
             }
-            else
+            else if (AS_state == 3)
             {
                 //ramp down
                 pumpPressBtn_Click(sender, new EventArgs());
@@ -456,8 +444,34 @@ namespace GUI_REV_3
                 AS_INDICATOR.BackColor = Color.Green;
                 PumpPressureInput.Value = AS_RD_PRESSURE.Value;
             }
+            else
+            {
+                //shutting off
+                AS_INDICATOR.Text = "STOPPING";
+                AS_INDICATOR.BackColor = Color.Red;
+                pumpIdle_Click(sender, new EventArgs());
+                valveIdle_Click(sender, new EventArgs());
 
-            AS_Loop_Counter++;
+                ASshutDownAsync();
+
+                if (!stayHot.Checked)
+                {
+                    TempOffButton_Click(sender, new EventArgs());
+                }
+
+                stopWatch.Stop();
+                AS_Timer.Stop();
+
+            }
+
+        }
+
+        private async Task ASshutDownAsync()
+        {
+            await Task.Delay(1000);
+            plotting = false;
+            AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
+            AS_INDICATOR.BackColor = Color.Red;
         }
 
         private void valveExtract_Click(object sender, EventArgs e)
