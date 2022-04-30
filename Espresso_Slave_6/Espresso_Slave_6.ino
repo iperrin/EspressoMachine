@@ -18,14 +18,22 @@
 int motorSpeedLookup[] = {0, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16, 16, 17, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 23, 24, 24, 25, 25, 26, 26, 26, 27, 27, 28, 28, 28, 29, 29, 29, 30, 30, 30, 31, 31, 31, 32, 32, 32, 32, 33, 33, 33, 34, 34, 34, 34, 35, 35, 35, 36, 36, 36, 36, 37, 37, 37, 37, 38, 38, 38, 38, 39, 39, 39, 39, 40, 40, 40, 40, 40, 41, 41, 41, 41, 42, 42, 42, 42, 43, 43, 43, 43, 44, 44, 44, 44, 45, 45, 45, 45, 45, 46, 46, 46, 46, 47, 47, 47, 47, 48, 48, 48};
 
 //Weight system setup - weight tracking variable and initialize sensor on DAC
-movingAvg filteredTemp_0(25);
-movingAvg filteredTemp_1(25);
 movingAvg filteredPressure(25);
 
 //weight averaging and filtering scheme
 #define weightAveragingSize 10
 int weightData[weightAveragingSize];
 int weightAveragingIndex = 1;
+
+//rtd0 averaging and filtering scheme
+#define rtd0AveragingSize 30
+int rtd0Data[rtd0AveragingSize];
+int rtd0AveragingIndex = 1;
+
+//rtd1 averaging and filtering scheme
+#define rtd1AveragingSize 10
+int rtd1Data[rtd1AveragingSize];
+int rtd1AveragingIndex = 1;
 
 //Set temp SPI CS pin
 const int CS_0_PIN = 9;
@@ -38,7 +46,6 @@ HX711 scale;
 float calibration_factor = 5030;
 #define Scale_DOUT 7
 #define Scale_CLK 8
-boolean previousDataErrorFlag = false;
 
 //PT100 reference resistors
 #define ref_res_0 430
@@ -71,7 +78,7 @@ double main_heater_PID_Output = 0;
 
 //AutoPID PIDNAME(&[Measure], &[Target], &[Output], OUTPUT_MIN, OUTPUT_MAX, KP, KI, KD);
 AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0.01, 0.04, 0);
-AutoPID ghHeaterPID(&temp_gh, &tempSet, &gh_heater_PID_Output, 0, 1, 0.04, 0.0015, 0.001);
+AutoPID ghHeaterPID(&temp_gh, &tempSet, &gh_heater_PID_Output, 0, 1, 0.04, 0.0015, 0);
 AutoPID mainHeaterPID(&temp, &tempSet, &main_heater_PID_Output, 0, 0.5, 0.15, 0.001, 0);
 
 //Variable for tracking refresh rate
@@ -84,8 +91,6 @@ void setup() {
 
   //Serial.println("_startup");
 
-  filteredTemp_0.begin();
-  filteredTemp_1.begin();
   filteredPressure.begin();
 
   //intialize weight filtering scheme
@@ -335,7 +340,6 @@ void updateWeight() {
   weightOutput = weightOutput / (weightAveragingSize - 2);
 
   weight = weightOutput / 100;
-  previousDataErrorFlag = false;
 
 }
 
@@ -365,7 +369,7 @@ void updateHeater() {
       mainHeater_setting = 0;
       //reset PID on a high overshoot (likely due to initial haet
       mainHeaterPID.reset();
-    } else if (temp - tempSet < -5) {
+    } else if (temp - tempSet < -2) {
       mainHeater_setting = 1;
       //mainHeaterPID.reset();
     } else {
@@ -429,8 +433,27 @@ void updateTemperature_0() {
   rtd0.sample();
   float resistance = rtd0.getResistance();
   float rawTemp = ((resistance - 100) / 0.384);
-  filteredTemp_0.reading((int)(100 * rawTemp));
-  temp = (float)filteredTemp_0.getAvg() / 100;
+      
+  rtd0Data[rtd0AveragingIndex] = (int)(100 * rawTemp);
+  rtd0AveragingIndex++;
+  rtd0AveragingIndex = rtd0AveragingIndex % rtd0AveragingSize;
+
+  float rtd0Output = rtd0Data[0];
+  int minrtd0 = rtd0Data[0];
+  int maxrtd0 = rtd0Data[0];
+
+  for (int i = 1; i < rtd0AveragingSize; i++) {
+    rtd0Output += rtd0Data[i];
+    minrtd0 = min(minrtd0, rtd0Data[i]);
+    maxrtd0 = max(maxrtd0, rtd0Data[i]);
+  }
+
+  rtd0Output -= minrtd0;
+  rtd0Output -= maxrtd0;
+
+  rtd0Output = rtd0Output / (rtd0AveragingSize - 2);
+
+  temp = (float)rtd0Output / 100;
 }
 
 void updateTemperature_1() {
@@ -443,8 +466,27 @@ void updateTemperature_1() {
   rtd1.sample();
   float resistance = rtd1.getResistance();
   float rawTemp = ((resistance - 100) / 0.384);
-  filteredTemp_1.reading((int)(100 * rawTemp));
-  temp_gh = (float)filteredTemp_1.getAvg() / 100;
+      
+  rtd1Data[rtd1AveragingIndex] = (int)(100 * rawTemp);
+  rtd1AveragingIndex++;
+  rtd1AveragingIndex = rtd1AveragingIndex % rtd1AveragingSize;
+
+  float rtd1Output = rtd1Data[0];
+  int minrtd1 = rtd1Data[0];
+  int maxrtd1 = rtd1Data[0];
+
+  for (int i = 1; i < rtd1AveragingSize; i++) {
+    rtd1Output += rtd1Data[i];
+    minrtd1 = min(minrtd1, rtd1Data[i]);
+    maxrtd1 = max(maxrtd1, rtd1Data[i]);
+  }
+
+  rtd1Output -= minrtd1;
+  rtd1Output -= maxrtd1;
+
+  rtd1Output = rtd1Output / (rtd1AveragingSize - 2);
+
+  temp_gh = (float)rtd1Output / 100;
 }
 
 void updatePressure() {
