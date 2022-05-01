@@ -244,7 +244,7 @@ String readSerialString(int spots) {
 
 void updateMaster() {
 
-  //Send update string - "SPPPPPPPPTTTTTTTTGGGGGGGGWWWWWWWWFFFFFFFF\r" - " 42 characters"
+  //Send update string - "SPPPPPPPPTTTTTTTTGGGGGGGGWWWWWWWWFFFFFFFF\n" - " 42 characters"
   //S = start character "S"
   //PPPPPPPP =    (pressure+1000)*100 (with leading zeros)
   //TTTTTTTT = (temperature+1000)*100 (with leading zeros)
