@@ -18,11 +18,12 @@ namespace GUI_REV_3
 
     public partial class Form1 : Form
     {
-        public float Pressure = 2;
-        public float Temperature = 95;
-        public float Weight = 20;
-        public float slaveFrequency = 100;
-        public float GHTemperature = 95;
+        public float Pressure;
+        public float Temperature;
+        public float Weight;
+        public float slaveFrequency;
+        public float GHTemperature;
+        public float flowRate;
         public int AS_state;
         public Stopwatch stopWatch;
         
@@ -74,7 +75,7 @@ namespace GUI_REV_3
 
         public void Write2Form(String indata)
         {
-            if(indata.Length != 42 || indata[0] != 'S')
+            if(indata.Length != 50 || indata[0] != 'S')
             {
                 return;
             }
@@ -91,7 +92,10 @@ namespace GUI_REV_3
             Weight = (Convert.ToSingle(indata.Substring(25, 8)) / 100) - 1000;
             WeightValue.Text = Convert.ToString(Weight) + " g";
 
-            slaveFrequency = (Convert.ToSingle(indata.Substring(33, 8)) / 100) - 1000;
+            flowRate = (Convert.ToSingle(indata.Substring(33, 8)) / 100) - 1000;
+            flowRateValue.Text = Convert.ToString(flowRate);
+
+            slaveFrequency = (Convert.ToSingle(indata.Substring(41, 8)) / 100) - 1000;
             SlaveFrequencyValue.Text = Convert.ToString(slaveFrequency) + " Hz";
 
         }
@@ -106,6 +110,7 @@ namespace GUI_REV_3
                 TemperatureChart.Series[1].Points.AddY(GHTemperature);
                 PressureChart.Series[0].Points.AddY(Pressure);
                 WeightChart.Series[0].Points.AddY(Weight);
+                flowRateChart.Series[0].Points.AddY(flowRate);
 
                 //only clears data if the autosequence isnt active
                 if (!AS_Timer.Enabled)
@@ -129,6 +134,12 @@ namespace GUI_REV_3
                     {
                         WeightChart.Series[0].Points.RemoveAt(0);
                     }
+
+                    while (flowRateChart.Series[0].Points.Count > numberOfPlotPoints)
+                    {
+                        flowRateChart.Series[0].Points.RemoveAt(0);
+                    }
+
                 }
                 
 
@@ -139,6 +150,11 @@ namespace GUI_REV_3
                 WeightChart.ResetAutoValues();
                 WeightChart.ChartAreas[0].AxisY.Minimum = (int)(WeightChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0]-1);
                 WeightChart.ChartAreas[0].AxisY.Maximum = (int)(WeightChart.Series[0].Points.FindMaxByValue("Y1", 0).YValues[0]+1);
+
+                flowRateChart.ResetAutoValues();
+                flowRateChart.ChartAreas[0].AxisY.Minimum = (int)(flowRateChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0] - 1);
+                flowRateChart.ChartAreas[0].AxisY.Maximum = (int)(flowRateChart.Series[0].Points.FindMaxByValue("Y1", 0).YValues[0] + 1);
+
             }
 
         }
@@ -510,5 +526,6 @@ namespace GUI_REV_3
             plotting = true;
 
         }
+
     }
 }

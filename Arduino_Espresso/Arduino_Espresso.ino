@@ -25,6 +25,11 @@ movingAvg filteredPressure(25);
 int weightData[weightAveragingSize];
 int weightAveragingIndex = 1;
 
+//flowRate averaging and filtering scheme
+#define flowRateAveragingSize 10
+int flowRateData[flowRateAveragingSize];
+int flowRateAveragingIndex = 1;
+
 //rtd0 averaging and filtering scheme
 #define rtd0AveragingSize 30
 int rtd0Data[rtd0AveragingSize];
@@ -67,6 +72,7 @@ double pressure = 0;    //bars
 double temp = 0;        //celcius
 double temp_gh = 0;     //celcius
 double weight = 0;      //grams
+double flowRate = 0;
 
 // values for tracking heater state
 boolean heating = false;
@@ -150,6 +156,7 @@ void loop() {
   updateTemperature_0();
   updateTemperature_1();
   updateWeight();
+  updateFlowRate();
 
   //updateValves/hardware
   updateValves();
@@ -159,6 +166,8 @@ void loop() {
   //communications update
   updateMaster();
   checkInput();
+
+  delay(25);
 
 }
 
@@ -244,12 +253,13 @@ String readSerialString(int spots) {
 
 void updateMaster() {
 
-  //Send update string - "SPPPPPPPPTTTTTTTTGGGGGGGGWWWWWWWWFFFFFFFF\n" - " 42 characters"
+  //Send update string - "SPPPPPPPPTTTTTTTTGGGGGGGGWWWWWWWWRRRRRRRRFFFFFFFF\n" - " 50 characters"
   //S = start character "S"
   //PPPPPPPP =    (pressure+1000)*100 (with leading zeros)
   //TTTTTTTT = (temperature+1000)*100 (with leading zeros)
   //GGGGGGGG = (temperature+1000)*100 (with leading zeros)
   //WWWWWWWW =      (weight+1000)*100 (with leading zeros)
+  //RRRRRRRR =   (flow rate+1000)*100 (with leading zeros)
   //FFFFFFFF =   (frequency+1000)*100 (with leading zeros)
 
   //Initialize message
@@ -294,6 +304,16 @@ void updateMaster() {
       weightMessage = "99999999";
   }
   outputMessage = outputMessage + weightMessage;
+
+  //Add Flowrate
+  String flowMessage = String((flowRate + 1000) * 100, 0);
+  while (flowMessage.length() != 8) {
+    if (flowMessage.length() < 8)
+      flowMessage = "0" + flowMessage;
+    else
+      flowMessage = "99999999";
+  }
+  outputMessage = outputMessage + flowMessage;
 
   //calculate refresh rate
   String UpdateFrequency = "F";
@@ -341,6 +361,37 @@ void updateWeight() {
 
   weight = weightOutput / 100;
 
+}
+
+void updateFlowRate(){
+  int oldWeight = weightData[weightAveragingIndex];
+  int newWeight = weightData[(weightAveragingIndex+weightAveragingSize-1)%weightAveragingSize];
+  int rawFlow = newWeight-oldWeight;
+
+
+  flowRateData[flowRateAveragingIndex] = rawFlow;
+  flowRateAveragingIndex++;
+  flowRateAveragingIndex = flowRateAveragingIndex % flowRateAveragingSize;
+
+  float flowRateOutput = flowRateData[0];
+  int minflowRate = flowRateData[0];
+  int maxflowRate = flowRateData[0];
+
+  for (int i = 1; i < flowRateAveragingSize; i++) {
+    flowRateOutput += flowRateData[i];
+    minflowRate = min(minflowRate, flowRateData[i]);
+    maxflowRate = max(maxflowRate, flowRateData[i]);
+  }
+
+  flowRateOutput -= minflowRate;
+  flowRateOutput -= maxflowRate;
+
+  flowRateOutput = flowRateOutput / (flowRateAveragingSize - 2);
+
+  flowRate = flowRateOutput / 100;
+
+  
+  
 }
 
 
