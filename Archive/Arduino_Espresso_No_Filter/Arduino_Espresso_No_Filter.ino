@@ -14,21 +14,31 @@
 #define loopValve 5
 #define ducer A0
 
-float freq = 100;
-
 //121 elemeent lookup for pressures 0:0.1:12 (motor speed corresponding to temperature target)
 int motorSpeedLookup[] = {0, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16, 16, 17, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 23, 24, 24, 25, 25, 26, 26, 26, 27, 27, 28, 28, 28, 29, 29, 29, 30, 30, 30, 31, 31, 31, 32, 32, 32, 32, 33, 33, 33, 34, 34, 34, 34, 35, 35, 35, 36, 36, 36, 36, 37, 37, 37, 37, 38, 38, 38, 38, 39, 39, 39, 39, 40, 40, 40, 40, 40, 41, 41, 41, 41, 42, 42, 42, 42, 43, 43, 43, 43, 44, 44, 44, 44, 45, 45, 45, 45, 45, 46, 46, 46, 46, 47, 47, 47, 47, 48, 48, 48};
 
-//basic moving filters setup
-movingAvg filteredPressure(20);
-movingAvg filteredWaterTemp(40);
-movingAvg filteredGHTemp(40);
-#define flowKalman 0.04
+//Weight system setup - weight tracking variable and initialize sensor on DAC
+movingAvg filteredPressure(25);
 
-//weight history and filtering scheme using single point kalman
-#define weightAveragingSize 20
-#define weightKalman 0.05
+//weight averaging and filtering scheme
+#define weightAveragingSize 10
 int weightData[weightAveragingSize];
+int weightAveragingIndex = 1;
+
+//flowRate averaging and filtering scheme
+#define flowRateAveragingSize 10
+int flowRateData[flowRateAveragingSize];
+int flowRateAveragingIndex = 1;
+
+//rtd0 averaging and filtering scheme
+#define rtd0AveragingSize 30
+int rtd0Data[rtd0AveragingSize];
+int rtd0AveragingIndex = 1;
+
+//rtd1 averaging and filtering scheme
+#define rtd1AveragingSize 10
+int rtd1Data[rtd1AveragingSize];
+int rtd1AveragingIndex = 1;
 
 //Set temp SPI CS pin
 const int CS_0_PIN = 9;
@@ -48,6 +58,7 @@ float calibration_factor = 5030;
 
 // DAC
 Adafruit_MCP4725 dac;
+
 
 // Target values supplied over serial
 double pumpSpeed = 0.25;  //0-1 value given by
@@ -78,7 +89,6 @@ AutoPID mainHeaterPID(&temp, &tempSet, &main_heater_PID_Output, 0, 0.5, 0.15, 0.
 
 //Variable for tracking refresh rate
 long int timeSave = 0;
-boolean updateMasterNow = true;
 
 void setup() {
 
@@ -88,8 +98,6 @@ void setup() {
   //Serial.println("_startup");
 
   filteredPressure.begin();
-  filteredWaterTemp.begin();
-  filteredGHTemp.begin();
 
   //intialize weight filtering scheme
   for (int i = 0; i < weightAveragingSize; i++) {
@@ -156,15 +164,11 @@ void loop() {
   updateHeater();
 
   //communications update
+  updateMaster();
   checkInput();
-  if(updateMasterNow){
-    updateMaster();
-    updateMasterNow = false;
-  }else{
-    updateMasterNow = true;
-  }
 
 }
+
 
 void checkInput() {
   int data;
@@ -237,6 +241,14 @@ void checkInput() {
   }
 }
 
+String readSerialString(int spots) {
+  String output = "";
+  for (int i = 0; i < spots; i++)
+    if (Serial.available())
+      output = output + String((char)Serial.read());
+  return output;
+}
+
 void updateMaster() {
 
   //Send update string - "SPPPPPPPPTTTTTTTTGGGGGGGGWWWWWWWWRRRRRRRRFFFFFFFF\n" - " 50 characters"
@@ -304,7 +316,7 @@ void updateMaster() {
   //calculate refresh rate
   String UpdateFrequency = "F";
   long int timeMeasure = millis();
-  freq = 1000 / (timeMeasure - timeSave);
+  float freq = 1000 / (timeMeasure - timeSave);
 
   timeSave = timeMeasure;
 
@@ -322,50 +334,66 @@ void updateMaster() {
 
 }
 
+
 void updateWeight() {
 
-  //calculate weight using kalman scale with previous data
-  weight = weightKalman*scale.get_units()+(1-weightKalman)*weight;
-  
-  //shift weight history values and append latest value
-  for(int i = 0; i<weightAveragingSize-1; i++){
-    weightData[i] = weightData[i+1];
+  float rawData = scale.get_units();
+  weightData[weightAveragingIndex] = (int)(100 * rawData);
+  weightAveragingIndex++;
+  weightAveragingIndex = weightAveragingIndex % weightAveragingSize;
+
+  float weightOutput = weightData[0];
+  int minWeight = weightData[0];
+  int maxWeight = weightData[0];
+
+  for (int i = 1; i < weightAveragingSize; i++) {
+    weightOutput += weightData[i];
+    minWeight = min(minWeight, weightData[i]);
+    maxWeight = max(maxWeight, weightData[i]);
   }
-  weightData[weightAveragingSize-1] = (int)(100 * weight);
+
+  weightOutput -= minWeight;
+  weightOutput -= maxWeight;
+
+  weightOutput = weightOutput / (weightAveragingSize - 2);
+
+  weight = weightOutput / 100;
+
+  weight = rawData;
+
 }
 
 void updateFlowRate(){
+  int oldWeight = weightData[weightAveragingIndex];
+  int newWeight = weightData[(weightAveragingIndex+weightAveragingSize-1)%weightAveragingSize];
+  int rawFlow = newWeight-oldWeight;
 
-  //calculate flow rate by performing slope linear regression on weight set
-  float timeHistory[weightAveragingSize];
-  float weightHistory[weightAveragingSize];
 
-  float AverageTime = 0;
-  float AverageWeight = 0;
+  flowRateData[flowRateAveragingIndex] = rawFlow;
+  flowRateAveragingIndex++;
+  flowRateAveragingIndex = flowRateAveragingIndex % flowRateAveragingSize;
 
-  for(int i = 0; i<weightAveragingSize; i++){
-    weightHistory[i] = (float)weightData[i]/100;
-    timeHistory[i] = ((float)i)/(float(freq));
+  float flowRateOutput = flowRateData[0];
+  int minflowRate = flowRateData[0];
+  int maxflowRate = flowRateData[0];
 
-    AverageTime += timeHistory[i];
-    AverageWeight += weightHistory[i];
-
+  for (int i = 1; i < flowRateAveragingSize; i++) {
+    flowRateOutput += flowRateData[i];
+    minflowRate = min(minflowRate, flowRateData[i]);
+    maxflowRate = max(maxflowRate, flowRateData[i]);
   }
 
-  AverageTime = AverageTime/weightAveragingSize;
-  AverageWeight = AverageWeight/weightAveragingSize;
+  flowRateOutput -= minflowRate;
+  flowRateOutput -= maxflowRate;
 
-  float numerator = 0;
-  float denominator = 0;
-  for(int i = 0; i<weightAveragingSize; i++){
-      numerator+=(timeHistory[i]-AverageTime)*(weightHistory[i]-AverageWeight);
-      denominator+=(timeHistory[i]-AverageTime)*(timeHistory[i]-AverageTime);
-  }
-  float rawFlow = numerator/denominator;
+  flowRateOutput = flowRateOutput / (flowRateAveragingSize - 2);
 
-  flowRate = (flowKalman*rawFlow) + ((1-flowKalman)*flowRate);
+  flowRate = flowRateOutput / 100;
+
+  
   
 }
+
 
 void updateHeater() {
   //heater settting - between 0 and 1
@@ -457,9 +485,29 @@ void updateTemperature_0() {
   float resistance = rtd0.getResistance();
   float rawTemp = ((resistance - 100) / 0.384);
       
-  filteredWaterTemp.reading((int)(100 * rawTemp));
+  rtd0Data[rtd0AveragingIndex] = (int)(100 * rawTemp);
+  rtd0AveragingIndex++;
+  rtd0AveragingIndex = rtd0AveragingIndex % rtd0AveragingSize;
+
+  float rtd0Output = rtd0Data[0];
+  int minrtd0 = rtd0Data[0];
+  int maxrtd0 = rtd0Data[0];
+
+  for (int i = 1; i < rtd0AveragingSize; i++) {
+    rtd0Output += rtd0Data[i];
+    minrtd0 = min(minrtd0, rtd0Data[i]);
+    maxrtd0 = max(maxrtd0, rtd0Data[i]);
+  }
+
+  rtd0Output -= minrtd0;
+  rtd0Output -= maxrtd0;
+
+  rtd0Output = rtd0Output / (rtd0AveragingSize - 2);
+
+  temp = (float)rtd0Output / 100;
+
+  temp = rawTemp;
   
-  temp = (float)filteredWaterTemp.getAvg() / 100;
 }
 
 void updateTemperature_1() {
@@ -473,9 +521,28 @@ void updateTemperature_1() {
   float resistance = rtd1.getResistance();
   float rawTemp = ((resistance - 100) / 0.384);
       
-  filteredGHTemp.reading((int)(100*rawTemp));
+  rtd1Data[rtd1AveragingIndex] = (int)(100 * rawTemp);
+  rtd1AveragingIndex++;
+  rtd1AveragingIndex = rtd1AveragingIndex % rtd1AveragingSize;
 
-  temp_gh = (float)filteredGHTemp.getAvg() / 100;
+  float rtd1Output = rtd1Data[0];
+  int minrtd1 = rtd1Data[0];
+  int maxrtd1 = rtd1Data[0];
+
+  for (int i = 1; i < rtd1AveragingSize; i++) {
+    rtd1Output += rtd1Data[i];
+    minrtd1 = min(minrtd1, rtd1Data[i]);
+    maxrtd1 = max(maxrtd1, rtd1Data[i]);
+  }
+
+  rtd1Output -= minrtd1;
+  rtd1Output -= maxrtd1;
+
+  rtd1Output = rtd1Output / (rtd1AveragingSize - 2);
+
+  temp_gh = (float)rtd1Output / 100;
+  
+  temp_gh = rawTemp;
 }
 
 void updatePressure() {
@@ -491,13 +558,6 @@ void updatePressure() {
 
   filteredPressure.reading((int)(100 * rawPressure));
   pressure = (float)filteredPressure.getAvg() / 100;
-
-}
-
-String readSerialString(int spots) {
-  String output = "";
-  for (int i = 0; i < spots; i++)
-    if (Serial.available())
-      output = output + String((char)Serial.read());
-  return output;
+  
+  pressure = rawPressure;
 }

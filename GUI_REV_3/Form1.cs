@@ -79,7 +79,9 @@ namespace GUI_REV_3
             {
                 return;
             }
-            
+
+            Console.WriteLine(indata);
+
             Pressure = (Convert.ToSingle(indata.Substring(1,8))/100)-1000;
             PressureValue.Text = Convert.ToString(Pressure) + " Bars";
 
@@ -251,7 +253,7 @@ namespace GUI_REV_3
 
                 SerialPort1.Write(report);
 
-                Console.WriteLine(report);
+                //Console.WriteLine(report);
 
             }
         }
@@ -521,6 +523,11 @@ namespace GUI_REV_3
             while (WeightChart.Series[0].Points.Count > 1)
             {
                 WeightChart.Series[0].Points.RemoveAt(0);
+            }
+
+            while (flowRateChart.Series[0].Points.Count > 1)
+            {
+                flowRateChart.Series[0].Points.RemoveAt(0);
             }
 
             plotting = true;
