@@ -228,6 +228,8 @@ void checkInput() {
       if (d2 == '1') {
         //clear PID constants
         pumpPID.reset();
+        ghHeaterPID.reset();
+        mainHeaterPID.reset();
 
       } else if (d2 == '2') {
         //calibrate scale

@@ -48,6 +48,8 @@
             System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.SerialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SensorsPanel = new System.Windows.Forms.Panel();
+            this.flowRateValue = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.plotClear = new System.Windows.Forms.Button();
             this.GHTemperatureValue = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -125,8 +127,6 @@
             this.AS_STOP = new System.Windows.Forms.Button();
             this.AS_START = new System.Windows.Forms.Button();
             this.AS_Timer = new System.Windows.Forms.Timer(this.components);
-            this.flowRateValue = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.flowRateChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.SensorsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeightChart)).BeginInit();
@@ -184,6 +184,29 @@
             this.SensorsPanel.Name = "SensorsPanel";
             this.SensorsPanel.Size = new System.Drawing.Size(1270, 127);
             this.SensorsPanel.TabIndex = 1;
+            // 
+            // flowRateValue
+            // 
+            this.flowRateValue.AutoSize = true;
+            this.flowRateValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowRateValue.Location = new System.Drawing.Point(449, 28);
+            this.flowRateValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.flowRateValue.Name = "flowRateValue";
+            this.flowRateValue.Size = new System.Drawing.Size(14, 15);
+            this.flowRateValue.TabIndex = 37;
+            this.flowRateValue.Text = "0";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(286, 26);
+            this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(68, 15);
+            this.label20.TabIndex = 36;
+            this.label20.Text = "Flow Rate: ";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // plotClear
             // 
@@ -1292,29 +1315,6 @@
             // 
             this.AS_Timer.Interval = 50;
             this.AS_Timer.Tick += new System.EventHandler(this.AS_Timer_Tick);
-            // 
-            // flowRateValue
-            // 
-            this.flowRateValue.AutoSize = true;
-            this.flowRateValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowRateValue.Location = new System.Drawing.Point(449, 28);
-            this.flowRateValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.flowRateValue.Name = "flowRateValue";
-            this.flowRateValue.Size = new System.Drawing.Size(14, 15);
-            this.flowRateValue.TabIndex = 37;
-            this.flowRateValue.Text = "0";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(286, 26);
-            this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(68, 15);
-            this.label20.TabIndex = 36;
-            this.label20.Text = "Flow Rate: ";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // flowRateChart
             // 

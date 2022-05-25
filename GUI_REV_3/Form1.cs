@@ -26,7 +26,8 @@ namespace GUI_REV_3
         public float flowRate;
         public int AS_state;
         public Stopwatch stopWatch;
-        
+        public Stopwatch globalTime;
+
         //Autosequence state variables
         public int AS_Loop_Counter = 0;
         public float AS_peak_press_start_time = 0;
@@ -52,7 +53,8 @@ namespace GUI_REV_3
         {
             InitializeComponent();
             SerialPortListRefresh();
-
+            globalTime = new Stopwatch();
+            globalTime.Start();
         }
 
         private void SerialPortListRefresh()
@@ -108,11 +110,13 @@ namespace GUI_REV_3
 
             if (SerialPort1.IsOpen && plotting)
             {
-                TemperatureChart.Series[0].Points.AddY(Temperature);
-                TemperatureChart.Series[1].Points.AddY(GHTemperature);
-                PressureChart.Series[0].Points.AddY(Pressure);
-                WeightChart.Series[0].Points.AddY(Weight);
-                flowRateChart.Series[0].Points.AddY(flowRate);
+                float currentTime = globalTime.ElapsedMilliseconds;
+
+                TemperatureChart.Series[0].Points.AddXY((currentTime / 1000),Temperature);
+                TemperatureChart.Series[1].Points.AddXY((currentTime / 1000),GHTemperature);
+                PressureChart.Series[0].Points.AddXY((currentTime / 1000),Pressure);
+                WeightChart.Series[0].Points.AddXY((currentTime / 1000),Weight);
+                flowRateChart.Series[0].Points.AddXY((currentTime / 1000),flowRate);
 
                 //only clears data if the autosequence isnt active
                 if (!AS_Timer.Enabled)
@@ -143,7 +147,6 @@ namespace GUI_REV_3
                     }
 
                 }
-                
 
                 TemperatureChart.ResetAutoValues();
                 TemperatureChart.ChartAreas[0].AxisY.Minimum = Math.Min(((int)TemperatureChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0]), ((int)TemperatureChart.Series[1].Points.FindMinByValue("Y1", 0).YValues[0]));
