@@ -24,7 +24,7 @@ namespace GUI_REV_3
         public float slaveFrequency;
         public float GHTemperature;
         public float flowRate;
-        public int AS_state;
+        public float AS_state;
         public Stopwatch stopWatch;
         public Stopwatch globalTime;
 
@@ -37,10 +37,10 @@ namespace GUI_REV_3
         public int loopValveState = 0;
 
         public float tempSet;
+        public float flowSet = 0;
 
-        //pumpSetting 0 = off | 1 = motor set | 2 = pressure set
+        //pumpSetting 0 = off | 1 = motor set | 2 = pressure set | 3 = flow set
         public int pumpSetting = 0;
-        public float pumpSet = 0;
 
         public Boolean heating = false;
 
@@ -112,11 +112,17 @@ namespace GUI_REV_3
             {
                 float currentTime = globalTime.ElapsedMilliseconds;
 
-                TemperatureChart.Series[0].Points.AddXY((currentTime / 1000),Temperature);
-                TemperatureChart.Series[1].Points.AddXY((currentTime / 1000),GHTemperature);
-                PressureChart.Series[0].Points.AddXY((currentTime / 1000),Pressure);
-                WeightChart.Series[0].Points.AddXY((currentTime / 1000),Weight);
-                flowRateChart.Series[0].Points.AddXY((currentTime / 1000),flowRate);
+                // TemperatureChart.Series[0].Points.AddXY((currentTime / 1000),Temperature);
+                // TemperatureChart.Series[1].Points.AddXY((currentTime / 1000),GHTemperature);
+                // PressureChart.Series[0].Points.AddXY((currentTime / 1000),Pressure);
+                // WeightChart.Series[0].Points.AddXY((currentTime / 1000),Weight);
+                // flowRateChart.Series[0].Points.AddXY((currentTime / 1000),flowRate);
+
+                TemperatureChart.Series[0].Points.AddY(Temperature);
+                TemperatureChart.Series[1].Points.AddY(GHTemperature);
+                PressureChart.Series[0].Points.AddY(Pressure);
+                WeightChart.Series[0].Points.AddY(Weight);
+                flowRateChart.Series[0].Points.AddY(flowRate);
 
                 //only clears data if the autosequence isnt active
                 if (!AS_Timer.Enabled)
@@ -182,7 +188,7 @@ namespace GUI_REV_3
                 
                 //S is start character
                 //VV are valve states 1/0 represent on/off
-                //MMMM are motor state - first character is M/P to represent demand
+                //MMMM are motor state - first character is M/P/F to represent demand
                 //TTT is the desired temperature
                 //K is termination character
 
@@ -217,24 +223,43 @@ namespace GUI_REV_3
                 }
                 else if (pumpSetting == 2)
                 {
-                    
-                    String pumpSetting = (Math.Round(PumpPressureInput.Value * 10)).ToString();
 
-                    while (pumpSetting.Length != 3)
+                    String pressSetting = (Math.Round(PumpPressureInput.Value * 10)).ToString();
+
+                    while (pressSetting.Length != 3)
                     {
-                        if (pumpSetting.Length < 3)
+                        if (pressSetting.Length < 3)
                         {
-                            pumpSetting = "0" + pumpSetting;
+                            pressSetting = "0" + pressSetting;
 
                         }
-                        else if (pumpSetting.Length > 3)
+                        else if (pressSetting.Length > 3)
                         {
-                            pumpSetting = "000";
+                            pressSetting = "000";
                         }
                     }
 
-                    report = report + "P" + pumpSetting;
+                    report = report + "P" + pressSetting;
 
+                }
+                else if (pumpSetting == 3)
+                {
+                    String FlowMessage = (Math.Round(flowSet*100)).ToString();
+
+                    while (FlowMessage.Length != 3)
+                    {
+                        if (FlowMessage.Length < 3)
+                        {
+                            FlowMessage = "0" + FlowMessage;
+
+                        }
+                        else if (FlowMessage.Length > 3)
+                        {
+                            FlowMessage = "000";
+                        }
+                    }
+
+                    report = report + "F" + FlowMessage;
                 }
                 else
                 {
@@ -261,6 +286,13 @@ namespace GUI_REV_3
             }
         }
      
+        private void startFlowLock()
+        {
+            flowSet = flowRate;
+            pumpSetting = 3;
+            PumpIndicator.Text = "FLOW LOCK";
+            PumpIndicator.BackColor = Color.Blue;
+        }
 
         private void SerialConnect_Click(object sender, EventArgs e)
         {
@@ -441,9 +473,18 @@ namespace GUI_REV_3
                 {
                     AS_state = 3;
                 }
+            }else if (AS_state == 3)
+            {
+
+                //check for flow lock conditions
+                if ((brewTime - AS_peak_press_start_time > (float)AS_PB_Duration.Value + 2) && flowLock.Checked)
+                {
+                    AS_state = (float)3.1;
+                    startFlowLock();
+                }
+
             }
 
- 
             if (AS_state == 1)
             {
                 //preinfusion

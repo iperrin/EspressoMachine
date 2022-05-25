@@ -50,18 +50,19 @@ float calibration_factor = 5030;
 Adafruit_MCP4725 dac;
 
 // Target values supplied over serial
-double pumpSpeed = 0.25;  //0-1 value given by
-double pressureSet = 0;    //target pressure -1 if using pumpSpeed
-double tempSet = 85;    //celcius
+double pumpSpeed = 0.25;    //0-1 value given by
+double pressureSet = -1;     //target pressure -1 if not using pressureSet
+double tempSet = 85;        //celcius
+double flowSet = -1;         //ml/s -1 if not using flowSet
 boolean groupState = false; //Energize group - normally closed
 boolean loopState = false;  //Energize loop  - normally open
 
 // Measured/Enacted System State
-double pressure = 0;    //bars
-double temp = 0;        //celcius
-double temp_gh = 0;     //celcius
-double weight = 0;      //grams
-double flowRate = 0;
+double pressure = 0;        //bars
+double temp = 0;            //celcius
+double temp_gh = 0;         //celcius
+double weight = 0;          //grams
+double flowRate = 0;        //ml/s
 
 // values for tracking heater state
 boolean heating = false;
@@ -70,9 +71,13 @@ boolean heating = false;
 double pump_PID_Output = 0;
 double gh_heater_PID_Output = 0;
 double main_heater_PID_Output = 0;
+double flow_PID_Output = 0;
 
+
+#define flowIntGain 0.4
 //AutoPID PIDNAME(&[Measure], &[Target], &[Output], OUTPUT_MIN, OUTPUT_MAX, KP, KI, KD);
 AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0.01, 0.04, 0);
+AutoPID flowPID(&flowRate, &flowSet, &flow_PID_Output, 0, 50, 0.1, flowIntGain, 0);
 AutoPID ghHeaterPID(&temp_gh, &tempSet, &gh_heater_PID_Output, 0, 1, 0.04, 0.0015, 0);
 AutoPID mainHeaterPID(&temp, &tempSet, &main_heater_PID_Output, 0, 0.5, 0.15, 0.001, 0);
 
@@ -136,6 +141,7 @@ void setup() {
 
   //Set timestep for PID loop
   pumpPID.setTimeStep(25);
+  flowPID.setTimeStep(25);
   ghHeaterPID.setTimeStep(25);
   mainHeaterPID.setTimeStep(25);
 
@@ -205,12 +211,21 @@ void checkInput() {
         if (pumpMode == 'M') {
 
           pressureSet = -1;
+          flowSet = -1;
           pumpSpeed = ((float)pumpValue) / 100;
 
         } else if (pumpMode == 'P') {
 
           pressureSet = (float)pumpValue / 10;
+          flowSet = -1;
 
+        } else if (pumpMode == 'F') {
+
+          if(flowSet == -1){
+            flowPID.setIntegral(((double)pumpSpeed)*(100/flowIntGain))
+          }
+          flowSet = (float)pumpValue/100
+          pressureSet = -1;
         }
 
         //process temp state
@@ -442,7 +457,16 @@ void updatePump() {
     pumpSpeed = (pumpSpeed / 100);
     pumpSpeed = pumpSpeed + pump_PID_Output / 10;
   } else {
+    pumpPID.reset();
     pumpPID.stop();
+  }
+
+  if (flowSet > 0) {
+    flowPID.run();
+    pumpSpeed = flow_PID_Output/100;
+  } else {
+    flowPID.reset();
+    flowPID.stop();
   }
 
   dac.setVoltage((int)(pumpSpeed * 4096), false);
