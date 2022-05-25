@@ -222,9 +222,9 @@ void checkInput() {
         } else if (pumpMode == 'F') {
 
           if(flowSet == -1){
-            flowPID.setIntegral(((double)pumpSpeed)*(100/flowIntGain))
+            flowPID.setIntegral(((double)pumpSpeed)*(100/flowIntGain));
           }
-          flowSet = (float)pumpValue/100
+          flowSet = (float)pumpValue/100;
           pressureSet = -1;
         }
 
