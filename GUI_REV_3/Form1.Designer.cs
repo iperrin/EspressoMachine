@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.SerialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SensorsPanel = new System.Windows.Forms.Panel();
             this.flowRateValue = new System.Windows.Forms.Label();
@@ -106,6 +106,7 @@
             this.TemperatureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.PressureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.AS_FlowLimit = new System.Windows.Forms.NumericUpDown();
             this.flowLock = new System.Windows.Forms.CheckBox();
             this.targetWeight = new System.Windows.Forms.NumericUpDown();
             this.weightShutOff = new System.Windows.Forms.CheckBox();
@@ -129,7 +130,6 @@
             this.AS_START = new System.Windows.Forms.Button();
             this.AS_Timer = new System.Windows.Forms.Timer(this.components);
             this.flowRateChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.AS_FlowLockDelay = new System.Windows.Forms.NumericUpDown();
             this.SensorsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeightChart)).BeginInit();
             this.panel1.SuspendLayout();
@@ -143,6 +143,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TemperatureChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PressureChart)).BeginInit();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_FlowLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.targetWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_PF_SPEED)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_RD_PRESSURE)).BeginInit();
@@ -151,7 +152,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.AS_BREW_PRESSURE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_PF_DURATION)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flowRateChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AS_FlowLockDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // SerialPort1
@@ -401,27 +401,27 @@
             // WeightChart
             // 
             this.WeightChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea1.Name = "ChartArea1";
-            this.WeightChart.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.WeightChart.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.WeightChart.ChartAreas.Add(chartArea5);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.WeightChart.Legends.Add(legend5);
             this.WeightChart.Location = new System.Drawing.Point(16, 1674);
             this.WeightChart.Margin = new System.Windows.Forms.Padding(6);
             this.WeightChart.Name = "WeightChart";
             this.WeightChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.Name = "Weight";
-            this.WeightChart.Series.Add(series1);
+            series6.BorderWidth = 3;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series6.Legend = "Legend1";
+            series6.Name = "Weight";
+            this.WeightChart.Series.Add(series6);
             this.WeightChart.Size = new System.Drawing.Size(1261, 478);
             this.WeightChart.TabIndex = 2;
             this.WeightChart.Text = "WeightChart";
-            title1.Name = "Title1";
-            title1.Text = "Weight";
-            this.WeightChart.Titles.Add(title1);
+            title5.Name = "Title1";
+            title5.Text = "Weight";
+            this.WeightChart.Titles.Add(title5);
             // 
             // panel1
             // 
@@ -897,64 +897,64 @@
             // TemperatureChart
             // 
             this.TemperatureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea2.Name = "ChartArea1";
-            this.TemperatureChart.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.TemperatureChart.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.TemperatureChart.ChartAreas.Add(chartArea6);
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.TemperatureChart.Legends.Add(legend6);
             this.TemperatureChart.Location = new System.Drawing.Point(16, 1283);
             this.TemperatureChart.Margin = new System.Windows.Forms.Padding(6);
             this.TemperatureChart.Name = "TemperatureChart";
             this.TemperatureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Legend = "Legend1";
-            series2.Name = "Temperature";
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.EmptyPointStyle.BorderWidth = 3;
-            series3.Legend = "Legend1";
-            series3.Name = "Temperature_GH";
-            this.TemperatureChart.Series.Add(series2);
-            this.TemperatureChart.Series.Add(series3);
+            series7.BorderWidth = 3;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series7.Legend = "Legend1";
+            series7.Name = "Temperature";
+            series8.BorderWidth = 3;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series8.EmptyPointStyle.BorderWidth = 3;
+            series8.Legend = "Legend1";
+            series8.Name = "Temperature_GH";
+            this.TemperatureChart.Series.Add(series7);
+            this.TemperatureChart.Series.Add(series8);
             this.TemperatureChart.Size = new System.Drawing.Size(1261, 364);
             this.TemperatureChart.TabIndex = 17;
             this.TemperatureChart.Text = "chart1";
-            title2.Name = "Title1";
-            title2.Text = "Temperature";
-            this.TemperatureChart.Titles.Add(title2);
+            title6.Name = "Title1";
+            title6.Text = "Temperature";
+            this.TemperatureChart.Titles.Add(title6);
             // 
             // PressureChart
             // 
             this.PressureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea3.Name = "ChartArea1";
-            this.PressureChart.ChartAreas.Add(chartArea3);
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.PressureChart.Legends.Add(legend3);
+            chartArea7.Name = "ChartArea1";
+            this.PressureChart.ChartAreas.Add(chartArea7);
+            legend7.Enabled = false;
+            legend7.Name = "Legend1";
+            this.PressureChart.Legends.Add(legend7);
             this.PressureChart.Location = new System.Drawing.Point(20, 676);
             this.PressureChart.Margin = new System.Windows.Forms.Padding(6);
             this.PressureChart.Name = "PressureChart";
             this.PressureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series4.BorderWidth = 3;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Legend = "Legend1";
-            series4.Name = "Pressure";
-            this.PressureChart.Series.Add(series4);
+            series9.BorderWidth = 3;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series9.Legend = "Legend1";
+            series9.Name = "Pressure";
+            this.PressureChart.Series.Add(series9);
             this.PressureChart.Size = new System.Drawing.Size(1261, 296);
             this.PressureChart.TabIndex = 18;
             this.PressureChart.Text = "PressureChart";
-            title3.Name = "Title1";
-            title3.Text = "Pressure";
-            this.PressureChart.Titles.Add(title3);
+            title7.Name = "Title1";
+            title7.Text = "Pressure";
+            this.PressureChart.Titles.Add(title7);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.AS_FlowLockDelay);
+            this.panel6.Controls.Add(this.AS_FlowLimit);
             this.panel6.Controls.Add(this.flowLock);
             this.panel6.Controls.Add(this.targetWeight);
             this.panel6.Controls.Add(this.weightShutOff);
@@ -982,17 +982,46 @@
             this.panel6.Size = new System.Drawing.Size(400, 507);
             this.panel6.TabIndex = 38;
             // 
+            // AS_FlowLimit
+            // 
+            this.AS_FlowLimit.DecimalPlaces = 1;
+            this.AS_FlowLimit.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.AS_FlowLimit.Location = new System.Drawing.Point(253, 312);
+            this.AS_FlowLimit.Margin = new System.Windows.Forms.Padding(6);
+            this.AS_FlowLimit.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.AS_FlowLimit.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.AS_FlowLimit.Name = "AS_FlowLimit";
+            this.AS_FlowLimit.Size = new System.Drawing.Size(92, 29);
+            this.AS_FlowLimit.TabIndex = 55;
+            this.AS_FlowLimit.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // flowLock
             // 
             this.flowLock.AutoSize = true;
             this.flowLock.Checked = true;
             this.flowLock.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.flowLock.Location = new System.Drawing.Point(23, 311);
+            this.flowLock.Location = new System.Drawing.Point(54, 311);
             this.flowLock.Margin = new System.Windows.Forms.Padding(6);
             this.flowLock.Name = "flowLock";
-            this.flowLock.Size = new System.Drawing.Size(219, 29);
+            this.flowLock.Size = new System.Drawing.Size(185, 29);
             this.flowLock.TabIndex = 54;
-            this.flowLock.Text = "RD Flow Lock Delay:";
+            this.flowLock.Text = "Flow Limit (ml/s):";
             this.flowLock.UseVisualStyleBackColor = true;
             // 
             // targetWeight
@@ -1024,12 +1053,12 @@
             this.weightShutOff.AutoSize = true;
             this.weightShutOff.Checked = true;
             this.weightShutOff.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.weightShutOff.Location = new System.Drawing.Point(24, 276);
+            this.weightShutOff.Location = new System.Drawing.Point(54, 276);
             this.weightShutOff.Margin = new System.Windows.Forms.Padding(6);
             this.weightShutOff.Name = "weightShutOff";
-            this.weightShutOff.Size = new System.Drawing.Size(173, 29);
+            this.weightShutOff.Size = new System.Drawing.Size(183, 29);
             this.weightShutOff.TabIndex = 27;
-            this.weightShutOff.Text = "Weight Shutoff:";
+            this.weightShutOff.Text = "  Weight Shutoff:";
             this.weightShutOff.UseVisualStyleBackColor = true;
             // 
             // label19
@@ -1342,56 +1371,27 @@
             // flowRateChart
             // 
             this.flowRateChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea4.Name = "ChartArea1";
-            this.flowRateChart.ChartAreas.Add(chartArea4);
-            legend4.Enabled = false;
-            legend4.Name = "Legend1";
-            this.flowRateChart.Legends.Add(legend4);
+            chartArea8.Name = "ChartArea1";
+            this.flowRateChart.ChartAreas.Add(chartArea8);
+            legend8.Enabled = false;
+            legend8.Name = "Legend1";
+            this.flowRateChart.Legends.Add(legend8);
             this.flowRateChart.Location = new System.Drawing.Point(16, 981);
             this.flowRateChart.Margin = new System.Windows.Forms.Padding(6);
             this.flowRateChart.Name = "flowRateChart";
             this.flowRateChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series5.BorderWidth = 3;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series5.Legend = "Legend1";
-            series5.Name = "Pressure";
-            this.flowRateChart.Series.Add(series5);
+            series10.BorderWidth = 3;
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series10.Legend = "Legend1";
+            series10.Name = "Pressure";
+            this.flowRateChart.Series.Add(series10);
             this.flowRateChart.Size = new System.Drawing.Size(1261, 296);
             this.flowRateChart.TabIndex = 39;
             this.flowRateChart.Text = "chart1";
-            title4.Name = "Title1";
-            title4.Text = "Flow Rate";
-            this.flowRateChart.Titles.Add(title4);
-            // 
-            // AS_FlowLockDelay
-            // 
-            this.AS_FlowLockDelay.DecimalPlaces = 1;
-            this.AS_FlowLockDelay.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            this.AS_FlowLockDelay.Location = new System.Drawing.Point(253, 310);
-            this.AS_FlowLockDelay.Margin = new System.Windows.Forms.Padding(6);
-            this.AS_FlowLockDelay.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.AS_FlowLockDelay.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.AS_FlowLockDelay.Name = "AS_FlowLockDelay";
-            this.AS_FlowLockDelay.Size = new System.Drawing.Size(92, 29);
-            this.AS_FlowLockDelay.TabIndex = 55;
-            this.AS_FlowLockDelay.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            title8.Name = "Title1";
+            title8.Text = "Flow Rate";
+            this.flowRateChart.Titles.Add(title8);
             // 
             // Form1
             // 
@@ -1427,6 +1427,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PressureChart)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_FlowLimit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.targetWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_PF_SPEED)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_RD_PRESSURE)).EndInit();
@@ -1435,7 +1436,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.AS_BREW_PRESSURE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_PF_DURATION)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flowRateChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AS_FlowLockDelay)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1525,7 +1525,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.DataVisualization.Charting.Chart flowRateChart;
         private System.Windows.Forms.CheckBox flowLock;
-        private System.Windows.Forms.NumericUpDown AS_FlowLockDelay;
+        private System.Windows.Forms.NumericUpDown AS_FlowLimit;
     }
 }
 

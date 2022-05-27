@@ -288,7 +288,7 @@ namespace GUI_REV_3
      
         private void startFlowLock()
         {
-            flowSet = flowRate;
+            flowSet = (float)AS_FlowLimit.Value;
             pumpSetting = 3;
             PumpIndicator.Text = "FLOW LOCK";
             PumpIndicator.BackColor = Color.Blue;
@@ -477,7 +477,7 @@ namespace GUI_REV_3
             {
 
                 //check for flow lock conditions
-                if ((brewTime - AS_peak_press_start_time > (float)AS_PB_Duration.Value + (float)AS_FlowLockDelay.Value) && flowLock.Checked)
+                if (flowRate >= (float)AS_FlowLimit.Value)
                 {
                     AS_state = (float)3.1;
                     startFlowLock();
