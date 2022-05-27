@@ -477,7 +477,7 @@ namespace GUI_REV_3
             {
 
                 //check for flow lock conditions
-                if ((brewTime - AS_peak_press_start_time > (float)AS_PB_Duration.Value + 2) && flowLock.Checked)
+                if ((brewTime - AS_peak_press_start_time > (float)AS_PB_Duration.Value + (float)AS_FlowLockDelay.Value) && flowLock.Checked)
                 {
                     AS_state = (float)3.1;
                     startFlowLock();

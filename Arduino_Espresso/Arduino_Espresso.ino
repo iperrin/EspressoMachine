@@ -71,14 +71,12 @@ boolean heating = false;
 double pump_PID_Output = 0;
 double gh_heater_PID_Output = 0;
 double main_heater_PID_Output = 0;
-double flow_PID_Output = 0;
 
 
 #define flowIntGain 2.4
 
 //AutoPID PIDNAME(&[Measure], &[Target], &[Output], OUTPUT_MIN, OUTPUT_MAX, KP, KI, KD);
 AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0.01, 0.04, 0);
-AutoPID flowPID(&flowRate, &flowSet, &flow_PID_Output, 0, 50, 0.5 , flowIntGain, 0);
 AutoPID ghHeaterPID(&temp_gh, &tempSet, &gh_heater_PID_Output, 0, 1, 0.04, 0.0015, 0);
 AutoPID mainHeaterPID(&temp, &tempSet, &main_heater_PID_Output, 0, 0.5, 0.15, 0.001, 0);
 
@@ -142,7 +140,6 @@ void setup() {
 
   //Set timestep for PID loop
   pumpPID.setTimeStep(25);
-  flowPID.setTimeStep(25);
   ghHeaterPID.setTimeStep(25);
   mainHeaterPID.setTimeStep(25);
 
@@ -460,17 +457,15 @@ void updatePump() {
   }
 
   if (flowSet > 0) {
-    if(flowPID.isStopped()){
-      flowPID.run();
-      flowPID.setIntegral(((double)pumpSpeed)*(100/flowIntGain));
-    }
-    flowPID.run();
-    pumpSpeed = flow_PID_Output/100;
-  } else {
-    flowPID.reset();
-    flowPID.stop();
-  }
 
+    double FlowError = flowRate-flowSet;
+    double flowCorrectionGain = 0.004;
+    double minPumpSetting = 0.15;
+    double maxPumpSetting = 0.40;
+
+    pumpSpeed = max(min((pumpSpeed-(FlowError*flowCorrectionGain)),maxPumpSetting),minPumpSetting);
+  }
+  
   dac.setVoltage((int)(pumpSpeed * 4096), false);
 }
 

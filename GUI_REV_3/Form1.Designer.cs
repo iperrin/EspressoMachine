@@ -129,6 +129,7 @@
             this.AS_START = new System.Windows.Forms.Button();
             this.AS_Timer = new System.Windows.Forms.Timer(this.components);
             this.flowRateChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.AS_FlowLockDelay = new System.Windows.Forms.NumericUpDown();
             this.SensorsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeightChart)).BeginInit();
             this.panel1.SuspendLayout();
@@ -150,6 +151,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AS_BREW_PRESSURE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_PF_DURATION)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flowRateChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_FlowLockDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // SerialPort1
@@ -431,7 +433,7 @@
             this.panel1.Location = new System.Drawing.Point(16, 157);
             this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(864, 486);
+            this.panel1.Size = new System.Drawing.Size(864, 507);
             this.panel1.TabIndex = 16;
             // 
             // panel3
@@ -952,6 +954,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.AS_FlowLockDelay);
             this.panel6.Controls.Add(this.flowLock);
             this.panel6.Controls.Add(this.targetWeight);
             this.panel6.Controls.Add(this.weightShutOff);
@@ -976,7 +979,7 @@
             this.panel6.Location = new System.Drawing.Point(882, 157);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(400, 486);
+            this.panel6.Size = new System.Drawing.Size(400, 507);
             this.panel6.TabIndex = 38;
             // 
             // flowLock
@@ -984,12 +987,12 @@
             this.flowLock.AutoSize = true;
             this.flowLock.Checked = true;
             this.flowLock.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.flowLock.Location = new System.Drawing.Point(63, 310);
+            this.flowLock.Location = new System.Drawing.Point(23, 311);
             this.flowLock.Margin = new System.Windows.Forms.Padding(6);
             this.flowLock.Name = "flowLock";
-            this.flowLock.Size = new System.Drawing.Size(126, 29);
+            this.flowLock.Size = new System.Drawing.Size(219, 29);
             this.flowLock.TabIndex = 54;
-            this.flowLock.Text = "Flow Lock";
+            this.flowLock.Text = "RD Flow Lock Delay:";
             this.flowLock.UseVisualStyleBackColor = true;
             // 
             // targetWeight
@@ -1000,7 +1003,7 @@
             0,
             0,
             65536});
-            this.targetWeight.Location = new System.Drawing.Point(253, 275);
+            this.targetWeight.Location = new System.Drawing.Point(253, 274);
             this.targetWeight.Margin = new System.Windows.Forms.Padding(6);
             this.targetWeight.Maximum = new decimal(new int[] {
             50,
@@ -1021,7 +1024,7 @@
             this.weightShutOff.AutoSize = true;
             this.weightShutOff.Checked = true;
             this.weightShutOff.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.weightShutOff.Location = new System.Drawing.Point(64, 277);
+            this.weightShutOff.Location = new System.Drawing.Point(24, 276);
             this.weightShutOff.Margin = new System.Windows.Forms.Padding(6);
             this.weightShutOff.Name = "weightShutOff";
             this.weightShutOff.Size = new System.Drawing.Size(173, 29);
@@ -1069,7 +1072,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(64, 374);
+            this.label17.Location = new System.Drawing.Point(64, 393);
             this.label17.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(119, 25);
@@ -1080,7 +1083,7 @@
             // AS_TIMER_DISPLAY
             // 
             this.AS_TIMER_DISPLAY.AutoSize = true;
-            this.AS_TIMER_DISPLAY.Location = new System.Drawing.Point(211, 374);
+            this.AS_TIMER_DISPLAY.Location = new System.Drawing.Point(211, 393);
             this.AS_TIMER_DISPLAY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AS_TIMER_DISPLAY.Name = "AS_TIMER_DISPLAY";
             this.AS_TIMER_DISPLAY.Size = new System.Drawing.Size(23, 25);
@@ -1199,7 +1202,7 @@
             this.AS_INDICATOR.BackColor = System.Drawing.Color.Red;
             this.AS_INDICATOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AS_INDICATOR.ForeColor = System.Drawing.Color.White;
-            this.AS_INDICATOR.Location = new System.Drawing.Point(59, 345);
+            this.AS_INDICATOR.Location = new System.Drawing.Point(55, 365);
             this.AS_INDICATOR.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.AS_INDICATOR.Name = "AS_INDICATOR";
             this.AS_INDICATOR.Size = new System.Drawing.Size(258, 25);
@@ -1310,7 +1313,7 @@
             // AS_STOP
             // 
             this.AS_STOP.BackColor = System.Drawing.Color.LightCoral;
-            this.AS_STOP.Location = new System.Drawing.Point(197, 402);
+            this.AS_STOP.Location = new System.Drawing.Point(197, 420);
             this.AS_STOP.Margin = new System.Windows.Forms.Padding(6);
             this.AS_STOP.Name = "AS_STOP";
             this.AS_STOP.Size = new System.Drawing.Size(161, 66);
@@ -1322,7 +1325,7 @@
             // AS_START
             // 
             this.AS_START.BackColor = System.Drawing.Color.LightGreen;
-            this.AS_START.Location = new System.Drawing.Point(22, 402);
+            this.AS_START.Location = new System.Drawing.Point(22, 421);
             this.AS_START.Margin = new System.Windows.Forms.Padding(6);
             this.AS_START.Name = "AS_START";
             this.AS_START.Size = new System.Drawing.Size(161, 66);
@@ -1360,6 +1363,35 @@
             title4.Name = "Title1";
             title4.Text = "Flow Rate";
             this.flowRateChart.Titles.Add(title4);
+            // 
+            // AS_FlowLockDelay
+            // 
+            this.AS_FlowLockDelay.DecimalPlaces = 1;
+            this.AS_FlowLockDelay.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.AS_FlowLockDelay.Location = new System.Drawing.Point(253, 310);
+            this.AS_FlowLockDelay.Margin = new System.Windows.Forms.Padding(6);
+            this.AS_FlowLockDelay.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AS_FlowLockDelay.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.AS_FlowLockDelay.Name = "AS_FlowLockDelay";
+            this.AS_FlowLockDelay.Size = new System.Drawing.Size(92, 29);
+            this.AS_FlowLockDelay.TabIndex = 55;
+            this.AS_FlowLockDelay.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // Form1
             // 
@@ -1403,6 +1435,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AS_BREW_PRESSURE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_PF_DURATION)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flowRateChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AS_FlowLockDelay)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1492,6 +1525,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.DataVisualization.Charting.Chart flowRateChart;
         private System.Windows.Forms.CheckBox flowLock;
+        private System.Windows.Forms.NumericUpDown AS_FlowLockDelay;
     }
 }
 
