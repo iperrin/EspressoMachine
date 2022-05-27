@@ -74,11 +74,11 @@ double main_heater_PID_Output = 0;
 double flow_PID_Output = 0;
 
 
-#define flowIntGain 1.2
+#define flowIntGain 2.4
 
 //AutoPID PIDNAME(&[Measure], &[Target], &[Output], OUTPUT_MIN, OUTPUT_MAX, KP, KI, KD);
 AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0.01, 0.04, 0);
-AutoPID flowPID(&flowRate, &flowSet, &flow_PID_Output, 0, 50, 0.3, flowIntGain, 0);
+AutoPID flowPID(&flowRate, &flowSet, &flow_PID_Output, 0, 50, 0.5 , flowIntGain, 0);
 AutoPID ghHeaterPID(&temp_gh, &tempSet, &gh_heater_PID_Output, 0, 1, 0.04, 0.0015, 0);
 AutoPID mainHeaterPID(&temp, &tempSet, &main_heater_PID_Output, 0, 0.5, 0.15, 0.001, 0);
 
