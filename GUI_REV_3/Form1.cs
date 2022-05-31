@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.IO.Ports;
 using System.Diagnostics;
+using System.Media;
 
 
 
@@ -411,6 +412,12 @@ namespace GUI_REV_3
         {
             AS_Timer.Start();
             AS_state = 0;
+
+            string directory = AppDomain.CurrentDomain.BaseDirectory;
+
+            SoundPlayer engage = new SoundPlayer(directory+"/engage.wav");
+            engage.Play();
+
         }
 
         private async void AS_STOP_Click(object sender, EventArgs e)
