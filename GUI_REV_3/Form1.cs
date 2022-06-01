@@ -462,7 +462,7 @@ namespace GUI_REV_3
             //check for weight target
             if (weightShutOff.Checked)
             {
-                if (Weight > ((float)targetWeight.Value - 0.5))
+                if (Weight > ((float)targetWeight.Value - 0.5) && AS_state < 4)
                 {
                     AS_STOP_Click(e, new EventArgs());
                 }
