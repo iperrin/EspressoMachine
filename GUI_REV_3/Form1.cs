@@ -420,10 +420,13 @@ namespace GUI_REV_3
 
         }
 
-        private async void AS_STOP_Click(object sender, EventArgs e)
+        private void AS_STOP_Click(object sender, EventArgs e)
         {
             AS_state = 4;
 
+            string directory = AppDomain.CurrentDomain.BaseDirectory;
+            SoundPlayer stop = new SoundPlayer(directory + "/shutUpWesley.wav");
+            stop.Play();
         }
 
         private void AS_Timer_Tick(object sender, EventArgs e)
@@ -461,7 +464,7 @@ namespace GUI_REV_3
             {
                 if (Weight > ((float)targetWeight.Value - 0.5))
                 {
-                    AS_state = 4;
+                    AS_STOP_Click(e, new EventArgs());
                 }
             }
 
@@ -519,10 +522,6 @@ namespace GUI_REV_3
             else if (AS_state == 4)
             {
                 //shutting off
-
-                string directory = AppDomain.CurrentDomain.BaseDirectory;
-                SoundPlayer stop = new SoundPlayer(directory + "/shutUpWesley.wav");
-                stop.Play();
 
                 AS_INDICATOR.Text = "STOPPING";
                 AS_INDICATOR.BackColor = Color.Red;
