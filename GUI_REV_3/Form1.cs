@@ -424,6 +424,10 @@ namespace GUI_REV_3
         {
             AS_state = 4;
 
+            string directory = AppDomain.CurrentDomain.BaseDirectory;
+
+            SoundPlayer stop = new SoundPlayer(directory + "/shutUpWesley.wav");
+            stop.Play();
         }
 
         private void AS_Timer_Tick(object sender, EventArgs e)
