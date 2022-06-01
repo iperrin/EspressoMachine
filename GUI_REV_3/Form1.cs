@@ -424,10 +424,6 @@ namespace GUI_REV_3
         {
             AS_state = 4;
 
-            string directory = AppDomain.CurrentDomain.BaseDirectory;
-
-            SoundPlayer stop = new SoundPlayer(directory + "/shutUpWesley.wav");
-            stop.Play();
         }
 
         private void AS_Timer_Tick(object sender, EventArgs e)
@@ -523,6 +519,11 @@ namespace GUI_REV_3
             else if (AS_state == 4)
             {
                 //shutting off
+
+                string directory = AppDomain.CurrentDomain.BaseDirectory;
+                SoundPlayer stop = new SoundPlayer(directory + "/shutUpWesley.wav");
+                stop.Play();
+
                 AS_INDICATOR.Text = "STOPPING";
                 AS_INDICATOR.BackColor = Color.Red;
                 pumpIdle_Click(sender, new EventArgs());
