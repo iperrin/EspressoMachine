@@ -119,7 +119,7 @@ namespace GUI_REV_3
         {
             int numberOfPlotPoints = 300;
 
-            if (plotting && SerialPort1.IsOpen)
+            if (plotting)
             {
                 float currentTime = globalTime.ElapsedMilliseconds;
                 float timeIncrease = currentTime - lastCycleTime;
@@ -223,15 +223,15 @@ namespace GUI_REV_3
                 flowRateChart.ChartAreas[0].AxisY.Minimum = (int)(flowRateChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0] - 1);
                 flowRateChart.ChartAreas[0].AxisY.Maximum = (int)(flowRateChart.Series[0].Points.FindMaxByValue("Y1", 0).YValues[0] + 1);
 
-                TemperatureChart.ChartAreas[0].AxisY.Minimum = 0;
-                PressureChart.ChartAreas[0].AxisY.Minimum = 0;
-                WeightChart.ChartAreas[0].AxisY.Minimum = 0;
-                flowRateChart.ChartAreas[0].AxisY.Minimum = 0;
+                TemperatureChart.ChartAreas[0].AxisX.Minimum = 0;
+                PressureChart.ChartAreas[0].AxisX.Minimum = 0;
+                WeightChart.ChartAreas[0].AxisX.Minimum = 0;
+                flowRateChart.ChartAreas[0].AxisX.Minimum = 0;
 
-                TemperatureChart.ChartAreas[0].AxisY.Maximum = maxTime;
-                PressureChart.ChartAreas[0].AxisY.Maximum = maxTime;
-                WeightChart.ChartAreas[0].AxisY.Maximum = maxTime;
-                flowRateChart.ChartAreas[0].AxisY.Maximum = maxTime;
+                TemperatureChart.ChartAreas[0].AxisX.Maximum = maxTime;
+                PressureChart.ChartAreas[0].AxisX.Maximum = maxTime;
+                WeightChart.ChartAreas[0].AxisX.Maximum = maxTime;
+                flowRateChart.ChartAreas[0].AxisX.Maximum = maxTime;
 
             }
 
