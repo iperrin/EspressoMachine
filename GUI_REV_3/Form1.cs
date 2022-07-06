@@ -207,7 +207,7 @@ namespace GUI_REV_3
 
                 //}
 
-                int maxTime = (int)(timeHistory[timeHistory.Count() - 1]+1);
+                int maxTime = (int)(timeHistory[0]+1);
 
                 TemperatureChart.ResetAutoValues();
                 TemperatureChart.ChartAreas[0].AxisY.Minimum = Math.Min(((int)TemperatureChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0]), ((int)TemperatureChart.Series[1].Points.FindMinByValue("Y1", 0).YValues[0]));
