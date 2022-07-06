@@ -119,14 +119,17 @@ namespace GUI_REV_3
         {
             int numberOfPlotPoints = 300;
 
-            if (SerialPort1.IsOpen && plotting)
+            if (plotting && SerialPort1.IsOpen)
             {
                 float currentTime = globalTime.ElapsedMilliseconds;
                 float timeIncrease = currentTime - lastCycleTime;
                 lastCycleTime = currentTime;
 
-                timeHistory = timeHistory.Select(x => x+timeIncrease).ToList();
+                timeHistory = timeHistory.Select(x => x+(timeIncrease/1000)).ToList();
                 timeHistory.Insert(0, lastCycleTime);
+
+                Console.WriteLine(timeHistory.ToString());
+
 
                 tempHistory.Insert(0,Temperature);
                 ghTempHistory.Insert(0,GHTemperature);
@@ -159,13 +162,16 @@ namespace GUI_REV_3
                 WeightChart.Series[0].Points.Clear();
                 flowRateChart.Series[0].Points.Clear();
 
-                TemperatureChart.Series[0].Points.AddXY(timeHistory, tempHistory);
-                TemperatureChart.Series[1].Points.AddXY(timeHistory, ghTempHistory);
-                PressureChart.Series[0].Points.AddXY(timeHistory, pressureHistory);
-                WeightChart.Series[0].Points.AddXY(timeHistory, weightHistory);
-                flowRateChart.Series[0].Points.AddXY(timeHistory, flowRateHistory);
+                for(int i = 0; i < timeHistory.Count(); i++)
+                {
+                    TemperatureChart.Series[0].Points.AddXY(timeHistory[i], tempHistory[i]);
+                    TemperatureChart.Series[1].Points.AddXY(timeHistory[i], ghTempHistory[i]);
+                    PressureChart.Series[0].Points.AddXY(timeHistory[i], pressureHistory[i]);
+                    WeightChart.Series[0].Points.AddXY(timeHistory[i], weightHistory[i]);
+                    flowRateChart.Series[0].Points.AddXY(timeHistory[i], flowRateHistory[i]);
+                }
 
-                //TemperatureChart.Series[0].Points.AddXY(Temperature);
+                //TemperatureChart.Series[0].Points.AddY(Temperature);
                 //TemperatureChart.Series[1].Points.AddY(GHTemperature);
                 //PressureChart.Series[0].Points.AddY(Pressure);
                 //WeightChart.Series[0].Points.AddY(Weight);
