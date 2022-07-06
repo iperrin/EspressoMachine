@@ -26,8 +26,18 @@ namespace GUI_REV_3
         public float GHTemperature;
         public float flowRate;
         public float AS_state;
+
+        public float lastCycleTime = 0;
+
         public Stopwatch stopWatch;
         public Stopwatch globalTime;
+
+        public List<float> tempHistory = new List<float>();
+        public List<float> ghTempHistory = new List<float>();
+        public List<float> pressureHistory = new List<float>();
+        public List<float> weightHistory = new List<float>();
+        public List<float> flowRateHistory = new List<float>();
+        public List<float> timeHistory = new List<float>();
 
         //Autosequence state variables
         public int AS_Loop_Counter = 0;
@@ -112,48 +122,84 @@ namespace GUI_REV_3
             if (SerialPort1.IsOpen && plotting)
             {
                 float currentTime = globalTime.ElapsedMilliseconds;
+                float timeIncrease = currentTime - lastCycleTime;
+                lastCycleTime = currentTime;
 
-                // TemperatureChart.Series[0].Points.AddXY((currentTime / 1000),Temperature);
-                // TemperatureChart.Series[1].Points.AddXY((currentTime / 1000),GHTemperature);
-                // PressureChart.Series[0].Points.AddXY((currentTime / 1000),Pressure);
-                // WeightChart.Series[0].Points.AddXY((currentTime / 1000),Weight);
-                // flowRateChart.Series[0].Points.AddXY((currentTime / 1000),flowRate);
+                timeHistory = timeHistory.Select(x => x+timeIncrease).ToList();
+                timeHistory.Insert(0, lastCycleTime);
 
-                TemperatureChart.Series[0].Points.AddY(Temperature);
-                TemperatureChart.Series[1].Points.AddY(GHTemperature);
-                PressureChart.Series[0].Points.AddY(Pressure);
-                WeightChart.Series[0].Points.AddY(Weight);
-                flowRateChart.Series[0].Points.AddY(flowRate);
+                tempHistory.Insert(0,Temperature);
+                ghTempHistory.Insert(0,GHTemperature);
+                pressureHistory.Insert(0,Pressure);
+                weightHistory.Insert(0,Weight);
+                flowRateHistory.Insert(0, flowRate);
 
                 //only clears data if the autosequence isnt active
                 if (!AS_Timer.Enabled)
                 {
-                    while (TemperatureChart.Series[0].Points.Count > numberOfPlotPoints)
+                    int length = timeHistory.Count;
+                    
+                    while(length > numberOfPlotPoints)
                     {
-                        TemperatureChart.Series[0].Points.RemoveAt(0);
-                    }
+                        timeHistory.RemoveAt(length - 1);
+                        tempHistory.RemoveAt(length - 1);
+                        ghTempHistory.RemoveAt(length - 1);
+                        pressureHistory.RemoveAt(length - 1);
+                        weightHistory.RemoveAt(length - 1);
+                        flowRateHistory.RemoveAt(length - 1);
 
-                    while (TemperatureChart.Series[1].Points.Count > numberOfPlotPoints)
-                    {
-                        TemperatureChart.Series[1].Points.RemoveAt(0);
-                    }
-
-                    while (PressureChart.Series[0].Points.Count > numberOfPlotPoints)
-                    {
-                        PressureChart.Series[0].Points.RemoveAt(0);
-                    }
-
-                    while (WeightChart.Series[0].Points.Count > numberOfPlotPoints)
-                    {
-                        WeightChart.Series[0].Points.RemoveAt(0);
-                    }
-
-                    while (flowRateChart.Series[0].Points.Count > numberOfPlotPoints)
-                    {
-                        flowRateChart.Series[0].Points.RemoveAt(0);
+                        length = timeHistory.Count;
                     }
 
                 }
+
+                TemperatureChart.Series[0].Points.Clear();
+                TemperatureChart.Series[1].Points.Clear();
+                PressureChart.Series[0].Points.Clear();
+                WeightChart.Series[0].Points.Clear();
+                flowRateChart.Series[0].Points.Clear();
+
+                TemperatureChart.Series[0].Points.AddXY(timeHistory, tempHistory);
+                TemperatureChart.Series[1].Points.AddXY(timeHistory, ghTempHistory);
+                PressureChart.Series[0].Points.AddXY(timeHistory, pressureHistory);
+                WeightChart.Series[0].Points.AddXY(timeHistory, weightHistory);
+                flowRateChart.Series[0].Points.AddXY(timeHistory, flowRateHistory);
+
+                //TemperatureChart.Series[0].Points.AddXY(Temperature);
+                //TemperatureChart.Series[1].Points.AddY(GHTemperature);
+                //PressureChart.Series[0].Points.AddY(Pressure);
+                //WeightChart.Series[0].Points.AddY(Weight);
+                //flowRateChart.Series[0].Points.AddY(flowRate);
+
+                ////only clears data if the autosequence isnt active
+                //if (!AS_Timer.Enabled)
+                //{
+                //    while (TemperatureChart.Series[0].Points.Count > numberOfPlotPoints)
+                //    {
+                //        TemperatureChart.Series[0].Points.RemoveAt(0);
+                //    }
+
+                //    while (TemperatureChart.Series[1].Points.Count > numberOfPlotPoints)
+                //    {
+                //        TemperatureChart.Series[1].Points.RemoveAt(0);
+                //    }
+
+                //    while (PressureChart.Series[0].Points.Count > numberOfPlotPoints)
+                //    {
+                //        PressureChart.Series[0].Points.RemoveAt(0);
+                //    }
+
+                //    while (WeightChart.Series[0].Points.Count > numberOfPlotPoints)
+                //    {
+                //        WeightChart.Series[0].Points.RemoveAt(0);
+                //    }
+
+                //    while (flowRateChart.Series[0].Points.Count > numberOfPlotPoints)
+                //    {
+                //        flowRateChart.Series[0].Points.RemoveAt(0);
+                //    }
+
+                //}
 
                 TemperatureChart.ResetAutoValues();
                 TemperatureChart.ChartAreas[0].AxisY.Minimum = Math.Min(((int)TemperatureChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0]), ((int)TemperatureChart.Series[1].Points.FindMinByValue("Y1", 0).YValues[0]));
@@ -413,6 +459,8 @@ namespace GUI_REV_3
             AS_Timer.Start();
             AS_state = 0;
 
+            ZeroScale_Click(sender, new EventArgs());
+
             string directory = AppDomain.CurrentDomain.BaseDirectory;
 
             SoundPlayer engage = new SoundPlayer(directory+"/engage.wav");
@@ -445,7 +493,6 @@ namespace GUI_REV_3
                 stopWatch = new Stopwatch();
                 stopWatch.Start();
                 plotClear_Click(sender, new EventArgs());
-                ZeroScale_Click(sender, new EventArgs());
                 loopClose_Click(sender, new EventArgs());
                 ghOpen_Click(sender, new EventArgs());
                 TempOnButton_Click(sender, new EventArgs());
