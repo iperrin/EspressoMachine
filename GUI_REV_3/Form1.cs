@@ -119,7 +119,7 @@ namespace GUI_REV_3
         {
             int numberOfPlotPoints = 300;
 
-            if (plotting)
+            if (plotting && SerialPort1.IsOpen)
             {
                 float currentTime = globalTime.ElapsedMilliseconds;
                 float timeIncrease = currentTime - lastCycleTime;
