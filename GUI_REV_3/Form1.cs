@@ -126,7 +126,7 @@ namespace GUI_REV_3
                 lastCycleTime = currentTime;
 
                 timeHistory = timeHistory.Select(x => x+(timeIncrease/1000)).ToList();
-                timeHistory.Insert(0, lastCycleTime);
+                timeHistory.Insert(0, 0);
 
                 Console.WriteLine(timeHistory.ToString());
 
@@ -207,10 +207,14 @@ namespace GUI_REV_3
 
                 //}
 
+                int maxTime = (int)(timeHistory[timeHistory.Count() - 1]+0.5);
+
                 TemperatureChart.ResetAutoValues();
                 TemperatureChart.ChartAreas[0].AxisY.Minimum = Math.Min(((int)TemperatureChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0]), ((int)TemperatureChart.Series[1].Points.FindMinByValue("Y1", 0).YValues[0]));
                 TemperatureChart.ChartAreas[0].AxisY.Maximum = Math.Max(((int)TemperatureChart.Series[0].Points.FindMaxByValue("Y1", 0).YValues[0]) + 1, ((int)TemperatureChart.Series[1].Points.FindMaxByValue("Y1", 0).YValues[0]) + 1);
+                
                 PressureChart.ResetAutoValues();
+                
                 WeightChart.ResetAutoValues();
                 WeightChart.ChartAreas[0].AxisY.Minimum = (int)(WeightChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0]-1);
                 WeightChart.ChartAreas[0].AxisY.Maximum = (int)(WeightChart.Series[0].Points.FindMaxByValue("Y1", 0).YValues[0]+1);
@@ -218,6 +222,16 @@ namespace GUI_REV_3
                 flowRateChart.ResetAutoValues();
                 flowRateChart.ChartAreas[0].AxisY.Minimum = (int)(flowRateChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0] - 1);
                 flowRateChart.ChartAreas[0].AxisY.Maximum = (int)(flowRateChart.Series[0].Points.FindMaxByValue("Y1", 0).YValues[0] + 1);
+
+                TemperatureChart.ChartAreas[0].AxisY.Minimum = 0;
+                PressureChart.ChartAreas[0].AxisY.Minimum = 0;
+                WeightChart.ChartAreas[0].AxisY.Minimum = 0;
+                flowRateChart.ChartAreas[0].AxisY.Minimum = 0;
+
+                TemperatureChart.ChartAreas[0].AxisY.Maximum = maxTime;
+                PressureChart.ChartAreas[0].AxisY.Maximum = maxTime;
+                WeightChart.ChartAreas[0].AxisY.Maximum = maxTime;
+                flowRateChart.ChartAreas[0].AxisY.Maximum = maxTime;
 
             }
 
@@ -613,30 +627,37 @@ namespace GUI_REV_3
 
         private void plotClear_Click(object sender, EventArgs e)
         {
-            while (TemperatureChart.Series[0].Points.Count > 1)
-            {
-                TemperatureChart.Series[0].Points.RemoveAt(0);
-            }
+            //while (TemperatureChart.Series[0].Points.Count > 1)
+            //{
+            //    TemperatureChart.Series[0].Points.RemoveAt(0);
+            //}
 
-            while (TemperatureChart.Series[1].Points.Count > 1)
-            {
-                TemperatureChart.Series[1].Points.RemoveAt(0);
-            }
+            //while (TemperatureChart.Series[1].Points.Count > 1)
+            //{
+            //    TemperatureChart.Series[1].Points.RemoveAt(0);
+            //}
 
-            while (PressureChart.Series[0].Points.Count > 1)
-            {
-                PressureChart.Series[0].Points.RemoveAt(0);
-            }
+            //while (PressureChart.Series[0].Points.Count > 1)
+            //{
+            //    PressureChart.Series[0].Points.RemoveAt(0);
+            //}
 
-            while (WeightChart.Series[0].Points.Count > 1)
-            {
-                WeightChart.Series[0].Points.RemoveAt(0);
-            }
+            //while (WeightChart.Series[0].Points.Count > 1)
+            //{
+            //    WeightChart.Series[0].Points.RemoveAt(0);
+            //}
 
-            while (flowRateChart.Series[0].Points.Count > 1)
-            {
-                flowRateChart.Series[0].Points.RemoveAt(0);
-            }
+            //while (flowRateChart.Series[0].Points.Count > 1)
+            //{
+            //    flowRateChart.Series[0].Points.RemoveAt(0);
+            //}
+
+            timeHistory.Clear();
+            tempHistory.Clear();
+            ghTempHistory.Clear();
+            pressureHistory.Clear();
+            weightHistory.Clear();
+            flowRateHistory.Clear();           
 
             plotting = true;
 
