@@ -126,7 +126,7 @@ namespace GUI_REV_3
                 lastCycleTime = currentTime;
 
                 timeHistory = timeHistory.Select(x => x+(timeIncrease/1000)).ToList();
-                timeHistory.Insert(0, 0);
+                timeHistory.Add(0);
 
                 Console.WriteLine(timeHistory.ToString());
 
@@ -144,7 +144,7 @@ namespace GUI_REV_3
                     
                     while(length > numberOfPlotPoints)
                     {
-                        timeHistory.RemoveAt(length - 1);
+                        timeHistory.RemoveAt(0);
                         tempHistory.RemoveAt(length - 1);
                         ghTempHistory.RemoveAt(length - 1);
                         pressureHistory.RemoveAt(length - 1);
@@ -207,7 +207,7 @@ namespace GUI_REV_3
 
                 //}
 
-                int maxTime = (int)(timeHistory[timeHistory.Count() - 1]+0.5);
+                int maxTime = (int)(timeHistory[timeHistory.Count() - 1]+1);
 
                 TemperatureChart.ResetAutoValues();
                 TemperatureChart.ChartAreas[0].AxisY.Minimum = Math.Min(((int)TemperatureChart.Series[0].Points.FindMinByValue("Y1", 0).YValues[0]), ((int)TemperatureChart.Series[1].Points.FindMinByValue("Y1", 0).YValues[0]));
