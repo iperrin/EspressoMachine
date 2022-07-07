@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using System.Threading;
 using System.IO.Ports;
 using System.Diagnostics;
-using System.Media;
+using System.IO;
+using System.Globalization;
 
 
 
@@ -119,7 +120,7 @@ namespace GUI_REV_3
         {
             int numberOfPlotPoints = 300;
 
-            if (plotting && SerialPort1.IsOpen)
+            if (plotting)
             {
                 float currentTime = globalTime.ElapsedMilliseconds;
                 float timeIncrease = currentTime - lastCycleTime;
@@ -481,20 +482,11 @@ namespace GUI_REV_3
 
             ZeroScale_Click(sender, new EventArgs());
 
-            string directory = AppDomain.CurrentDomain.BaseDirectory;
-
-            SoundPlayer engage = new SoundPlayer(directory+"/engage.wav");
-            engage.Play();
-
         }
 
         private void AS_STOP_Click(object sender, EventArgs e)
         {
             AS_state = 4;
-
-            string directory = AppDomain.CurrentDomain.BaseDirectory;
-            SoundPlayer stop = new SoundPlayer(directory + "/shutUpWesley.wav");
-            stop.Play();
         }
 
         private void AS_Timer_Tick(object sender, EventArgs e)
@@ -616,6 +608,7 @@ namespace GUI_REV_3
             AS_Timer.Stop();
             AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
             AS_INDICATOR.BackColor = Color.Red;
+            saveData();
 
         }
 
@@ -660,6 +653,31 @@ namespace GUI_REV_3
             flowRateHistory.Clear();           
 
             plotting = true;
+
+        }
+
+        public void saveData()
+        {
+
+            
+            String timeString = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
+
+            string path = @"c:\temp\"+timeString+".csv";
+
+            // This text is added only once to the file.
+            if (!File.Exists(path))
+            {
+                // Create a file to write to.
+                string createText = "Time,Temp,ghTemp,weight,flow";
+                File.WriteAllText(path, createText);
+            }
+
+            String addition = " ";
+            for (int i = 0; i < timeHistory.Count; i++)
+            {
+                addition = "\n" + timeHistory[i].ToString() + "," + tempHistory[i].ToString() + "," + ghTempHistory[i].ToString() + "," + weightHistory[i].ToString() + "," + flowRateHistory[i].ToString();
+                File.AppendAllText(path, addition);
+            }
 
         }
 
