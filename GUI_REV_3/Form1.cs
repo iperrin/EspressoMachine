@@ -662,7 +662,7 @@ namespace GUI_REV_3
             
             String timeString = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
 
-            string path = @"c:\temp\"+timeString+".csv";
+            string path = @"c:\espressoHistory\"+timeString+".csv";
 
             // This text is added only once to the file.
             if (!File.Exists(path))
