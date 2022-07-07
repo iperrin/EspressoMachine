@@ -172,42 +172,6 @@ namespace GUI_REV_3
                     flowRateChart.Series[0].Points.AddXY(timeHistory[i], flowRateHistory[i]);
                 }
 
-                //TemperatureChart.Series[0].Points.AddY(Temperature);
-                //TemperatureChart.Series[1].Points.AddY(GHTemperature);
-                //PressureChart.Series[0].Points.AddY(Pressure);
-                //WeightChart.Series[0].Points.AddY(Weight);
-                //flowRateChart.Series[0].Points.AddY(flowRate);
-
-                ////only clears data if the autosequence isnt active
-                //if (!AS_Timer.Enabled)
-                //{
-                //    while (TemperatureChart.Series[0].Points.Count > numberOfPlotPoints)
-                //    {
-                //        TemperatureChart.Series[0].Points.RemoveAt(0);
-                //    }
-
-                //    while (TemperatureChart.Series[1].Points.Count > numberOfPlotPoints)
-                //    {
-                //        TemperatureChart.Series[1].Points.RemoveAt(0);
-                //    }
-
-                //    while (PressureChart.Series[0].Points.Count > numberOfPlotPoints)
-                //    {
-                //        PressureChart.Series[0].Points.RemoveAt(0);
-                //    }
-
-                //    while (WeightChart.Series[0].Points.Count > numberOfPlotPoints)
-                //    {
-                //        WeightChart.Series[0].Points.RemoveAt(0);
-                //    }
-
-                //    while (flowRateChart.Series[0].Points.Count > numberOfPlotPoints)
-                //    {
-                //        flowRateChart.Series[0].Points.RemoveAt(0);
-                //    }
-
-                //}
-
                 int maxTime = (int)(timeHistory[0]+1);
 
                 TemperatureChart.ResetAutoValues();
@@ -608,7 +572,6 @@ namespace GUI_REV_3
             AS_Timer.Stop();
             AS_INDICATOR.Text = "AUTO SEQUENCE OFF";
             AS_INDICATOR.BackColor = Color.Red;
-            saveData();
 
         }
 
@@ -620,30 +583,6 @@ namespace GUI_REV_3
 
         private void plotClear_Click(object sender, EventArgs e)
         {
-            //while (TemperatureChart.Series[0].Points.Count > 1)
-            //{
-            //    TemperatureChart.Series[0].Points.RemoveAt(0);
-            //}
-
-            //while (TemperatureChart.Series[1].Points.Count > 1)
-            //{
-            //    TemperatureChart.Series[1].Points.RemoveAt(0);
-            //}
-
-            //while (PressureChart.Series[0].Points.Count > 1)
-            //{
-            //    PressureChart.Series[0].Points.RemoveAt(0);
-            //}
-
-            //while (WeightChart.Series[0].Points.Count > 1)
-            //{
-            //    WeightChart.Series[0].Points.RemoveAt(0);
-            //}
-
-            //while (flowRateChart.Series[0].Points.Count > 1)
-            //{
-            //    flowRateChart.Series[0].Points.RemoveAt(0);
-            //}
 
             timeHistory.Clear();
             tempHistory.Clear();
@@ -659,27 +598,42 @@ namespace GUI_REV_3
         public void saveData()
         {
 
-            
-            String timeString = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
+
+            String timeString = DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Hour.ToString() + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString();
 
             string path = @"c:\espressoHistory\"+timeString+".csv";
 
-            // This text is added only once to the file.
+            // Graets file with header
             if (!File.Exists(path))
             {
-                // Create a file to write to.
-                string createText = "Time,Temp,ghTemp,weight,flow";
+                string createText = "Time,Pressure,Temp,ghTemp,weight,flow,Beans,Grind Setting,Grind Mass,Dull/Bright,Sour/Bitter,Bad/Good";
                 File.WriteAllText(path, createText);
             }
 
             String addition = " ";
-            for (int i = 0; i < timeHistory.Count; i++)
+            for (int i = timeHistory.Count-1; i >= 0; i--)
             {
-                addition = "\n" + timeHistory[i].ToString() + "," + tempHistory[i].ToString() + "," + ghTempHistory[i].ToString() + "," + weightHistory[i].ToString() + "," + flowRateHistory[i].ToString();
+                addition = "\n" + timeHistory[i].ToString() + "," + pressureHistory[i].ToString() + "," + tempHistory[i].ToString() + "," + ghTempHistory[i].ToString() + "," + weightHistory[i].ToString() + "," + flowRateHistory[i].ToString();
+                
+                //add shot text on first data column
+                if(i == timeHistory.Count - 1)
+                {
+                    addition = addition + "," + beansInfo.Text.ToString() + "," + grindsize.Text.ToString() + "," + massIn.Text.ToString() + "," + dullBrightSlider.Value.ToString() + "," + sourBitterSlider.Value.ToString() + "," + badGoodSlider.Value.ToString();
+                }
+
                 File.AppendAllText(path, addition);
             }
 
         }
 
+        private void plotPauseBTN_Click(object sender, EventArgs e)
+        {
+            plotting = false;
+        }
+
+        private void saveReportBTN_Click(object sender, EventArgs e)
+        {
+            saveData();
+        }
     }
 }

@@ -48,6 +48,7 @@
             System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.SerialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SensorsPanel = new System.Windows.Forms.Panel();
+            this.plotPauseBTN = new System.Windows.Forms.Button();
             this.flowRateValue = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.plotClear = new System.Windows.Forms.Button();
@@ -130,6 +131,24 @@
             this.AS_START = new System.Windows.Forms.Button();
             this.AS_Timer = new System.Windows.Forms.Timer(this.components);
             this.flowRateChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.dullBrightSlider = new System.Windows.Forms.TrackBar();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.badGoodSlider = new System.Windows.Forms.TrackBar();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.sourBitterSlider = new System.Windows.Forms.TrackBar();
+            this.saveReportBTN = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.grindsize = new System.Windows.Forms.TextBox();
+            this.beansInfo = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.massIn = new System.Windows.Forms.TextBox();
             this.SensorsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeightChart)).BeginInit();
             this.panel1.SuspendLayout();
@@ -152,6 +171,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.AS_BREW_PRESSURE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_PF_DURATION)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flowRateChart)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dullBrightSlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.badGoodSlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sourBitterSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // SerialPort1
@@ -164,6 +187,7 @@
             // SensorsPanel
             // 
             this.SensorsPanel.BackColor = System.Drawing.Color.White;
+            this.SensorsPanel.Controls.Add(this.plotPauseBTN);
             this.SensorsPanel.Controls.Add(this.flowRateValue);
             this.SensorsPanel.Controls.Add(this.label20);
             this.SensorsPanel.Controls.Add(this.plotClear);
@@ -182,10 +206,21 @@
             this.SensorsPanel.Controls.Add(this.WeightLabel);
             this.SensorsPanel.Controls.Add(this.TemperatureLabel);
             this.SensorsPanel.Controls.Add(this.PressureLabel);
-            this.SensorsPanel.Location = new System.Drawing.Point(7, 9);
+            this.SensorsPanel.Location = new System.Drawing.Point(12, 9);
             this.SensorsPanel.Name = "SensorsPanel";
-            this.SensorsPanel.Size = new System.Drawing.Size(687, 73);
+            this.SensorsPanel.Size = new System.Drawing.Size(682, 73);
             this.SensorsPanel.TabIndex = 1;
+            // 
+            // plotPauseBTN
+            // 
+            this.plotPauseBTN.Location = new System.Drawing.Point(378, 12);
+            this.plotPauseBTN.Margin = new System.Windows.Forms.Padding(2);
+            this.plotPauseBTN.Name = "plotPauseBTN";
+            this.plotPauseBTN.Size = new System.Drawing.Size(53, 46);
+            this.plotPauseBTN.TabIndex = 38;
+            this.plotPauseBTN.Text = "PAUSE PLOTS";
+            this.plotPauseBTN.UseVisualStyleBackColor = true;
+            this.plotPauseBTN.Click += new System.EventHandler(this.plotPauseBTN_Click);
             // 
             // flowRateValue
             // 
@@ -211,7 +246,7 @@
             // plotClear
             // 
             this.plotClear.Location = new System.Drawing.Point(316, 12);
-            this.plotClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.plotClear.Margin = new System.Windows.Forms.Padding(2);
             this.plotClear.Name = "plotClear";
             this.plotClear.Size = new System.Drawing.Size(53, 46);
             this.plotClear.TabIndex = 35;
@@ -242,7 +277,7 @@
             // 
             // SerialSearch
             // 
-            this.SerialSearch.Location = new System.Drawing.Point(609, 6);
+            this.SerialSearch.Location = new System.Drawing.Point(601, 13);
             this.SerialSearch.Name = "SerialSearch";
             this.SerialSearch.Size = new System.Drawing.Size(67, 23);
             this.SerialSearch.TabIndex = 32;
@@ -253,7 +288,7 @@
             // SerialPortSelect
             // 
             this.SerialPortSelect.FormattingEnabled = true;
-            this.SerialPortSelect.Location = new System.Drawing.Point(547, 9);
+            this.SerialPortSelect.Location = new System.Drawing.Point(539, 16);
             this.SerialPortSelect.Name = "SerialPortSelect";
             this.SerialPortSelect.Size = new System.Drawing.Size(61, 21);
             this.SerialPortSelect.TabIndex = 31;
@@ -261,7 +296,7 @@
             // 
             // SerialConnect
             // 
-            this.SerialConnect.Location = new System.Drawing.Point(588, 31);
+            this.SerialConnect.Location = new System.Drawing.Point(580, 38);
             this.SerialConnect.Name = "SerialConnect";
             this.SerialConnect.Size = new System.Drawing.Size(88, 23);
             this.SerialConnect.TabIndex = 29;
@@ -273,7 +308,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(494, 9);
+            this.label10.Location = new System.Drawing.Point(486, 16);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 15);
             this.label10.TabIndex = 28;
@@ -282,7 +317,7 @@
             // 
             // SerialDisconnect
             // 
-            this.SerialDisconnect.Location = new System.Drawing.Point(494, 31);
+            this.SerialDisconnect.Location = new System.Drawing.Point(486, 38);
             this.SerialDisconnect.Name = "SerialDisconnect";
             this.SerialDisconnect.Size = new System.Drawing.Size(88, 23);
             this.SerialDisconnect.TabIndex = 26;
@@ -411,9 +446,9 @@
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Location = new System.Drawing.Point(7, 85);
+            this.panel1.Location = new System.Drawing.Point(12, 85);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(460, 243);
+            this.panel1.Size = new System.Drawing.Size(455, 243);
             this.panel1.TabIndex = 16;
             // 
             // panel3
@@ -430,7 +465,7 @@
             this.panel3.Controls.Add(this.PumpPressureInput);
             this.panel3.Controls.Add(this.pumpOffBtn);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(170, 13);
+            this.panel3.Location = new System.Drawing.Point(162, 13);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(139, 215);
             this.panel3.TabIndex = 20;
@@ -567,8 +602,8 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.PIDReset);
             this.panel5.Controls.Add(this.ZeroScale);
-            this.panel5.Location = new System.Drawing.Point(15, 159);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Location = new System.Drawing.Point(7, 159);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(139, 70);
             this.panel5.TabIndex = 19;
@@ -604,7 +639,7 @@
             this.panel2.Controls.Add(this.TempOnButton);
             this.panel2.Controls.Add(this.tempInput);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(15, 13);
+            this.panel2.Location = new System.Drawing.Point(7, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(139, 132);
             this.panel2.TabIndex = 19;
@@ -718,7 +753,7 @@
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.GHValveIndicator);
             this.panel4.Controls.Add(this.LoopValveIndicator);
-            this.panel4.Location = new System.Drawing.Point(314, 14);
+            this.panel4.Location = new System.Drawing.Point(306, 14);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(139, 215);
             this.panel4.TabIndex = 21;
@@ -775,7 +810,7 @@
             // 
             // loopOpen
             // 
-            this.loopOpen.Location = new System.Drawing.Point(13, 127);
+            this.loopOpen.Location = new System.Drawing.Point(5, 127);
             this.loopOpen.Name = "loopOpen";
             this.loopOpen.Size = new System.Drawing.Size(54, 23);
             this.loopOpen.TabIndex = 19;
@@ -922,9 +957,9 @@
             this.panel6.Controls.Add(this.AS_STOP);
             this.panel6.Controls.Add(this.AS_START);
             this.panel6.Location = new System.Drawing.Point(472, 87);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(222, 357);
+            this.panel6.Size = new System.Drawing.Size(222, 354);
             this.panel6.TabIndex = 38;
             // 
             // AS_FlowLimit
@@ -1316,11 +1351,199 @@
             title8.Text = "Flow Rate";
             this.flowRateChart.Titles.Add(title8);
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.label29);
+            this.panel7.Controls.Add(this.massIn);
+            this.panel7.Controls.Add(this.label28);
+            this.panel7.Controls.Add(this.label27);
+            this.panel7.Controls.Add(this.beansInfo);
+            this.panel7.Controls.Add(this.grindsize);
+            this.panel7.Controls.Add(this.label25);
+            this.panel7.Controls.Add(this.label26);
+            this.panel7.Controls.Add(this.dullBrightSlider);
+            this.panel7.Controls.Add(this.label23);
+            this.panel7.Controls.Add(this.label24);
+            this.panel7.Controls.Add(this.badGoodSlider);
+            this.panel7.Controls.Add(this.label22);
+            this.panel7.Controls.Add(this.label21);
+            this.panel7.Controls.Add(this.sourBitterSlider);
+            this.panel7.Controls.Add(this.saveReportBTN);
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Location = new System.Drawing.Point(12, 334);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(455, 107);
+            this.panel7.TabIndex = 40;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(8, 67);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(25, 13);
+            this.label25.TabIndex = 50;
+            this.label25.Text = "Dull";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(142, 68);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(34, 13);
+            this.label26.TabIndex = 49;
+            this.label26.Text = "Bright";
+            // 
+            // dullBrightSlider
+            // 
+            this.dullBrightSlider.LargeChange = 1;
+            this.dullBrightSlider.Location = new System.Drawing.Point(29, 54);
+            this.dullBrightSlider.Maximum = 5;
+            this.dullBrightSlider.Minimum = 1;
+            this.dullBrightSlider.Name = "dullBrightSlider";
+            this.dullBrightSlider.Size = new System.Drawing.Size(117, 45);
+            this.dullBrightSlider.TabIndex = 48;
+            this.dullBrightSlider.TabStop = false;
+            this.dullBrightSlider.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.dullBrightSlider.Value = 3;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(180, 67);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(26, 13);
+            this.label23.TabIndex = 47;
+            this.label23.Text = "Bad";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(314, 68);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(33, 13);
+            this.label24.TabIndex = 46;
+            this.label24.Text = "Good";
+            // 
+            // badGoodSlider
+            // 
+            this.badGoodSlider.LargeChange = 1;
+            this.badGoodSlider.Location = new System.Drawing.Point(201, 54);
+            this.badGoodSlider.Maximum = 5;
+            this.badGoodSlider.Minimum = 1;
+            this.badGoodSlider.Name = "badGoodSlider";
+            this.badGoodSlider.Size = new System.Drawing.Size(117, 45);
+            this.badGoodSlider.TabIndex = 45;
+            this.badGoodSlider.TabStop = false;
+            this.badGoodSlider.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.badGoodSlider.Value = 3;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(177, 22);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(29, 13);
+            this.label22.TabIndex = 44;
+            this.label22.Text = "Sour";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(313, 25);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(31, 13);
+            this.label21.TabIndex = 43;
+            this.label21.Text = "Bitter";
+            // 
+            // sourBitterSlider
+            // 
+            this.sourBitterSlider.LargeChange = 1;
+            this.sourBitterSlider.Location = new System.Drawing.Point(201, 10);
+            this.sourBitterSlider.Maximum = 5;
+            this.sourBitterSlider.Minimum = 1;
+            this.sourBitterSlider.Name = "sourBitterSlider";
+            this.sourBitterSlider.Size = new System.Drawing.Size(117, 45);
+            this.sourBitterSlider.TabIndex = 42;
+            this.sourBitterSlider.TabStop = false;
+            this.sourBitterSlider.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.sourBitterSlider.Value = 3;
+            // 
+            // saveReportBTN
+            // 
+            this.saveReportBTN.Location = new System.Drawing.Point(354, 47);
+            this.saveReportBTN.Margin = new System.Windows.Forms.Padding(2);
+            this.saveReportBTN.Name = "saveReportBTN";
+            this.saveReportBTN.Size = new System.Drawing.Size(90, 46);
+            this.saveReportBTN.TabIndex = 39;
+            this.saveReportBTN.Text = "SAVE REPORT";
+            this.saveReportBTN.UseVisualStyleBackColor = true;
+            this.saveReportBTN.Click += new System.EventHandler(this.saveReportBTN_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(358, 14);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 20);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Shot Log";
+            // 
+            // grindsize
+            // 
+            this.grindsize.Location = new System.Drawing.Point(85, 28);
+            this.grindsize.Name = "grindsize";
+            this.grindsize.Size = new System.Drawing.Size(38, 20);
+            this.grindsize.TabIndex = 51;
+            // 
+            // beansInfo
+            // 
+            this.beansInfo.Location = new System.Drawing.Point(12, 28);
+            this.beansInfo.Name = "beansInfo";
+            this.beansInfo.Size = new System.Drawing.Size(66, 20);
+            this.beansInfo.TabIndex = 52;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(87, 11);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(32, 13);
+            this.label27.TabIndex = 53;
+            this.label27.Text = "Grind";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(27, 11);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(37, 13);
+            this.label28.TabIndex = 54;
+            this.label28.Text = "Beans";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(132, 11);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(32, 13);
+            this.label29.TabIndex = 56;
+            this.label29.Text = "Mass";
+            // 
+            // massIn
+            // 
+            this.massIn.Location = new System.Drawing.Point(130, 28);
+            this.massIn.Name = "massIn";
+            this.massIn.Size = new System.Drawing.Size(38, 20);
+            this.massIn.TabIndex = 55;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 1197);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.flowRateChart);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.PressureChart);
@@ -1358,6 +1581,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.AS_BREW_PRESSURE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_PF_DURATION)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flowRateChart)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dullBrightSlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.badGoodSlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sourBitterSlider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1448,6 +1676,25 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart flowRateChart;
         private System.Windows.Forms.CheckBox flowLock;
         private System.Windows.Forms.NumericUpDown AS_FlowLimit;
+        private System.Windows.Forms.Button plotPauseBTN;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button saveReportBTN;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TrackBar dullBrightSlider;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TrackBar badGoodSlider;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TrackBar sourBitterSlider;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox beansInfo;
+        private System.Windows.Forms.TextBox grindsize;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox massIn;
     }
 }
 
