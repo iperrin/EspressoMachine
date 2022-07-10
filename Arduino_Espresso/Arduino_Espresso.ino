@@ -26,6 +26,7 @@ movingAvg filteredGHTemp(40);
 #define weightAveragingSize 20
 #define weightKalman 0.05
 int weightData[weightAveragingSize];
+int timingData[weightAveragingSize];
 
 //Set temp SPI CS pin
 const int CS_0_PIN = 9;
@@ -95,6 +96,7 @@ void setup() {
   //intialize weight filtering scheme
   for (int i = 0; i < weightAveragingSize; i++) {
     weightData[i] = 0;
+    timingData[i] = i;
   }
 
   //initialize SPI bus, temp CS pin, and configure RTD sensor
@@ -312,10 +314,6 @@ void updateMaster() {
 
   //calculate refresh rate
   String UpdateFrequency = "F";
-  long int timeMeasure = millis();
-  freq = 1000 / (timeMeasure - timeSave);
-
-  timeSave = timeMeasure;
 
   //Add refresh rate
   String speedMessage = String((freq + 1000) * 100, 0);
@@ -333,14 +331,22 @@ void updateMaster() {
 
 void updateWeight() {
 
-  //calculate weight using kalman scale with previous data
+  //calculate weight using kalman scale with previous data and calculate time shifts
   weight = weightKalman*scale.get_units()+(1-weightKalman)*weight;
+
+  long int timeMeasure = millis();
+  int timeIncrease = timeMeasure - timeSave;
+  timeSave = timeMeasure;
+
+  freq = (float)1/((float)timeIncrease/1000);
   
   //shift weight history values and append latest value
   for(int i = 0; i<weightAveragingSize-1; i++){
     weightData[i] = weightData[i+1];
+    timingData[i] = timingData[i] - timingData[0];
   }
   weightData[weightAveragingSize-1] = (int)(100 * weight);
+  timingData[weightAveragingSize-1] = timingData[weightAveragingSize-2]+timeIncrease;
 }
 
 void updateFlowRate(){
@@ -354,7 +360,7 @@ void updateFlowRate(){
 
   for(int i = 0; i<weightAveragingSize; i++){
     weightHistory[i] = (float)weightData[i]/100;
-    timeHistory[i] = ((float)i)/(float(freq));
+    timeHistory[i] = ((float)timingData[i])/((float)(1000));
 
     AverageTime += timeHistory[i];
     AverageWeight += weightHistory[i];
@@ -370,7 +376,9 @@ void updateFlowRate(){
       numerator+=(timeHistory[i]-AverageTime)*(weightHistory[i]-AverageWeight);
       denominator+=(timeHistory[i]-AverageTime)*(timeHistory[i]-AverageTime);
   }
-  float rawFlow = numerator/denominator;
+
+  //modifier is added on after experimental tests 
+  float rawFlow = 0.11506*numerator/denominator;
 
   flowRate = (flowKalman*rawFlow) + ((1-flowKalman)*flowRate);
   

@@ -136,6 +136,7 @@
             this.AS_Timer = new System.Windows.Forms.Timer(this.components);
             this.flowRateChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.saveNotifier = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.massIn = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -153,7 +154,6 @@
             this.sourBitterSlider = new System.Windows.Forms.TrackBar();
             this.saveReportBTN = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.saveNotifier = new System.Windows.Forms.Label();
             this.SensorsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeightChart)).BeginInit();
             this.panel1.SuspendLayout();
@@ -1111,7 +1111,7 @@
             this.AS_FlowLimit.Location = new System.Drawing.Point(253, 434);
             this.AS_FlowLimit.Margin = new System.Windows.Forms.Padding(6);
             this.AS_FlowLimit.Maximum = new decimal(new int[] {
-            2,
+            6,
             0,
             0,
             0});
@@ -1124,7 +1124,7 @@
             this.AS_FlowLimit.Size = new System.Drawing.Size(92, 29);
             this.AS_FlowLimit.TabIndex = 55;
             this.AS_FlowLimit.Value = new decimal(new int[] {
-            1,
+            4,
             0,
             0,
             0});
@@ -1132,8 +1132,6 @@
             // flowLock
             // 
             this.flowLock.AutoSize = true;
-            this.flowLock.Checked = true;
-            this.flowLock.CheckState = System.Windows.Forms.CheckState.Checked;
             this.flowLock.Location = new System.Drawing.Point(53, 434);
             this.flowLock.Margin = new System.Windows.Forms.Padding(6);
             this.flowLock.Name = "flowLock";
@@ -1538,6 +1536,19 @@
             this.panel7.Size = new System.Drawing.Size(834, 198);
             this.panel7.TabIndex = 40;
             // 
+            // saveNotifier
+            // 
+            this.saveNotifier.AutoSize = true;
+            this.saveNotifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveNotifier.ForeColor = System.Drawing.Color.Green;
+            this.saveNotifier.Location = new System.Drawing.Point(669, 148);
+            this.saveNotifier.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.saveNotifier.Name = "saveNotifier";
+            this.saveNotifier.Size = new System.Drawing.Size(115, 32);
+            this.saveNotifier.TabIndex = 57;
+            this.saveNotifier.Text = "SAVED";
+            this.saveNotifier.Visible = false;
+            // 
             // label29
             // 
             this.label29.AutoSize = true;
@@ -1715,19 +1726,6 @@
             this.label11.Size = new System.Drawing.Size(136, 32);
             this.label11.TabIndex = 27;
             this.label11.Text = "Shot Log";
-            // 
-            // saveNotifier
-            // 
-            this.saveNotifier.AutoSize = true;
-            this.saveNotifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveNotifier.ForeColor = System.Drawing.Color.Green;
-            this.saveNotifier.Location = new System.Drawing.Point(669, 148);
-            this.saveNotifier.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.saveNotifier.Name = "saveNotifier";
-            this.saveNotifier.Size = new System.Drawing.Size(115, 32);
-            this.saveNotifier.TabIndex = 57;
-            this.saveNotifier.Text = "SAVED";
-            this.saveNotifier.Visible = false;
             // 
             // Form1
             // 
