@@ -43,6 +43,7 @@ namespace GUI_REV_3
         //Autosequence state variables
         public int AS_Loop_Counter = 0;
         public float AS_peak_press_start_time = 0;
+        public float AS_peak_ramp_down_start_time = 0;
 
         //valve state: 0 = unenergized | 1 = energized (group is normally close, loop is normally open)
         public int groupValveState = 0;
@@ -505,6 +506,7 @@ namespace GUI_REV_3
                 if (brewTime-AS_peak_press_start_time > (float)AS_PB_Duration.Value)
                 {
                     AS_state = 3;
+                    AS_peak_ramp_down_start_time = brewTime;
                 }
             }else if (AS_state == 3)
             {
@@ -540,7 +542,7 @@ namespace GUI_REV_3
                 pumpPressBtn_Click(sender, new EventArgs());
                 AS_INDICATOR.Text = "RAMP DOWN";
                 AS_INDICATOR.BackColor = Color.Green;
-                PumpPressureInput.Value = AS_RD_PRESSURE.Value;
+                PumpPressureInput.Value = Math.Max(AS_RD_PRESSURE.Value-(decimal)((brewTime-AS_peak_ramp_down_start_time)*(float)RDrate.Value),RDminPress.Value);
             }
             else if (AS_state == 4)
             {

@@ -16,9 +16,6 @@
 
 float freq = 100;
 
-//121 elemeent lookup for pressures 0:0.1:12 (motor speed corresponding to temperature target)
-int motorSpeedLookup[] = {0, 6, 7, 8, 8, 9, 10, 11, 11, 12, 13, 13, 14, 14, 15, 16, 16, 17, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23, 23, 24, 24, 25, 25, 26, 26, 26, 27, 27, 28, 28, 28, 29, 29, 29, 30, 30, 30, 31, 31, 31, 32, 32, 32, 32, 33, 33, 33, 34, 34, 34, 34, 35, 35, 35, 36, 36, 36, 36, 37, 37, 37, 37, 38, 38, 38, 38, 39, 39, 39, 39, 40, 40, 40, 40, 40, 41, 41, 41, 41, 42, 42, 42, 42, 43, 43, 43, 43, 44, 44, 44, 44, 45, 45, 45, 45, 45, 46, 46, 46, 46, 47, 47, 47, 47, 48, 48, 48};
-
 //basic moving filters setup
 movingAvg filteredPressure(20);
 movingAvg filteredWaterTemp(40);
@@ -447,8 +444,7 @@ void updatePump() {
   //run PID update
   if (pressureSet > 0) {
     pumpPID.run();
-    int baseSpeedIndex = (int)(10 * pressureSet);
-    pumpSpeed = (float)motorSpeedLookup[baseSpeedIndex];
+    pumpSpeed = (float)(-4.98468)+(float)(15.0384)*(float)(sqrt(0.39949+pressureSet));
     pumpSpeed = (pumpSpeed / 100);
     pumpSpeed = pumpSpeed + pump_PID_Output / 10;
   } else {
