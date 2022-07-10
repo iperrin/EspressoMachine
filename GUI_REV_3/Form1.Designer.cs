@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.SerialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SensorsPanel = new System.Windows.Forms.Panel();
             this.plotPauseBTN = new System.Windows.Forms.Button();
@@ -107,6 +107,10 @@
             this.TemperatureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.PressureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.RDminPress = new System.Windows.Forms.NumericUpDown();
+            this.label30 = new System.Windows.Forms.Label();
+            this.RDrate = new System.Windows.Forms.NumericUpDown();
             this.AS_FlowLimit = new System.Windows.Forms.NumericUpDown();
             this.flowLock = new System.Windows.Forms.CheckBox();
             this.targetWeight = new System.Windows.Forms.NumericUpDown();
@@ -149,10 +153,7 @@
             this.sourBitterSlider = new System.Windows.Forms.TrackBar();
             this.saveReportBTN = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.RDrate = new System.Windows.Forms.NumericUpDown();
-            this.RDminPress = new System.Windows.Forms.NumericUpDown();
-            this.label31 = new System.Windows.Forms.Label();
+            this.saveNotifier = new System.Windows.Forms.Label();
             this.SensorsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeightChart)).BeginInit();
             this.panel1.SuspendLayout();
@@ -166,6 +167,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.TemperatureChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PressureChart)).BeginInit();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RDminPress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RDrate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_FlowLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.targetWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_PF_SPEED)).BeginInit();
@@ -179,8 +182,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dullBrightSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.badGoodSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sourBitterSlider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RDrate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RDminPress)).BeginInit();
             this.SuspendLayout();
             // 
             // SerialPort1
@@ -213,7 +214,7 @@
             this.SensorsPanel.Controls.Add(this.TemperatureLabel);
             this.SensorsPanel.Controls.Add(this.PressureLabel);
             this.SensorsPanel.Location = new System.Drawing.Point(22, 17);
-            this.SensorsPanel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.SensorsPanel.Margin = new System.Windows.Forms.Padding(6);
             this.SensorsPanel.Name = "SensorsPanel";
             this.SensorsPanel.Size = new System.Drawing.Size(1250, 135);
             this.SensorsPanel.TabIndex = 1;
@@ -221,7 +222,7 @@
             // plotPauseBTN
             // 
             this.plotPauseBTN.Location = new System.Drawing.Point(693, 22);
-            this.plotPauseBTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.plotPauseBTN.Margin = new System.Windows.Forms.Padding(4);
             this.plotPauseBTN.Name = "plotPauseBTN";
             this.plotPauseBTN.Size = new System.Drawing.Size(97, 85);
             this.plotPauseBTN.TabIndex = 38;
@@ -255,7 +256,7 @@
             // plotClear
             // 
             this.plotClear.Location = new System.Drawing.Point(579, 22);
-            this.plotClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.plotClear.Margin = new System.Windows.Forms.Padding(4);
             this.plotClear.Name = "plotClear";
             this.plotClear.Size = new System.Drawing.Size(97, 85);
             this.plotClear.TabIndex = 35;
@@ -289,7 +290,7 @@
             // SerialSearch
             // 
             this.SerialSearch.Location = new System.Drawing.Point(1102, 24);
-            this.SerialSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.SerialSearch.Margin = new System.Windows.Forms.Padding(6);
             this.SerialSearch.Name = "SerialSearch";
             this.SerialSearch.Size = new System.Drawing.Size(123, 42);
             this.SerialSearch.TabIndex = 32;
@@ -301,7 +302,7 @@
             // 
             this.SerialPortSelect.FormattingEnabled = true;
             this.SerialPortSelect.Location = new System.Drawing.Point(988, 30);
-            this.SerialPortSelect.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.SerialPortSelect.Margin = new System.Windows.Forms.Padding(6);
             this.SerialPortSelect.Name = "SerialPortSelect";
             this.SerialPortSelect.Size = new System.Drawing.Size(108, 32);
             this.SerialPortSelect.TabIndex = 31;
@@ -310,7 +311,7 @@
             // SerialConnect
             // 
             this.SerialConnect.Location = new System.Drawing.Point(1063, 70);
-            this.SerialConnect.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.SerialConnect.Margin = new System.Windows.Forms.Padding(6);
             this.SerialConnect.Name = "SerialConnect";
             this.SerialConnect.Size = new System.Drawing.Size(161, 42);
             this.SerialConnect.TabIndex = 29;
@@ -333,7 +334,7 @@
             // SerialDisconnect
             // 
             this.SerialDisconnect.Location = new System.Drawing.Point(891, 70);
-            this.SerialDisconnect.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.SerialDisconnect.Margin = new System.Windows.Forms.Padding(6);
             this.SerialDisconnect.Name = "SerialDisconnect";
             this.SerialDisconnect.Size = new System.Drawing.Size(161, 42);
             this.SerialDisconnect.TabIndex = 26;
@@ -442,27 +443,27 @@
             // WeightChart
             // 
             this.WeightChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea9.Name = "ChartArea1";
-            this.WeightChart.ChartAreas.Add(chartArea9);
-            legend9.Enabled = false;
-            legend9.Name = "Legend1";
-            this.WeightChart.Legends.Add(legend9);
+            chartArea1.Name = "ChartArea1";
+            this.WeightChart.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.WeightChart.Legends.Add(legend1);
             this.WeightChart.Location = new System.Drawing.Point(22, 1512);
-            this.WeightChart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.WeightChart.Margin = new System.Windows.Forms.Padding(6);
             this.WeightChart.Name = "WeightChart";
             this.WeightChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series11.BorderWidth = 3;
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series11.Legend = "Legend1";
-            series11.Name = "Weight";
-            this.WeightChart.Series.Add(series11);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Legend = "Legend1";
+            series1.Name = "Weight";
+            this.WeightChart.Series.Add(series1);
             this.WeightChart.Size = new System.Drawing.Size(1247, 332);
             this.WeightChart.TabIndex = 2;
             this.WeightChart.Text = "WeightChart";
-            title9.Name = "Title1";
-            title9.Text = "Weight";
-            this.WeightChart.Titles.Add(title9);
+            title1.Name = "Title1";
+            title1.Text = "Weight";
+            this.WeightChart.Titles.Add(title1);
             // 
             // panel1
             // 
@@ -472,7 +473,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(22, 157);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(834, 449);
             this.panel1.TabIndex = 16;
@@ -492,7 +493,7 @@
             this.panel3.Controls.Add(this.pumpOffBtn);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(297, 24);
-            this.panel3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel3.Margin = new System.Windows.Forms.Padding(6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(253, 395);
             this.panel3.TabIndex = 20;
@@ -500,7 +501,7 @@
             // pumpIdle
             // 
             this.pumpIdle.Location = new System.Drawing.Point(13, 345);
-            this.pumpIdle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pumpIdle.Margin = new System.Windows.Forms.Padding(6);
             this.pumpIdle.Name = "pumpIdle";
             this.pumpIdle.Size = new System.Drawing.Size(224, 42);
             this.pumpIdle.TabIndex = 34;
@@ -525,7 +526,7 @@
             // pumpSpeedBtn
             // 
             this.pumpSpeedBtn.Location = new System.Drawing.Point(13, 118);
-            this.pumpSpeedBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pumpSpeedBtn.Margin = new System.Windows.Forms.Padding(6);
             this.pumpSpeedBtn.Name = "pumpSpeedBtn";
             this.pumpSpeedBtn.Size = new System.Drawing.Size(224, 42);
             this.pumpSpeedBtn.TabIndex = 33;
@@ -549,7 +550,7 @@
             // 
             this.PumpSpeedInput.DecimalPlaces = 1;
             this.PumpSpeedInput.Location = new System.Drawing.Point(136, 166);
-            this.PumpSpeedInput.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.PumpSpeedInput.Margin = new System.Windows.Forms.Padding(6);
             this.PumpSpeedInput.Maximum = new decimal(new int[] {
             95,
             0,
@@ -567,7 +568,7 @@
             // pumpPressBtn
             // 
             this.pumpPressBtn.Location = new System.Drawing.Point(13, 199);
-            this.pumpPressBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pumpPressBtn.Margin = new System.Windows.Forms.Padding(6);
             this.pumpPressBtn.Name = "pumpPressBtn";
             this.pumpPressBtn.Size = new System.Drawing.Size(224, 42);
             this.pumpPressBtn.TabIndex = 30;
@@ -596,7 +597,7 @@
             0,
             65536});
             this.PumpPressureInput.Location = new System.Drawing.Point(136, 247);
-            this.PumpPressureInput.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.PumpPressureInput.Margin = new System.Windows.Forms.Padding(6);
             this.PumpPressureInput.Maximum = new decimal(new int[] {
             11,
             0,
@@ -614,7 +615,7 @@
             // pumpOffBtn
             // 
             this.pumpOffBtn.Location = new System.Drawing.Point(13, 294);
-            this.pumpOffBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pumpOffBtn.Margin = new System.Windows.Forms.Padding(6);
             this.pumpOffBtn.Name = "pumpOffBtn";
             this.pumpOffBtn.Size = new System.Drawing.Size(224, 42);
             this.pumpOffBtn.TabIndex = 23;
@@ -640,7 +641,7 @@
             this.panel5.Controls.Add(this.PIDReset);
             this.panel5.Controls.Add(this.ZeroScale);
             this.panel5.Location = new System.Drawing.Point(13, 294);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(253, 128);
             this.panel5.TabIndex = 19;
@@ -648,7 +649,7 @@
             // PIDReset
             // 
             this.PIDReset.Location = new System.Drawing.Point(35, 66);
-            this.PIDReset.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.PIDReset.Margin = new System.Windows.Forms.Padding(6);
             this.PIDReset.Name = "PIDReset";
             this.PIDReset.Size = new System.Drawing.Size(192, 42);
             this.PIDReset.TabIndex = 37;
@@ -659,7 +660,7 @@
             // ZeroScale
             // 
             this.ZeroScale.Location = new System.Drawing.Point(33, 13);
-            this.ZeroScale.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ZeroScale.Margin = new System.Windows.Forms.Padding(6);
             this.ZeroScale.Name = "ZeroScale";
             this.ZeroScale.Size = new System.Drawing.Size(192, 42);
             this.ZeroScale.TabIndex = 36;
@@ -679,7 +680,7 @@
             this.panel2.Controls.Add(this.tempInput);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(13, 24);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(253, 242);
             this.panel2.TabIndex = 19;
@@ -690,7 +691,7 @@
             this.stayHot.Checked = true;
             this.stayHot.CheckState = System.Windows.Forms.CheckState.Checked;
             this.stayHot.Location = new System.Drawing.Point(44, 140);
-            this.stayHot.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.stayHot.Margin = new System.Windows.Forms.Padding(6);
             this.stayHot.Name = "stayHot";
             this.stayHot.Size = new System.Drawing.Size(113, 29);
             this.stayHot.TabIndex = 26;
@@ -726,7 +727,7 @@
             // TempOffButton
             // 
             this.TempOffButton.Location = new System.Drawing.Point(130, 183);
-            this.TempOffButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TempOffButton.Margin = new System.Windows.Forms.Padding(6);
             this.TempOffButton.Name = "TempOffButton";
             this.TempOffButton.Size = new System.Drawing.Size(99, 42);
             this.TempOffButton.TabIndex = 24;
@@ -737,7 +738,7 @@
             // TempOnButton
             // 
             this.TempOnButton.Location = new System.Drawing.Point(20, 183);
-            this.TempOnButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TempOnButton.Margin = new System.Windows.Forms.Padding(6);
             this.TempOnButton.Name = "TempOnButton";
             this.TempOnButton.Size = new System.Drawing.Size(99, 42);
             this.TempOnButton.TabIndex = 23;
@@ -754,7 +755,7 @@
             0,
             65536});
             this.tempInput.Location = new System.Drawing.Point(136, 96);
-            this.tempInput.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tempInput.Margin = new System.Windows.Forms.Padding(6);
             this.tempInput.Maximum = new decimal(new int[] {
             95,
             0,
@@ -801,7 +802,7 @@
             this.panel4.Controls.Add(this.GHValveIndicator);
             this.panel4.Controls.Add(this.LoopValveIndicator);
             this.panel4.Location = new System.Drawing.Point(561, 26);
-            this.panel4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel4.Margin = new System.Windows.Forms.Padding(6);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(253, 395);
             this.panel4.TabIndex = 21;
@@ -809,7 +810,7 @@
             // valveExtract
             // 
             this.valveExtract.Location = new System.Drawing.Point(14, 295);
-            this.valveExtract.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.valveExtract.Margin = new System.Windows.Forms.Padding(6);
             this.valveExtract.Name = "valveExtract";
             this.valveExtract.Size = new System.Drawing.Size(224, 42);
             this.valveExtract.TabIndex = 36;
@@ -820,7 +821,7 @@
             // valveIdle
             // 
             this.valveIdle.Location = new System.Drawing.Point(14, 338);
-            this.valveIdle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.valveIdle.Margin = new System.Windows.Forms.Padding(6);
             this.valveIdle.Name = "valveIdle";
             this.valveIdle.Size = new System.Drawing.Size(224, 42);
             this.valveIdle.TabIndex = 35;
@@ -831,7 +832,7 @@
             // ghClose
             // 
             this.ghClose.Location = new System.Drawing.Point(130, 114);
-            this.ghClose.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ghClose.Margin = new System.Windows.Forms.Padding(6);
             this.ghClose.Name = "ghClose";
             this.ghClose.Size = new System.Drawing.Size(99, 42);
             this.ghClose.TabIndex = 22;
@@ -842,7 +843,7 @@
             // ghOpen
             // 
             this.ghOpen.Location = new System.Drawing.Point(20, 114);
-            this.ghOpen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ghOpen.Margin = new System.Windows.Forms.Padding(6);
             this.ghOpen.Name = "ghOpen";
             this.ghOpen.Size = new System.Drawing.Size(99, 42);
             this.ghOpen.TabIndex = 21;
@@ -853,7 +854,7 @@
             // loopClose
             // 
             this.loopClose.Location = new System.Drawing.Point(133, 234);
-            this.loopClose.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.loopClose.Margin = new System.Windows.Forms.Padding(6);
             this.loopClose.Name = "loopClose";
             this.loopClose.Size = new System.Drawing.Size(99, 42);
             this.loopClose.TabIndex = 20;
@@ -864,7 +865,7 @@
             // loopOpen
             // 
             this.loopOpen.Location = new System.Drawing.Point(19, 234);
-            this.loopOpen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.loopOpen.Margin = new System.Windows.Forms.Padding(6);
             this.loopOpen.Name = "loopOpen";
             this.loopOpen.Size = new System.Drawing.Size(99, 42);
             this.loopOpen.TabIndex = 19;
@@ -938,59 +939,59 @@
             // TemperatureChart
             // 
             this.TemperatureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea10.Name = "ChartArea1";
-            this.TemperatureChart.ChartAreas.Add(chartArea10);
-            legend10.Enabled = false;
-            legend10.Name = "Legend1";
-            this.TemperatureChart.Legends.Add(legend10);
+            chartArea2.Name = "ChartArea1";
+            this.TemperatureChart.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.TemperatureChart.Legends.Add(legend2);
             this.TemperatureChart.Location = new System.Drawing.Point(22, 825);
-            this.TemperatureChart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TemperatureChart.Margin = new System.Windows.Forms.Padding(6);
             this.TemperatureChart.Name = "TemperatureChart";
             this.TemperatureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series12.BorderWidth = 3;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series12.Legend = "Legend1";
-            series12.Name = "Temperature";
-            series13.BorderWidth = 3;
-            series13.ChartArea = "ChartArea1";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series13.EmptyPointStyle.BorderWidth = 3;
-            series13.Legend = "Legend1";
-            series13.Name = "Temperature_GH";
-            this.TemperatureChart.Series.Add(series12);
-            this.TemperatureChart.Series.Add(series13);
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.Name = "Temperature";
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.EmptyPointStyle.BorderWidth = 3;
+            series3.Legend = "Legend1";
+            series3.Name = "Temperature_GH";
+            this.TemperatureChart.Series.Add(series2);
+            this.TemperatureChart.Series.Add(series3);
             this.TemperatureChart.Size = new System.Drawing.Size(1247, 332);
             this.TemperatureChart.TabIndex = 17;
             this.TemperatureChart.Text = "chart1";
-            title10.Name = "Title1";
-            title10.Text = "Temperature";
-            this.TemperatureChart.Titles.Add(title10);
+            title2.Name = "Title1";
+            title2.Text = "Temperature";
+            this.TemperatureChart.Titles.Add(title2);
             // 
             // PressureChart
             // 
             this.PressureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea11.Name = "ChartArea1";
-            this.PressureChart.ChartAreas.Add(chartArea11);
-            legend11.Enabled = false;
-            legend11.Name = "Legend1";
-            this.PressureChart.Legends.Add(legend11);
+            chartArea3.Name = "ChartArea1";
+            this.PressureChart.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.PressureChart.Legends.Add(legend3);
             this.PressureChart.Location = new System.Drawing.Point(22, 1169);
-            this.PressureChart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.PressureChart.Margin = new System.Windows.Forms.Padding(6);
             this.PressureChart.Name = "PressureChart";
             this.PressureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series14.BorderWidth = 3;
-            series14.ChartArea = "ChartArea1";
-            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series14.Legend = "Legend1";
-            series14.Name = "Pressure";
-            this.PressureChart.Series.Add(series14);
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "Pressure";
+            this.PressureChart.Series.Add(series4);
             this.PressureChart.Size = new System.Drawing.Size(1247, 332);
             this.PressureChart.TabIndex = 18;
             this.PressureChart.Text = "PressureChart";
-            title11.Name = "Title1";
-            title11.Text = "Pressure";
-            this.PressureChart.Titles.Add(title11);
+            title3.Name = "Title1";
+            title3.Text = "Pressure";
+            this.PressureChart.Titles.Add(title3);
             // 
             // panel6
             // 
@@ -1022,10 +1023,82 @@
             this.panel6.Controls.Add(this.AS_STOP);
             this.panel6.Controls.Add(this.AS_START);
             this.panel6.Location = new System.Drawing.Point(865, 161);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(407, 654);
             this.panel6.TabIndex = 38;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(22, 346);
+            this.label31.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(216, 25);
+            this.label31.TabIndex = 60;
+            this.label31.Text = "Rampdown Min Pres:";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // RDminPress
+            // 
+            this.RDminPress.DecimalPlaces = 1;
+            this.RDminPress.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.RDminPress.Location = new System.Drawing.Point(253, 348);
+            this.RDminPress.Margin = new System.Windows.Forms.Padding(6);
+            this.RDminPress.Maximum = new decimal(new int[] {
+            11,
+            0,
+            0,
+            0});
+            this.RDminPress.Name = "RDminPress";
+            this.RDminPress.Size = new System.Drawing.Size(92, 29);
+            this.RDminPress.TabIndex = 59;
+            this.RDminPress.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(27, 304);
+            this.label30.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(211, 25);
+            this.label30.TabIndex = 56;
+            this.label30.Text = "Ramp Depress Rate:";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // RDrate
+            // 
+            this.RDrate.DecimalPlaces = 2;
+            this.RDrate.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.RDrate.Location = new System.Drawing.Point(253, 305);
+            this.RDrate.Margin = new System.Windows.Forms.Padding(6);
+            this.RDrate.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.RDrate.Name = "RDrate";
+            this.RDrate.Size = new System.Drawing.Size(92, 29);
+            this.RDrate.TabIndex = 57;
+            this.RDrate.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            131072});
             // 
             // AS_FlowLimit
             // 
@@ -1036,7 +1109,7 @@
             0,
             65536});
             this.AS_FlowLimit.Location = new System.Drawing.Point(253, 434);
-            this.AS_FlowLimit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_FlowLimit.Margin = new System.Windows.Forms.Padding(6);
             this.AS_FlowLimit.Maximum = new decimal(new int[] {
             2,
             0,
@@ -1062,7 +1135,7 @@
             this.flowLock.Checked = true;
             this.flowLock.CheckState = System.Windows.Forms.CheckState.Checked;
             this.flowLock.Location = new System.Drawing.Point(53, 434);
-            this.flowLock.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.flowLock.Margin = new System.Windows.Forms.Padding(6);
             this.flowLock.Name = "flowLock";
             this.flowLock.Size = new System.Drawing.Size(185, 29);
             this.flowLock.TabIndex = 54;
@@ -1078,7 +1151,7 @@
             0,
             65536});
             this.targetWeight.Location = new System.Drawing.Point(253, 391);
-            this.targetWeight.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.targetWeight.Margin = new System.Windows.Forms.Padding(6);
             this.targetWeight.Maximum = new decimal(new int[] {
             50,
             0,
@@ -1099,7 +1172,7 @@
             this.weightShutOff.Checked = true;
             this.weightShutOff.CheckState = System.Windows.Forms.CheckState.Checked;
             this.weightShutOff.Location = new System.Drawing.Point(55, 388);
-            this.weightShutOff.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.weightShutOff.Margin = new System.Windows.Forms.Padding(6);
             this.weightShutOff.Name = "weightShutOff";
             this.weightShutOff.Size = new System.Drawing.Size(183, 29);
             this.weightShutOff.TabIndex = 27;
@@ -1122,7 +1195,7 @@
             // 
             this.AS_PF_SPEED.DecimalPlaces = 1;
             this.AS_PF_SPEED.Location = new System.Drawing.Point(253, 47);
-            this.AS_PF_SPEED.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_PF_SPEED.Margin = new System.Windows.Forms.Padding(6);
             this.AS_PF_SPEED.Maximum = new decimal(new int[] {
             50,
             0,
@@ -1185,7 +1258,7 @@
             0,
             65536});
             this.AS_RD_PRESSURE.Location = new System.Drawing.Point(253, 262);
-            this.AS_RD_PRESSURE.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_RD_PRESSURE.Margin = new System.Windows.Forms.Padding(6);
             this.AS_RD_PRESSURE.Maximum = new decimal(new int[] {
             11,
             0,
@@ -1221,7 +1294,7 @@
             0,
             65536});
             this.AS_PF_PRESSURE.Location = new System.Drawing.Point(253, 133);
-            this.AS_PF_PRESSURE.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_PF_PRESSURE.Margin = new System.Windows.Forms.Padding(6);
             this.AS_PF_PRESSURE.Maximum = new decimal(new int[] {
             12,
             0,
@@ -1250,7 +1323,7 @@
             0,
             65536});
             this.AS_PB_Duration.Location = new System.Drawing.Point(253, 219);
-            this.AS_PB_Duration.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_PB_Duration.Margin = new System.Windows.Forms.Padding(6);
             this.AS_PB_Duration.Maximum = new decimal(new int[] {
             20,
             0,
@@ -1305,7 +1378,7 @@
             0,
             65536});
             this.AS_BREW_PRESSURE.Location = new System.Drawing.Point(253, 176);
-            this.AS_BREW_PRESSURE.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_BREW_PRESSURE.Margin = new System.Windows.Forms.Padding(6);
             this.AS_BREW_PRESSURE.Maximum = new decimal(new int[] {
             11,
             0,
@@ -1341,7 +1414,7 @@
             0,
             65536});
             this.AS_PF_DURATION.Location = new System.Drawing.Point(253, 90);
-            this.AS_PF_DURATION.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_PF_DURATION.Margin = new System.Windows.Forms.Padding(6);
             this.AS_PF_DURATION.Maximum = new decimal(new int[] {
             20,
             0,
@@ -1388,7 +1461,7 @@
             // 
             this.AS_STOP.BackColor = System.Drawing.Color.LightCoral;
             this.AS_STOP.Location = new System.Drawing.Point(214, 556);
-            this.AS_STOP.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_STOP.Margin = new System.Windows.Forms.Padding(6);
             this.AS_STOP.Name = "AS_STOP";
             this.AS_STOP.Size = new System.Drawing.Size(161, 78);
             this.AS_STOP.TabIndex = 37;
@@ -1400,7 +1473,7 @@
             // 
             this.AS_START.BackColor = System.Drawing.Color.LightGreen;
             this.AS_START.Location = new System.Drawing.Point(40, 556);
-            this.AS_START.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AS_START.Margin = new System.Windows.Forms.Padding(6);
             this.AS_START.Name = "AS_START";
             this.AS_START.Size = new System.Drawing.Size(161, 78);
             this.AS_START.TabIndex = 36;
@@ -1416,31 +1489,32 @@
             // flowRateChart
             // 
             this.flowRateChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea12.Name = "ChartArea1";
-            this.flowRateChart.ChartAreas.Add(chartArea12);
-            legend12.Enabled = false;
-            legend12.Name = "Legend1";
-            this.flowRateChart.Legends.Add(legend12);
+            chartArea4.Name = "ChartArea1";
+            this.flowRateChart.ChartAreas.Add(chartArea4);
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.flowRateChart.Legends.Add(legend4);
             this.flowRateChart.Location = new System.Drawing.Point(22, 1855);
-            this.flowRateChart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.flowRateChart.Margin = new System.Windows.Forms.Padding(6);
             this.flowRateChart.Name = "flowRateChart";
             this.flowRateChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series15.BorderWidth = 3;
-            series15.ChartArea = "ChartArea1";
-            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series15.Legend = "Legend1";
-            series15.Name = "Pressure";
-            this.flowRateChart.Series.Add(series15);
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series5.Legend = "Legend1";
+            series5.Name = "Pressure";
+            this.flowRateChart.Series.Add(series5);
             this.flowRateChart.Size = new System.Drawing.Size(1247, 332);
             this.flowRateChart.TabIndex = 39;
             this.flowRateChart.Text = "chart1";
-            title12.Name = "Title1";
-            title12.Text = "Flow Rate";
-            this.flowRateChart.Titles.Add(title12);
+            title4.Name = "Title1";
+            title4.Text = "Flow Rate";
+            this.flowRateChart.Titles.Add(title4);
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.saveNotifier);
             this.panel7.Controls.Add(this.label29);
             this.panel7.Controls.Add(this.massIn);
             this.panel7.Controls.Add(this.label28);
@@ -1459,7 +1533,7 @@
             this.panel7.Controls.Add(this.saveReportBTN);
             this.panel7.Controls.Add(this.label11);
             this.panel7.Location = new System.Drawing.Point(22, 617);
-            this.panel7.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel7.Margin = new System.Windows.Forms.Padding(6);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(834, 198);
             this.panel7.TabIndex = 40;
@@ -1477,7 +1551,7 @@
             // massIn
             // 
             this.massIn.Location = new System.Drawing.Point(238, 52);
-            this.massIn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.massIn.Margin = new System.Windows.Forms.Padding(6);
             this.massIn.Name = "massIn";
             this.massIn.Size = new System.Drawing.Size(66, 29);
             this.massIn.TabIndex = 55;
@@ -1505,7 +1579,7 @@
             // beansInfo
             // 
             this.beansInfo.Location = new System.Drawing.Point(22, 52);
-            this.beansInfo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.beansInfo.Margin = new System.Windows.Forms.Padding(6);
             this.beansInfo.Name = "beansInfo";
             this.beansInfo.Size = new System.Drawing.Size(118, 29);
             this.beansInfo.TabIndex = 52;
@@ -1513,7 +1587,7 @@
             // grindsize
             // 
             this.grindsize.Location = new System.Drawing.Point(156, 52);
-            this.grindsize.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.grindsize.Margin = new System.Windows.Forms.Padding(6);
             this.grindsize.Name = "grindsize";
             this.grindsize.Size = new System.Drawing.Size(66, 29);
             this.grindsize.TabIndex = 51;
@@ -1542,15 +1616,15 @@
             // 
             this.dullBrightSlider.LargeChange = 1;
             this.dullBrightSlider.Location = new System.Drawing.Point(53, 100);
-            this.dullBrightSlider.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.dullBrightSlider.Maximum = 5;
+            this.dullBrightSlider.Margin = new System.Windows.Forms.Padding(6);
+            this.dullBrightSlider.Maximum = 9;
             this.dullBrightSlider.Minimum = 1;
             this.dullBrightSlider.Name = "dullBrightSlider";
             this.dullBrightSlider.Size = new System.Drawing.Size(214, 80);
             this.dullBrightSlider.TabIndex = 48;
             this.dullBrightSlider.TabStop = false;
             this.dullBrightSlider.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.dullBrightSlider.Value = 3;
+            this.dullBrightSlider.Value = 5;
             // 
             // label23
             // 
@@ -1576,15 +1650,15 @@
             // 
             this.badGoodSlider.LargeChange = 1;
             this.badGoodSlider.Location = new System.Drawing.Point(368, 100);
-            this.badGoodSlider.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.badGoodSlider.Maximum = 5;
+            this.badGoodSlider.Margin = new System.Windows.Forms.Padding(6);
+            this.badGoodSlider.Maximum = 9;
             this.badGoodSlider.Minimum = 1;
             this.badGoodSlider.Name = "badGoodSlider";
             this.badGoodSlider.Size = new System.Drawing.Size(214, 80);
             this.badGoodSlider.TabIndex = 45;
             this.badGoodSlider.TabStop = false;
             this.badGoodSlider.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.badGoodSlider.Value = 3;
+            this.badGoodSlider.Value = 5;
             // 
             // label22
             // 
@@ -1610,20 +1684,20 @@
             // 
             this.sourBitterSlider.LargeChange = 1;
             this.sourBitterSlider.Location = new System.Drawing.Point(368, 18);
-            this.sourBitterSlider.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.sourBitterSlider.Maximum = 5;
+            this.sourBitterSlider.Margin = new System.Windows.Forms.Padding(6);
+            this.sourBitterSlider.Maximum = 9;
             this.sourBitterSlider.Minimum = 1;
             this.sourBitterSlider.Name = "sourBitterSlider";
             this.sourBitterSlider.Size = new System.Drawing.Size(214, 80);
             this.sourBitterSlider.TabIndex = 42;
             this.sourBitterSlider.TabStop = false;
             this.sourBitterSlider.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.sourBitterSlider.Value = 3;
+            this.sourBitterSlider.Value = 5;
             // 
             // saveReportBTN
             // 
-            this.saveReportBTN.Location = new System.Drawing.Point(649, 87);
-            this.saveReportBTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveReportBTN.Location = new System.Drawing.Point(649, 56);
+            this.saveReportBTN.Margin = new System.Windows.Forms.Padding(4);
             this.saveReportBTN.Name = "saveReportBTN";
             this.saveReportBTN.Size = new System.Drawing.Size(165, 85);
             this.saveReportBTN.TabIndex = 39;
@@ -1635,84 +1709,25 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(656, 26);
+            this.label11.Location = new System.Drawing.Point(660, 14);
             this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(136, 32);
             this.label11.TabIndex = 27;
             this.label11.Text = "Shot Log";
             // 
-            // label30
+            // saveNotifier
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(27, 304);
-            this.label30.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(211, 25);
-            this.label30.TabIndex = 56;
-            this.label30.Text = "Ramp Depress Rate:";
-            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // RDrate
-            // 
-            this.RDrate.DecimalPlaces = 2;
-            this.RDrate.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.RDrate.Location = new System.Drawing.Point(253, 305);
-            this.RDrate.Margin = new System.Windows.Forms.Padding(6);
-            this.RDrate.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            this.RDrate.Name = "RDrate";
-            this.RDrate.Size = new System.Drawing.Size(92, 29);
-            this.RDrate.TabIndex = 57;
-            this.RDrate.Value = new decimal(new int[] {
-            15,
-            0,
-            0,
-            131072});
-            // 
-            // RDminPress
-            // 
-            this.RDminPress.DecimalPlaces = 1;
-            this.RDminPress.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.RDminPress.Location = new System.Drawing.Point(253, 348);
-            this.RDminPress.Margin = new System.Windows.Forms.Padding(6);
-            this.RDminPress.Maximum = new decimal(new int[] {
-            11,
-            0,
-            0,
-            0});
-            this.RDminPress.Name = "RDminPress";
-            this.RDminPress.Size = new System.Drawing.Size(92, 29);
-            this.RDminPress.TabIndex = 59;
-            this.RDminPress.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(22, 346);
-            this.label31.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(216, 25);
-            this.label31.TabIndex = 60;
-            this.label31.Text = "Rampdown Min Pres:";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.saveNotifier.AutoSize = true;
+            this.saveNotifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveNotifier.ForeColor = System.Drawing.Color.Green;
+            this.saveNotifier.Location = new System.Drawing.Point(669, 148);
+            this.saveNotifier.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.saveNotifier.Name = "saveNotifier";
+            this.saveNotifier.Size = new System.Drawing.Size(115, 32);
+            this.saveNotifier.TabIndex = 57;
+            this.saveNotifier.Text = "SAVED";
+            this.saveNotifier.Visible = false;
             // 
             // Form1
             // 
@@ -1727,7 +1742,7 @@
             this.Controls.Add(this.WeightChart);
             this.Controls.Add(this.SensorsPanel);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "Espresso Yourself";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1749,6 +1764,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.PressureChart)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RDminPress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RDrate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_FlowLimit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.targetWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AS_PF_SPEED)).EndInit();
@@ -1763,8 +1780,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dullBrightSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.badGoodSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sourBitterSlider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RDrate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RDminPress)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1878,6 +1893,7 @@
         private System.Windows.Forms.NumericUpDown RDminPress;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.NumericUpDown RDrate;
+        private System.Windows.Forms.Label saveNotifier;
     }
 }
 

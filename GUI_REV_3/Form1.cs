@@ -597,7 +597,7 @@ namespace GUI_REV_3
 
         }
 
-        public void saveData()
+        private async Task saveData()
         {
 
 
@@ -625,6 +625,12 @@ namespace GUI_REV_3
 
                 File.AppendAllText(path, addition);
             }
+
+            saveNotifier.Visible = true;
+
+            await Task.Delay(5000);
+
+            saveNotifier.Visible = false;
 
         }
 
