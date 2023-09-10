@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.SerialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SensorsPanel = new System.Windows.Forms.Panel();
             this.plotPauseBTN = new System.Windows.Forms.Button();
@@ -85,7 +85,6 @@
             this.PIDReset = new System.Windows.Forms.Button();
             this.ZeroScale = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.stayHot = new System.Windows.Forms.CheckBox();
             this.HeaterIndicator = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TempOffButton = new System.Windows.Forms.Button();
@@ -154,6 +153,10 @@
             this.sourBitterSlider = new System.Windows.Forms.TrackBar();
             this.saveReportBTN = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.ghHeaterValue = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.mainHeaterValue = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.SensorsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeightChart)).BeginInit();
             this.panel1.SuspendLayout();
@@ -443,27 +446,27 @@
             // WeightChart
             // 
             this.WeightChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea1.Name = "ChartArea1";
-            this.WeightChart.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.WeightChart.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.WeightChart.ChartAreas.Add(chartArea5);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.WeightChart.Legends.Add(legend5);
             this.WeightChart.Location = new System.Drawing.Point(22, 1512);
             this.WeightChart.Margin = new System.Windows.Forms.Padding(6);
             this.WeightChart.Name = "WeightChart";
             this.WeightChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.Name = "Weight";
-            this.WeightChart.Series.Add(series1);
+            series6.BorderWidth = 3;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series6.Legend = "Legend1";
+            series6.Name = "Weight";
+            this.WeightChart.Series.Add(series6);
             this.WeightChart.Size = new System.Drawing.Size(1247, 332);
             this.WeightChart.TabIndex = 2;
             this.WeightChart.Text = "WeightChart";
-            title1.Name = "Title1";
-            title1.Text = "Weight";
-            this.WeightChart.Titles.Add(title1);
+            title5.Name = "Title1";
+            title5.Text = "Weight";
+            this.WeightChart.Titles.Add(title5);
             // 
             // panel1
             // 
@@ -672,7 +675,10 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.stayHot);
+            this.panel2.Controls.Add(this.ghHeaterValue);
+            this.panel2.Controls.Add(this.label33);
+            this.panel2.Controls.Add(this.mainHeaterValue);
+            this.panel2.Controls.Add(this.label35);
             this.panel2.Controls.Add(this.HeaterIndicator);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.TempOffButton);
@@ -685,26 +691,13 @@
             this.panel2.Size = new System.Drawing.Size(253, 242);
             this.panel2.TabIndex = 19;
             // 
-            // stayHot
-            // 
-            this.stayHot.AutoSize = true;
-            this.stayHot.Checked = true;
-            this.stayHot.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.stayHot.Location = new System.Drawing.Point(44, 140);
-            this.stayHot.Margin = new System.Windows.Forms.Padding(6);
-            this.stayHot.Name = "stayHot";
-            this.stayHot.Size = new System.Drawing.Size(113, 29);
-            this.stayHot.TabIndex = 26;
-            this.stayHot.Text = "Stay Hot";
-            this.stayHot.UseVisualStyleBackColor = true;
-            // 
             // HeaterIndicator
             // 
             this.HeaterIndicator.AutoSize = true;
             this.HeaterIndicator.BackColor = System.Drawing.Color.Red;
             this.HeaterIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HeaterIndicator.ForeColor = System.Drawing.Color.White;
-            this.HeaterIndicator.Location = new System.Drawing.Point(38, 57);
+            this.HeaterIndicator.Location = new System.Drawing.Point(38, 52);
             this.HeaterIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.HeaterIndicator.Name = "HeaterIndicator";
             this.HeaterIndicator.Size = new System.Drawing.Size(155, 25);
@@ -716,7 +709,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 100);
+            this.label5.Location = new System.Drawing.Point(16, 92);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 25);
@@ -726,7 +719,7 @@
             // 
             // TempOffButton
             // 
-            this.TempOffButton.Location = new System.Drawing.Point(130, 183);
+            this.TempOffButton.Location = new System.Drawing.Point(130, 191);
             this.TempOffButton.Margin = new System.Windows.Forms.Padding(6);
             this.TempOffButton.Name = "TempOffButton";
             this.TempOffButton.Size = new System.Drawing.Size(99, 42);
@@ -737,7 +730,7 @@
             // 
             // TempOnButton
             // 
-            this.TempOnButton.Location = new System.Drawing.Point(20, 183);
+            this.TempOnButton.Location = new System.Drawing.Point(20, 191);
             this.TempOnButton.Margin = new System.Windows.Forms.Padding(6);
             this.TempOnButton.Name = "TempOnButton";
             this.TempOnButton.Size = new System.Drawing.Size(99, 42);
@@ -754,7 +747,7 @@
             0,
             0,
             65536});
-            this.tempInput.Location = new System.Drawing.Point(136, 96);
+            this.tempInput.Location = new System.Drawing.Point(136, 88);
             this.tempInput.Margin = new System.Windows.Forms.Padding(6);
             this.tempInput.Maximum = new decimal(new int[] {
             95,
@@ -939,59 +932,59 @@
             // TemperatureChart
             // 
             this.TemperatureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea2.Name = "ChartArea1";
-            this.TemperatureChart.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.TemperatureChart.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.TemperatureChart.ChartAreas.Add(chartArea6);
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.TemperatureChart.Legends.Add(legend6);
             this.TemperatureChart.Location = new System.Drawing.Point(22, 825);
             this.TemperatureChart.Margin = new System.Windows.Forms.Padding(6);
             this.TemperatureChart.Name = "TemperatureChart";
             this.TemperatureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Legend = "Legend1";
-            series2.Name = "Temperature";
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.EmptyPointStyle.BorderWidth = 3;
-            series3.Legend = "Legend1";
-            series3.Name = "Temperature_GH";
-            this.TemperatureChart.Series.Add(series2);
-            this.TemperatureChart.Series.Add(series3);
+            series7.BorderWidth = 3;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series7.Legend = "Legend1";
+            series7.Name = "Temperature";
+            series8.BorderWidth = 3;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series8.EmptyPointStyle.BorderWidth = 3;
+            series8.Legend = "Legend1";
+            series8.Name = "Temperature_GH";
+            this.TemperatureChart.Series.Add(series7);
+            this.TemperatureChart.Series.Add(series8);
             this.TemperatureChart.Size = new System.Drawing.Size(1247, 332);
             this.TemperatureChart.TabIndex = 17;
             this.TemperatureChart.Text = "chart1";
-            title2.Name = "Title1";
-            title2.Text = "Temperature";
-            this.TemperatureChart.Titles.Add(title2);
+            title6.Name = "Title1";
+            title6.Text = "Temperature";
+            this.TemperatureChart.Titles.Add(title6);
             // 
             // PressureChart
             // 
             this.PressureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea3.Name = "ChartArea1";
-            this.PressureChart.ChartAreas.Add(chartArea3);
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.PressureChart.Legends.Add(legend3);
+            chartArea7.Name = "ChartArea1";
+            this.PressureChart.ChartAreas.Add(chartArea7);
+            legend7.Enabled = false;
+            legend7.Name = "Legend1";
+            this.PressureChart.Legends.Add(legend7);
             this.PressureChart.Location = new System.Drawing.Point(22, 1169);
             this.PressureChart.Margin = new System.Windows.Forms.Padding(6);
             this.PressureChart.Name = "PressureChart";
             this.PressureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series4.BorderWidth = 3;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Legend = "Legend1";
-            series4.Name = "Pressure";
-            this.PressureChart.Series.Add(series4);
+            series9.BorderWidth = 3;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series9.Legend = "Legend1";
+            series9.Name = "Pressure";
+            this.PressureChart.Series.Add(series9);
             this.PressureChart.Size = new System.Drawing.Size(1247, 332);
             this.PressureChart.TabIndex = 18;
             this.PressureChart.Text = "PressureChart";
-            title3.Name = "Title1";
-            title3.Text = "Pressure";
-            this.PressureChart.Titles.Add(title3);
+            title7.Name = "Title1";
+            title7.Text = "Pressure";
+            this.PressureChart.Titles.Add(title7);
             // 
             // panel6
             // 
@@ -1208,7 +1201,7 @@
             this.AS_PF_SPEED.Size = new System.Drawing.Size(92, 29);
             this.AS_PF_SPEED.TabIndex = 52;
             this.AS_PF_SPEED.Value = new decimal(new int[] {
-            25,
+            20,
             0,
             0,
             0});
@@ -1487,27 +1480,27 @@
             // flowRateChart
             // 
             this.flowRateChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea4.Name = "ChartArea1";
-            this.flowRateChart.ChartAreas.Add(chartArea4);
-            legend4.Enabled = false;
-            legend4.Name = "Legend1";
-            this.flowRateChart.Legends.Add(legend4);
+            chartArea8.Name = "ChartArea1";
+            this.flowRateChart.ChartAreas.Add(chartArea8);
+            legend8.Enabled = false;
+            legend8.Name = "Legend1";
+            this.flowRateChart.Legends.Add(legend8);
             this.flowRateChart.Location = new System.Drawing.Point(22, 1855);
             this.flowRateChart.Margin = new System.Windows.Forms.Padding(6);
             this.flowRateChart.Name = "flowRateChart";
             this.flowRateChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series5.BorderWidth = 3;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series5.Legend = "Legend1";
-            series5.Name = "Pressure";
-            this.flowRateChart.Series.Add(series5);
+            series10.BorderWidth = 3;
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series10.Legend = "Legend1";
+            series10.Name = "Pressure";
+            this.flowRateChart.Series.Add(series10);
             this.flowRateChart.Size = new System.Drawing.Size(1247, 332);
             this.flowRateChart.TabIndex = 39;
             this.flowRateChart.Text = "chart1";
-            title4.Name = "Title1";
-            title4.Text = "Flow Rate";
-            this.flowRateChart.Titles.Add(title4);
+            title8.Name = "Title1";
+            title8.Text = "Flow Rate";
+            this.flowRateChart.Titles.Add(title8);
             // 
             // panel7
             // 
@@ -1727,6 +1720,52 @@
             this.label11.TabIndex = 27;
             this.label11.Text = "Shot Log";
             // 
+            // ghHeaterValue
+            // 
+            this.ghHeaterValue.AutoSize = true;
+            this.ghHeaterValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ghHeaterValue.Location = new System.Drawing.Point(201, 157);
+            this.ghHeaterValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.ghHeaterValue.Name = "ghHeaterValue";
+            this.ghHeaterValue.Size = new System.Drawing.Size(24, 25);
+            this.ghHeaterValue.TabIndex = 38;
+            this.ghHeaterValue.Text = "0";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(53, 150);
+            this.label33.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(119, 25);
+            this.label33.TabIndex = 37;
+            this.label33.Text = "GH Heater:";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // mainHeaterValue
+            // 
+            this.mainHeaterValue.AutoSize = true;
+            this.mainHeaterValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainHeaterValue.Location = new System.Drawing.Point(201, 126);
+            this.mainHeaterValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.mainHeaterValue.Name = "mainHeaterValue";
+            this.mainHeaterValue.Size = new System.Drawing.Size(24, 25);
+            this.mainHeaterValue.TabIndex = 36;
+            this.mainHeaterValue.Text = "0";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(38, 124);
+            this.label35.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(141, 25);
+            this.label35.TabIndex = 35;
+            this.label35.Text = "Main Heater: ";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -1860,7 +1899,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.NumericUpDown AS_PF_SPEED;
         private System.Windows.Forms.Button plotClear;
-        private System.Windows.Forms.CheckBox stayHot;
         private System.Windows.Forms.NumericUpDown targetWeight;
         private System.Windows.Forms.CheckBox weightShutOff;
         private System.Windows.Forms.Label flowRateValue;
@@ -1892,6 +1930,10 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.NumericUpDown RDrate;
         private System.Windows.Forms.Label saveNotifier;
+        private System.Windows.Forms.Label ghHeaterValue;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label mainHeaterValue;
+        private System.Windows.Forms.Label label35;
     }
 }
 

@@ -36,7 +36,7 @@ MAX31865 rtd1;
 
 //Scale setup
 HX711 scale;
-float calibration_factor = 5030;
+float calibration_factor = 5331;
 #define Scale_DOUT 7
 #define Scale_CLK 8
 
@@ -64,6 +64,8 @@ double flowRate = 0;        //ml/s
 
 // values for tracking heater state
 boolean heating = false;
+float mainHeater_setting;
+float gh_heater_setting;
 
 //PID output variables
 double pump_PID_Output = 0;
@@ -74,7 +76,9 @@ double main_heater_PID_Output = 0;
 #define flowIntGain 2.4
 
 //AutoPID PIDNAME(&[Measure], &[Target], &[Output], OUTPUT_MIN, OUTPUT_MAX, KP, KI, KD);
-AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0.01, 0.04, 0);
+//AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0.01, 0.04, 0);
+//AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0, 0.15, 0);
+AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0.018, 0.225, 11000.0);
 AutoPID ghHeaterPID(&temp_gh, &tempSet, &gh_heater_PID_Output, 0, 1, 0.04, 0.0015, 0);
 AutoPID mainHeaterPID(&temp, &tempSet, &main_heater_PID_Output, 0, 0.5, 0.15, 0.001, 0);
 
@@ -160,10 +164,10 @@ void loop() {
 
   //communications update
   checkInput();
-  if(updateMasterNow){
+  if (updateMasterNow) {
     updateMaster();
     updateMasterNow = false;
-  }else{
+  } else {
     updateMasterNow = true;
   }
 
@@ -213,12 +217,16 @@ void checkInput() {
 
         } else if (pumpMode == 'P') {
 
+          // if you are chaning into pressre state reset pid of pump first
+          if (pressureSet == -1)
+              pumpPID.reset();
+          
           pressureSet = (float)pumpValue / 10;
           flowSet = -1;
 
         } else if (pumpMode == 'F') {
 
-          flowSet = (float)pumpValue/100;
+          flowSet = (float)pumpValue / 100;
           pressureSet = -1;
         }
 
@@ -250,7 +258,7 @@ void checkInput() {
 
 void updateMaster() {
 
-  //Send update string - "SPPPPPPPPTTTTTTTTGGGGGGGGWWWWWWWWRRRRRRRRFFFFFFFF\n" - " 50 characters"
+  //Send update string - "SPPPPPPPPTTTTTTTTGGGGGGGGWWWWWWWWRRRRRRRRFFFFFFFFHHHHHHHHGGGGGGGG\n" - " 66 characters"
   //S = start character "S"
   //PPPPPPPP =    (pressure+1000)*100 (with leading zeros)
   //TTTTTTTT = (temperature+1000)*100 (with leading zeros)
@@ -258,6 +266,8 @@ void updateMaster() {
   //WWWWWWWW =      (weight+1000)*100 (with leading zeros)
   //RRRRRRRR =   (flow rate+1000)*100 (with leading zeros)
   //FFFFFFFF =   (frequency+1000)*100 (with leading zeros)
+  //HHHHHHHH = (main heater+1000)*100 (with leading zeros)
+  //GGGGGGGG =   (gh heater+1000)*100 (with leading zeros)
 
   //Initialize message
   String outputMessage = "S";
@@ -325,6 +335,27 @@ void updateMaster() {
   }
   outputMessage = outputMessage + speedMessage;
 
+  // add main heater setting
+  String main_heater_Message = String((mainHeater_setting + 1000) * 100, 0);
+  while (main_heater_Message.length() != 8) {
+    if (main_heater_Message.length() < 8)
+      main_heater_Message = "0" + main_heater_Message;
+    else
+      main_heater_Message = "99999999";
+  }
+  outputMessage = outputMessage + main_heater_Message;
+
+  // add grouphead heater setting
+  String gh_heater_Message = String((gh_heater_setting + 1000) * 100, 0);
+  while (gh_heater_Message.length() != 8) {
+    if (gh_heater_Message.length() < 8)
+      gh_heater_Message = "0" + gh_heater_Message;
+    else
+      gh_heater_Message = "99999999";
+  }
+  outputMessage = outputMessage + gh_heater_Message;
+
+
   Serial.println(outputMessage);
 
 }
@@ -332,24 +363,24 @@ void updateMaster() {
 void updateWeight() {
 
   //calculate weight using kalman scale with previous data and calculate time shifts
-  weight = weightKalman*scale.get_units()+(1-weightKalman)*weight;
+  weight = weightKalman * scale.get_units() + (1 - weightKalman) * weight;
 
   long int timeMeasure = millis();
   int timeIncrease = timeMeasure - timeSave;
   timeSave = timeMeasure;
 
-  freq = (float)1/((float)timeIncrease/1000);
-  
+  freq = (float)1 / ((float)timeIncrease / 1000);
+
   //shift weight history values and append latest value
-  for(int i = 0; i<weightAveragingSize-1; i++){
-    weightData[i] = weightData[i+1];
+  for (int i = 0; i < weightAveragingSize - 1; i++) {
+    weightData[i] = weightData[i + 1];
     timingData[i] = timingData[i] - timingData[0];
   }
-  weightData[weightAveragingSize-1] = (int)(100 * weight);
-  timingData[weightAveragingSize-1] = timingData[weightAveragingSize-2]+timeIncrease;
+  weightData[weightAveragingSize - 1] = (int)(100 * weight);
+  timingData[weightAveragingSize - 1] = timingData[weightAveragingSize - 2] + timeIncrease;
 }
 
-void updateFlowRate(){
+void updateFlowRate() {
 
   //calculate flow rate by performing slope linear regression on weight set
   float timeHistory[weightAveragingSize];
@@ -358,36 +389,36 @@ void updateFlowRate(){
   float AverageTime = 0;
   float AverageWeight = 0;
 
-  for(int i = 0; i<weightAveragingSize; i++){
-    weightHistory[i] = (float)weightData[i]/100;
-    timeHistory[i] = ((float)timingData[i])/((float)(1000));
+  for (int i = 0; i < weightAveragingSize; i++) {
+    weightHistory[i] = (float)weightData[i] / 100;
+    timeHistory[i] = ((float)timingData[i]) / ((float)(1000));
 
     AverageTime += timeHistory[i];
     AverageWeight += weightHistory[i];
 
   }
 
-  AverageTime = AverageTime/weightAveragingSize;
-  AverageWeight = AverageWeight/weightAveragingSize;
+  AverageTime = AverageTime / weightAveragingSize;
+  AverageWeight = AverageWeight / weightAveragingSize;
 
   float numerator = 0;
   float denominator = 0;
-  for(int i = 0; i<weightAveragingSize; i++){
-      numerator+=(timeHistory[i]-AverageTime)*(weightHistory[i]-AverageWeight);
-      denominator+=(timeHistory[i]-AverageTime)*(timeHistory[i]-AverageTime);
+  for (int i = 0; i < weightAveragingSize; i++) {
+    numerator += (timeHistory[i] - AverageTime) * (weightHistory[i] - AverageWeight);
+    denominator += (timeHistory[i] - AverageTime) * (timeHistory[i] - AverageTime);
   }
 
-  //modifier is added on after experimental tests 
-  float rawFlow = 0.11506*numerator/denominator;
+  //modifier is added on after experimental tests
+  float rawFlow = 0.11506 * numerator / denominator;
 
-  flowRate = (flowKalman*rawFlow) + ((1-flowKalman)*flowRate);
-  
+  flowRate = (flowKalman * rawFlow) + ((1 - flowKalman) * flowRate);
+
 }
 
 void updateHeater() {
   //heater settting - between 0 and 1
-  float mainHeater_setting = 0;
-  float gh_heater_setting = 0;
+  mainHeater_setting = 0;
+  gh_heater_setting = 0;
 
   if (heating) {
 
@@ -452,7 +483,10 @@ void updatePump() {
   //run PID update
   if (pressureSet > 0) {
     pumpPID.run();
-    pumpSpeed = (float)(-4.98468)+(float)(15.0384)*(float)(sqrt(0.39949+pressureSet));
+//    pumpSpeed = (float)(-4.98468) + (float)(15.0384) * (float)(sqrt(0.39949 + pressureSet));
+//    pumpSpeed = (float)(-4.98468) + (float)(15.0384) * (float)(sqrt(1.25 + pressureSet));
+//    pumpSpeed = (float)(-18.0) + (float)(20.0) * (float)(sqrt(1.5 + pressureSet));
+    pumpSpeed = (float)(-18.0) + (float)(20.0) * (float)(sqrt(0.75 + pressureSet));
     pumpSpeed = (pumpSpeed / 100);
     pumpSpeed = pumpSpeed + pump_PID_Output / 10;
   } else {
@@ -462,14 +496,14 @@ void updatePump() {
 
   if (flowSet > 0) {
 
-    double FlowError = flowRate-flowSet;
+    double FlowError = flowRate - flowSet;
     double flowCorrectionGain = 0.004;
     double minPumpSetting = 0.15;
     double maxPumpSetting = 0.40;
 
-    pumpSpeed = max(min((pumpSpeed-(FlowError*flowCorrectionGain)),maxPumpSetting),minPumpSetting);
+    pumpSpeed = max(min((pumpSpeed - (FlowError * flowCorrectionGain)), maxPumpSetting), minPumpSetting);
   }
-  
+
   dac.setVoltage((int)(pumpSpeed * 4096), false);
 }
 
@@ -483,9 +517,9 @@ void updateTemperature_0() {
   rtd0.sample();
   float resistance = rtd0.getResistance();
   float rawTemp = ((resistance - 100) / 0.384);
-      
+
   filteredWaterTemp.reading((int)(100 * rawTemp));
-  
+
   temp = (float)filteredWaterTemp.getAvg() / 100;
 }
 
@@ -499,8 +533,8 @@ void updateTemperature_1() {
   rtd1.sample();
   float resistance = rtd1.getResistance();
   float rawTemp = ((resistance - 100) / 0.384);
-      
-  filteredGHTemp.reading((int)(100*rawTemp));
+
+  filteredGHTemp.reading((int)(100 * rawTemp));
 
   temp_gh = (float)filteredGHTemp.getAvg() / 100;
 }

@@ -27,6 +27,8 @@ namespace GUI_REV_3
         public float GHTemperature;
         public float flowRate;
         public float AS_state;
+        public float mainHeaterThrottle;
+        public float ghHeaterThrottle;
 
         public float lastCycleTime = 0;
 
@@ -90,7 +92,7 @@ namespace GUI_REV_3
 
         public void Write2Form(String indata)
         {
-            if(indata.Length != 50 || indata[0] != 'S')
+            if(indata.Length != 66 || indata[0] != 'S')
             {
                 return;
             }
@@ -115,6 +117,11 @@ namespace GUI_REV_3
             slaveFrequency = (Convert.ToSingle(indata.Substring(41, 8)) / 100) - 1000;
             SlaveFrequencyValue.Text = Convert.ToString(slaveFrequency) + " Hz";
 
+            mainHeaterThrottle = (Convert.ToSingle(indata.Substring(49, 8)) / 100) - 1000;
+            mainHeaterValue.Text = Convert.ToString(mainHeaterThrottle);
+
+            ghHeaterThrottle = (Convert.ToSingle(indata.Substring(57, 8)) / 100) - 1000;
+            ghHeaterValue.Text = Convert.ToString(ghHeaterThrottle);
         }
 
         public void updatePlots()
@@ -554,11 +561,6 @@ namespace GUI_REV_3
                 valveIdle_Click(sender, new EventArgs());
 
                 ASshutDownAsync();
-
-                if (!stayHot.Checked)
-                {
-                    TempOffButton_Click(sender, new EventArgs());
-                }
 
                 AS_state = -1;
                 stopWatch.Stop();
