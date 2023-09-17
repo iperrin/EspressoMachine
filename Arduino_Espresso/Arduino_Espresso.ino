@@ -12,6 +12,7 @@
 #define gh_heater 3
 #define groupValve 6
 #define loopValve 5
+#define steamValve 4
 #define ducer A0
 
 float freq = 100;
@@ -52,8 +53,9 @@ double pumpSpeed = 0.25;    //0-1 value given by
 double pressureSet = -1;     //target pressure -1 if not using pressureSet
 double tempSet = 85;        //celcius
 double flowSet = -1;         //ml/s -1 if not using flowSet
-boolean groupState = false; //Energize group - normally closed
-boolean loopState = false;  //Energize loop  - normally open
+boolean groupState = false;       //Energize group - normally closed
+boolean loopState = false;        //Energize loop  - normally open
+boolean steamValveState = false;  //Energize steam valve - normally closed
 
 // Measured/Enacted System State
 double pressure = 0;        //bars
@@ -78,7 +80,7 @@ double main_heater_PID_Output = 0;
 //AutoPID PIDNAME(&[Measure], &[Target], &[Output], OUTPUT_MIN, OUTPUT_MAX, KP, KI, KD);
 //AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0.01, 0.04, 0);
 //AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0, 0.15, 0);
-AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0.018, 0.225, 11000.0);
+AutoPID pumpPID(&pressure, &pressureSet, &pump_PID_Output, -2, 2, 0.016, 0.2, 10000.0);
 AutoPID ghHeaterPID(&temp_gh, &tempSet, &gh_heater_PID_Output, 0, 1, 0.04, 0.0015, 0);
 AutoPID mainHeaterPID(&temp, &tempSet, &main_heater_PID_Output, 0, 0.5, 0.15, 0.001, 0);
 
@@ -120,10 +122,12 @@ void setup() {
   //initialize IO pins
   pinMode(groupValve, OUTPUT);
   pinMode(loopValve, OUTPUT);
+  pinMode(steamValve, OUTPUT);
   pinMode(heater, OUTPUT);
   pinMode(gh_heater, OUTPUT);
   digitalWrite(groupValve, LOW);
   digitalWrite(loopValve, LOW);
+  digitalWrite(steamValve, LOW);
   digitalWrite(heater, LOW);
   digitalWrite(gh_heater, LOW);
 
@@ -175,12 +179,12 @@ void loop() {
 
 void checkInput() {
   int data;
-  while (Serial.available() > 12) {
+  while (Serial.available() > 13) {
     char d1 = Serial.read();
 
     if (d1 == 'S') {
 
-      String valveMessage = readSerialString(2);
+      String valveMessage = readSerialString(3);
       String motorMessage = readSerialString(4);
       String TempMessage = readSerialString(3);
       char termination = Serial.read();
@@ -205,6 +209,11 @@ void checkInput() {
         else if (valveMessage.charAt(1) == '0')
           groupState = false;
 
+        if (valveMessage.charAt(2) == '1')
+          steamValveState = true;
+        else if (valveMessage.charAt(2) == '0')
+          steamValveState = false;
+
 
         //process motor state
         char pumpMode = motorMessage.charAt(0);
@@ -219,8 +228,8 @@ void checkInput() {
 
           // if you are chaning into pressre state reset pid of pump first
           if (pressureSet == -1)
-              pumpPID.reset();
-          
+            pumpPID.reset();
+
           pressureSet = (float)pumpValue / 10;
           flowSet = -1;
 
@@ -476,19 +485,32 @@ void updateValves() {
     digitalWrite(loopValve, LOW);
   }
 
+  if (steamValveState) {
+    digitalWrite(steamValve, HIGH);
+  } else {
+    digitalWrite(steamValve, LOW);
+  }
+
 }
 
 void updatePump() {
 
   //run PID update
   if (pressureSet > 0) {
-    pumpPID.run();
-//    pumpSpeed = (float)(-4.98468) + (float)(15.0384) * (float)(sqrt(0.39949 + pressureSet));
-//    pumpSpeed = (float)(-4.98468) + (float)(15.0384) * (float)(sqrt(1.25 + pressureSet));
-//    pumpSpeed = (float)(-18.0) + (float)(20.0) * (float)(sqrt(1.5 + pressureSet));
+    //    pumpSpeed = (float)(-4.98468) + (float)(15.0384) * (float)(sqrt(0.39949 + pressureSet));
+    //    pumpSpeed = (float)(-4.98468) + (float)(15.0384) * (float)(sqrt(1.25 + pressureSet));
+    //    pumpSpeed = (float)(-18.0) + (float)(20.0) * (float)(sqrt(1.5 + pressureSet));
     pumpSpeed = (float)(-18.0) + (float)(20.0) * (float)(sqrt(0.75 + pressureSet));
     pumpSpeed = (pumpSpeed / 100);
-    pumpSpeed = pumpSpeed + pump_PID_Output / 10;
+
+    // only apply PID if you are near target - otherwise rely on lookup table
+    float pressure_Error = abs(pressureSet - pressure);
+    if (pressure_Error < 1.5) {
+      pumpPID.run();
+      pumpSpeed = pumpSpeed + pump_PID_Output / 10;
+    } else {
+      pumpPID.reset();
+    }
   } else {
     pumpPID.reset();
     pumpPID.stop();

@@ -50,6 +50,7 @@ namespace GUI_REV_3
         //valve state: 0 = unenergized | 1 = energized (group is normally close, loop is normally open)
         public int groupValveState = 0;
         public int loopValveState = 0;
+        public int steamValveState = 0;
 
         public float tempSet;
         public float flowSet = 0;
@@ -237,7 +238,7 @@ namespace GUI_REV_3
                 String report = "S";
 
                 //send valve state - 3 characters
-                report = report+ loopValveState.ToString() + groupValveState.ToString();
+                report = report+ loopValveState.ToString() + groupValveState.ToString() + steamValveState.ToString();
                 
                 
 
@@ -429,6 +430,7 @@ namespace GUI_REV_3
         {
             ghClose_Click(sender, new EventArgs());
             loopOpen_Click(sender, new EventArgs());
+            steamClose_Click(sender, new EventArgs());
         }
 
         private void ZeroScale_Click(object sender, EventArgs e)
@@ -583,6 +585,7 @@ namespace GUI_REV_3
         {
             ghOpen_Click(sender, new EventArgs());
             loopClose_Click(sender, new EventArgs());
+            steamClose_Click(sender, new EventArgs());
         }
 
         private void plotClear_Click(object sender, EventArgs e)
@@ -644,6 +647,32 @@ namespace GUI_REV_3
         private void saveReportBTN_Click(object sender, EventArgs e)
         {
             saveData();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void steamOpen_Click(object sender, EventArgs e)
+        {
+            steamValveState = 1;
+            SteamValveIndicator.Text = "OPEN";
+            SteamValveIndicator.BackColor = Color.Green;
+        }
+
+        private void steamClose_Click(object sender, EventArgs e)
+        {
+            steamValveState = 0;
+            SteamValveIndicator.Text = "CLOSED";
+            SteamValveIndicator.BackColor = Color.Red;
+        }
+
+        private void valveSteam_Click(object sender, EventArgs e)
+        {
+            ghClose_Click(sender, new EventArgs());
+            loopClose_Click(sender, new EventArgs());
+            steamOpen_Click(sender, new EventArgs());
         }
     }
 }

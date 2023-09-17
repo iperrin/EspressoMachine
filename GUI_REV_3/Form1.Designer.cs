@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title13 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title14 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title15 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title16 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.SerialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.SensorsPanel = new System.Windows.Forms.Panel();
             this.plotPauseBTN = new System.Windows.Forms.Button();
@@ -85,6 +85,8 @@
             this.PIDReset = new System.Windows.Forms.Button();
             this.ZeroScale = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ghHeaterValue = new System.Windows.Forms.Label();
+            this.mainHeaterValue = new System.Windows.Forms.Label();
             this.HeaterIndicator = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TempOffButton = new System.Windows.Forms.Button();
@@ -153,10 +155,20 @@
             this.sourBitterSlider = new System.Windows.Forms.TrackBar();
             this.saveReportBTN = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.ghHeaterValue = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.mainHeaterValue = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
+            this.steamClose = new System.Windows.Forms.Button();
+            this.steamOpen = new System.Windows.Forms.Button();
+            this.label32 = new System.Windows.Forms.Label();
+            this.SteamValveIndicator = new System.Windows.Forms.Label();
+            this.valveSteam = new System.Windows.Forms.Button();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.HexTempValue = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.steamHeaterIndicator = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.SteamHeatOffButton = new System.Windows.Forms.Button();
+            this.SteamHeatOnButton = new System.Windows.Forms.Button();
+            this.steamTempInput = new System.Windows.Forms.NumericUpDown();
             this.SensorsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WeightChart)).BeginInit();
             this.panel1.SuspendLayout();
@@ -185,6 +197,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dullBrightSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.badGoodSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sourBitterSlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.steamTempInput)).BeginInit();
             this.SuspendLayout();
             // 
             // SerialPort1
@@ -197,6 +210,12 @@
             // SensorsPanel
             // 
             this.SensorsPanel.BackColor = System.Drawing.Color.White;
+            this.SensorsPanel.Controls.Add(this.ghHeaterValue);
+            this.SensorsPanel.Controls.Add(this.HexTempValue);
+            this.SensorsPanel.Controls.Add(this.label40);
+            this.SensorsPanel.Controls.Add(this.mainHeaterValue);
+            this.SensorsPanel.Controls.Add(this.label36);
+            this.SensorsPanel.Controls.Add(this.label38);
             this.SensorsPanel.Controls.Add(this.plotPauseBTN);
             this.SensorsPanel.Controls.Add(this.flowRateValue);
             this.SensorsPanel.Controls.Add(this.label20);
@@ -224,7 +243,7 @@
             // 
             // plotPauseBTN
             // 
-            this.plotPauseBTN.Location = new System.Drawing.Point(693, 22);
+            this.plotPauseBTN.Location = new System.Drawing.Point(816, 26);
             this.plotPauseBTN.Margin = new System.Windows.Forms.Padding(4);
             this.plotPauseBTN.Name = "plotPauseBTN";
             this.plotPauseBTN.Size = new System.Drawing.Size(97, 85);
@@ -237,7 +256,7 @@
             // 
             this.flowRateValue.AutoSize = true;
             this.flowRateValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowRateValue.Location = new System.Drawing.Point(449, 28);
+            this.flowRateValue.Location = new System.Drawing.Point(181, 89);
             this.flowRateValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.flowRateValue.Name = "flowRateValue";
             this.flowRateValue.Size = new System.Drawing.Size(24, 25);
@@ -248,7 +267,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(286, 26);
+            this.label20.Location = new System.Drawing.Point(32, 87);
             this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(120, 25);
@@ -258,7 +277,7 @@
             // 
             // plotClear
             // 
-            this.plotClear.Location = new System.Drawing.Point(579, 22);
+            this.plotClear.Location = new System.Drawing.Point(702, 26);
             this.plotClear.Margin = new System.Windows.Forms.Padding(4);
             this.plotClear.Name = "plotClear";
             this.plotClear.Size = new System.Drawing.Size(97, 85);
@@ -271,7 +290,7 @@
             // 
             this.GHTemperatureValue.AutoSize = true;
             this.GHTemperatureValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GHTemperatureValue.Location = new System.Drawing.Point(449, 92);
+            this.GHTemperatureValue.Location = new System.Drawing.Point(441, 57);
             this.GHTemperatureValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.GHTemperatureValue.Name = "GHTemperatureValue";
             this.GHTemperatureValue.Size = new System.Drawing.Size(24, 25);
@@ -282,12 +301,12 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(249, 90);
+            this.label18.Location = new System.Drawing.Point(285, 55);
             this.label18.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(183, 25);
+            this.label18.Size = new System.Drawing.Size(115, 25);
             this.label18.TabIndex = 33;
-            this.label18.Text = "GH Temperature: ";
+            this.label18.Text = "GH Temp: ";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // SerialSearch
@@ -304,19 +323,19 @@
             // SerialPortSelect
             // 
             this.SerialPortSelect.FormattingEnabled = true;
-            this.SerialPortSelect.Location = new System.Drawing.Point(988, 30);
+            this.SerialPortSelect.Location = new System.Drawing.Point(1000, 30);
             this.SerialPortSelect.Margin = new System.Windows.Forms.Padding(6);
             this.SerialPortSelect.Name = "SerialPortSelect";
-            this.SerialPortSelect.Size = new System.Drawing.Size(108, 32);
+            this.SerialPortSelect.Size = new System.Drawing.Size(96, 32);
             this.SerialPortSelect.TabIndex = 31;
             this.SerialPortSelect.Text = "COM3";
             // 
             // SerialConnect
             // 
-            this.SerialConnect.Location = new System.Drawing.Point(1063, 70);
+            this.SerialConnect.Location = new System.Drawing.Point(1102, 70);
             this.SerialConnect.Margin = new System.Windows.Forms.Padding(6);
             this.SerialConnect.Name = "SerialConnect";
-            this.SerialConnect.Size = new System.Drawing.Size(161, 42);
+            this.SerialConnect.Size = new System.Drawing.Size(122, 42);
             this.SerialConnect.TabIndex = 29;
             this.SerialConnect.Text = "CONNECT";
             this.SerialConnect.UseVisualStyleBackColor = true;
@@ -326,7 +345,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(891, 30);
+            this.label10.Location = new System.Drawing.Point(924, 33);
             this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(82, 25);
@@ -336,10 +355,10 @@
             // 
             // SerialDisconnect
             // 
-            this.SerialDisconnect.Location = new System.Drawing.Point(891, 70);
+            this.SerialDisconnect.Location = new System.Drawing.Point(936, 70);
             this.SerialDisconnect.Margin = new System.Windows.Forms.Padding(6);
             this.SerialDisconnect.Name = "SerialDisconnect";
-            this.SerialDisconnect.Size = new System.Drawing.Size(161, 42);
+            this.SerialDisconnect.Size = new System.Drawing.Size(160, 42);
             this.SerialDisconnect.TabIndex = 26;
             this.SerialDisconnect.Text = "DISCONNECT";
             this.SerialDisconnect.UseVisualStyleBackColor = true;
@@ -349,7 +368,7 @@
             // 
             this.SlaveFrequencyValue.AutoSize = true;
             this.SlaveFrequencyValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SlaveFrequencyValue.Location = new System.Drawing.Point(180, 89);
+            this.SlaveFrequencyValue.Location = new System.Drawing.Point(655, 96);
             this.SlaveFrequencyValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.SlaveFrequencyValue.Name = "SlaveFrequencyValue";
             this.SlaveFrequencyValue.Size = new System.Drawing.Size(24, 25);
@@ -371,7 +390,7 @@
             // 
             this.SlaveFrequencyLabel.AutoSize = true;
             this.SlaveFrequencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SlaveFrequencyLabel.Location = new System.Drawing.Point(11, 87);
+            this.SlaveFrequencyLabel.Location = new System.Drawing.Point(486, 94);
             this.SlaveFrequencyLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.SlaveFrequencyLabel.Name = "SlaveFrequencyLabel";
             this.SlaveFrequencyLabel.Size = new System.Drawing.Size(143, 25);
@@ -383,7 +402,7 @@
             // 
             this.TemperatureValue.AutoSize = true;
             this.TemperatureValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperatureValue.Location = new System.Drawing.Point(449, 61);
+            this.TemperatureValue.Location = new System.Drawing.Point(441, 25);
             this.TemperatureValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.TemperatureValue.Name = "TemperatureValue";
             this.TemperatureValue.Size = new System.Drawing.Size(24, 25);
@@ -417,12 +436,12 @@
             // 
             this.TemperatureLabel.AutoSize = true;
             this.TemperatureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperatureLabel.Location = new System.Drawing.Point(286, 59);
+            this.TemperatureLabel.Location = new System.Drawing.Point(259, 23);
             this.TemperatureLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.TemperatureLabel.Name = "TemperatureLabel";
-            this.TemperatureLabel.Size = new System.Drawing.Size(146, 25);
+            this.TemperatureLabel.Size = new System.Drawing.Size(141, 25);
             this.TemperatureLabel.TabIndex = 7;
-            this.TemperatureLabel.Text = "Temperature: ";
+            this.TemperatureLabel.Text = "Water Temp: ";
             this.TemperatureLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // PressureLabel
@@ -446,27 +465,27 @@
             // WeightChart
             // 
             this.WeightChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea5.Name = "ChartArea1";
-            this.WeightChart.ChartAreas.Add(chartArea5);
-            legend5.Enabled = false;
-            legend5.Name = "Legend1";
-            this.WeightChart.Legends.Add(legend5);
+            chartArea13.Name = "ChartArea1";
+            this.WeightChart.ChartAreas.Add(chartArea13);
+            legend13.Enabled = false;
+            legend13.Name = "Legend1";
+            this.WeightChart.Legends.Add(legend13);
             this.WeightChart.Location = new System.Drawing.Point(22, 1512);
             this.WeightChart.Margin = new System.Windows.Forms.Padding(6);
             this.WeightChart.Name = "WeightChart";
             this.WeightChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series6.BorderWidth = 3;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series6.Legend = "Legend1";
-            series6.Name = "Weight";
-            this.WeightChart.Series.Add(series6);
+            series16.BorderWidth = 3;
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series16.Legend = "Legend1";
+            series16.Name = "Weight";
+            this.WeightChart.Series.Add(series16);
             this.WeightChart.Size = new System.Drawing.Size(1247, 332);
             this.WeightChart.TabIndex = 2;
             this.WeightChart.Text = "WeightChart";
-            title5.Name = "Title1";
-            title5.Text = "Weight";
-            this.WeightChart.Titles.Add(title5);
+            title13.Name = "Title1";
+            title13.Text = "Weight";
+            this.WeightChart.Titles.Add(title13);
             // 
             // panel1
             // 
@@ -495,7 +514,7 @@
             this.panel3.Controls.Add(this.PumpPressureInput);
             this.panel3.Controls.Add(this.pumpOffBtn);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(297, 24);
+            this.panel3.Location = new System.Drawing.Point(287, 24);
             this.panel3.Margin = new System.Windows.Forms.Padding(6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(253, 395);
@@ -643,15 +662,15 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.PIDReset);
             this.panel5.Controls.Add(this.ZeroScale);
-            this.panel5.Location = new System.Drawing.Point(13, 294);
+            this.panel5.Location = new System.Drawing.Point(13, 309);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(253, 128);
+            this.panel5.Size = new System.Drawing.Size(253, 110);
             this.panel5.TabIndex = 19;
             // 
             // PIDReset
             // 
-            this.PIDReset.Location = new System.Drawing.Point(35, 66);
+            this.PIDReset.Location = new System.Drawing.Point(35, 58);
             this.PIDReset.Margin = new System.Windows.Forms.Padding(6);
             this.PIDReset.Name = "PIDReset";
             this.PIDReset.Size = new System.Drawing.Size(192, 42);
@@ -662,7 +681,7 @@
             // 
             // ZeroScale
             // 
-            this.ZeroScale.Location = new System.Drawing.Point(33, 13);
+            this.ZeroScale.Location = new System.Drawing.Point(33, 9);
             this.ZeroScale.Margin = new System.Windows.Forms.Padding(6);
             this.ZeroScale.Name = "ZeroScale";
             this.ZeroScale.Size = new System.Drawing.Size(192, 42);
@@ -675,10 +694,11 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.ghHeaterValue);
-            this.panel2.Controls.Add(this.label33);
-            this.panel2.Controls.Add(this.mainHeaterValue);
-            this.panel2.Controls.Add(this.label35);
+            this.panel2.Controls.Add(this.steamHeaterIndicator);
+            this.panel2.Controls.Add(this.label34);
+            this.panel2.Controls.Add(this.SteamHeatOffButton);
+            this.panel2.Controls.Add(this.SteamHeatOnButton);
+            this.panel2.Controls.Add(this.steamTempInput);
             this.panel2.Controls.Add(this.HeaterIndicator);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.TempOffButton);
@@ -688,8 +708,30 @@
             this.panel2.Location = new System.Drawing.Point(13, 24);
             this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(253, 242);
+            this.panel2.Size = new System.Drawing.Size(253, 275);
             this.panel2.TabIndex = 19;
+            // 
+            // ghHeaterValue
+            // 
+            this.ghHeaterValue.AutoSize = true;
+            this.ghHeaterValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ghHeaterValue.Location = new System.Drawing.Point(655, 63);
+            this.ghHeaterValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.ghHeaterValue.Name = "ghHeaterValue";
+            this.ghHeaterValue.Size = new System.Drawing.Size(24, 25);
+            this.ghHeaterValue.TabIndex = 38;
+            this.ghHeaterValue.Text = "0";
+            // 
+            // mainHeaterValue
+            // 
+            this.mainHeaterValue.AutoSize = true;
+            this.mainHeaterValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainHeaterValue.Location = new System.Drawing.Point(655, 32);
+            this.mainHeaterValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.mainHeaterValue.Name = "mainHeaterValue";
+            this.mainHeaterValue.Size = new System.Drawing.Size(24, 25);
+            this.mainHeaterValue.TabIndex = 36;
+            this.mainHeaterValue.Text = "0";
             // 
             // HeaterIndicator
             // 
@@ -709,7 +751,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 92);
+            this.label5.Location = new System.Drawing.Point(16, 88);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 25);
@@ -719,10 +761,10 @@
             // 
             // TempOffButton
             // 
-            this.TempOffButton.Location = new System.Drawing.Point(130, 191);
+            this.TempOffButton.Location = new System.Drawing.Point(130, 119);
             this.TempOffButton.Margin = new System.Windows.Forms.Padding(6);
             this.TempOffButton.Name = "TempOffButton";
-            this.TempOffButton.Size = new System.Drawing.Size(99, 42);
+            this.TempOffButton.Size = new System.Drawing.Size(99, 35);
             this.TempOffButton.TabIndex = 24;
             this.TempOffButton.Text = "OFF";
             this.TempOffButton.UseVisualStyleBackColor = true;
@@ -730,10 +772,10 @@
             // 
             // TempOnButton
             // 
-            this.TempOnButton.Location = new System.Drawing.Point(20, 191);
+            this.TempOnButton.Location = new System.Drawing.Point(20, 119);
             this.TempOnButton.Margin = new System.Windows.Forms.Padding(6);
             this.TempOnButton.Name = "TempOnButton";
-            this.TempOnButton.Size = new System.Drawing.Size(99, 42);
+            this.TempOnButton.Size = new System.Drawing.Size(99, 35);
             this.TempOnButton.TabIndex = 23;
             this.TempOnButton.Text = "ON";
             this.TempOnButton.UseVisualStyleBackColor = true;
@@ -747,7 +789,7 @@
             0,
             0,
             65536});
-            this.tempInput.Location = new System.Drawing.Point(136, 88);
+            this.tempInput.Location = new System.Drawing.Point(136, 84);
             this.tempInput.Margin = new System.Windows.Forms.Padding(6);
             this.tempInput.Maximum = new decimal(new int[] {
             95,
@@ -783,6 +825,11 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.valveSteam);
+            this.panel4.Controls.Add(this.steamClose);
+            this.panel4.Controls.Add(this.steamOpen);
+            this.panel4.Controls.Add(this.label32);
+            this.panel4.Controls.Add(this.SteamValveIndicator);
             this.panel4.Controls.Add(this.valveExtract);
             this.panel4.Controls.Add(this.valveIdle);
             this.panel4.Controls.Add(this.ghClose);
@@ -802,10 +849,10 @@
             // 
             // valveExtract
             // 
-            this.valveExtract.Location = new System.Drawing.Point(14, 295);
+            this.valveExtract.Location = new System.Drawing.Point(14, 312);
             this.valveExtract.Margin = new System.Windows.Forms.Padding(6);
             this.valveExtract.Name = "valveExtract";
-            this.valveExtract.Size = new System.Drawing.Size(224, 42);
+            this.valveExtract.Size = new System.Drawing.Size(224, 35);
             this.valveExtract.TabIndex = 36;
             this.valveExtract.Text = "VALVE EXTRACT";
             this.valveExtract.UseVisualStyleBackColor = true;
@@ -813,10 +860,10 @@
             // 
             // valveIdle
             // 
-            this.valveIdle.Location = new System.Drawing.Point(14, 338);
+            this.valveIdle.Location = new System.Drawing.Point(14, 353);
             this.valveIdle.Margin = new System.Windows.Forms.Padding(6);
             this.valveIdle.Name = "valveIdle";
-            this.valveIdle.Size = new System.Drawing.Size(224, 42);
+            this.valveIdle.Size = new System.Drawing.Size(224, 35);
             this.valveIdle.TabIndex = 35;
             this.valveIdle.Text = "VALVE IDLE";
             this.valveIdle.UseVisualStyleBackColor = true;
@@ -824,10 +871,10 @@
             // 
             // ghClose
             // 
-            this.ghClose.Location = new System.Drawing.Point(130, 114);
+            this.ghClose.Location = new System.Drawing.Point(130, 81);
             this.ghClose.Margin = new System.Windows.Forms.Padding(6);
             this.ghClose.Name = "ghClose";
-            this.ghClose.Size = new System.Drawing.Size(99, 42);
+            this.ghClose.Size = new System.Drawing.Size(99, 35);
             this.ghClose.TabIndex = 22;
             this.ghClose.Text = "CLOSE";
             this.ghClose.UseVisualStyleBackColor = true;
@@ -835,10 +882,10 @@
             // 
             // ghOpen
             // 
-            this.ghOpen.Location = new System.Drawing.Point(20, 114);
+            this.ghOpen.Location = new System.Drawing.Point(20, 81);
             this.ghOpen.Margin = new System.Windows.Forms.Padding(6);
             this.ghOpen.Name = "ghOpen";
-            this.ghOpen.Size = new System.Drawing.Size(99, 42);
+            this.ghOpen.Size = new System.Drawing.Size(99, 35);
             this.ghOpen.TabIndex = 21;
             this.ghOpen.Text = "OPEN";
             this.ghOpen.UseVisualStyleBackColor = true;
@@ -846,10 +893,10 @@
             // 
             // loopClose
             // 
-            this.loopClose.Location = new System.Drawing.Point(133, 234);
+            this.loopClose.Location = new System.Drawing.Point(133, 231);
             this.loopClose.Margin = new System.Windows.Forms.Padding(6);
             this.loopClose.Name = "loopClose";
-            this.loopClose.Size = new System.Drawing.Size(99, 42);
+            this.loopClose.Size = new System.Drawing.Size(99, 35);
             this.loopClose.TabIndex = 20;
             this.loopClose.Text = "CLOSE";
             this.loopClose.UseVisualStyleBackColor = true;
@@ -857,10 +904,10 @@
             // 
             // loopOpen
             // 
-            this.loopOpen.Location = new System.Drawing.Point(19, 234);
+            this.loopOpen.Location = new System.Drawing.Point(19, 231);
             this.loopOpen.Margin = new System.Windows.Forms.Padding(6);
             this.loopOpen.Name = "loopOpen";
-            this.loopOpen.Size = new System.Drawing.Size(99, 42);
+            this.loopOpen.Size = new System.Drawing.Size(99, 35);
             this.loopOpen.TabIndex = 19;
             this.loopOpen.Text = "OPEN";
             this.loopOpen.UseVisualStyleBackColor = true;
@@ -881,7 +928,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(104, 166);
+            this.label2.Location = new System.Drawing.Point(21, 198);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 25);
@@ -893,13 +940,14 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(82, 48);
+            this.label1.Location = new System.Drawing.Point(43, 50);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 25);
+            this.label1.Size = new System.Drawing.Size(49, 25);
             this.label1.TabIndex = 16;
-            this.label1.Text = "Group Head:";
+            this.label1.Text = "GH:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // GHValveIndicator
             // 
@@ -907,7 +955,7 @@
             this.GHValveIndicator.BackColor = System.Drawing.Color.Red;
             this.GHValveIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GHValveIndicator.ForeColor = System.Drawing.Color.White;
-            this.GHValveIndicator.Location = new System.Drawing.Point(88, 81);
+            this.GHValveIndicator.Location = new System.Drawing.Point(106, 50);
             this.GHValveIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.GHValveIndicator.Name = "GHValveIndicator";
             this.GHValveIndicator.Size = new System.Drawing.Size(104, 25);
@@ -921,7 +969,7 @@
             this.LoopValveIndicator.BackColor = System.Drawing.Color.Green;
             this.LoopValveIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoopValveIndicator.ForeColor = System.Drawing.Color.White;
-            this.LoopValveIndicator.Location = new System.Drawing.Point(99, 199);
+            this.LoopValveIndicator.Location = new System.Drawing.Point(108, 199);
             this.LoopValveIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.LoopValveIndicator.Name = "LoopValveIndicator";
             this.LoopValveIndicator.Size = new System.Drawing.Size(75, 25);
@@ -932,59 +980,59 @@
             // TemperatureChart
             // 
             this.TemperatureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea6.Name = "ChartArea1";
-            this.TemperatureChart.ChartAreas.Add(chartArea6);
-            legend6.Enabled = false;
-            legend6.Name = "Legend1";
-            this.TemperatureChart.Legends.Add(legend6);
+            chartArea14.Name = "ChartArea1";
+            this.TemperatureChart.ChartAreas.Add(chartArea14);
+            legend14.Enabled = false;
+            legend14.Name = "Legend1";
+            this.TemperatureChart.Legends.Add(legend14);
             this.TemperatureChart.Location = new System.Drawing.Point(22, 825);
             this.TemperatureChart.Margin = new System.Windows.Forms.Padding(6);
             this.TemperatureChart.Name = "TemperatureChart";
             this.TemperatureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series7.BorderWidth = 3;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series7.Legend = "Legend1";
-            series7.Name = "Temperature";
-            series8.BorderWidth = 3;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series8.EmptyPointStyle.BorderWidth = 3;
-            series8.Legend = "Legend1";
-            series8.Name = "Temperature_GH";
-            this.TemperatureChart.Series.Add(series7);
-            this.TemperatureChart.Series.Add(series8);
+            series17.BorderWidth = 3;
+            series17.ChartArea = "ChartArea1";
+            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series17.Legend = "Legend1";
+            series17.Name = "Temperature";
+            series18.BorderWidth = 3;
+            series18.ChartArea = "ChartArea1";
+            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series18.EmptyPointStyle.BorderWidth = 3;
+            series18.Legend = "Legend1";
+            series18.Name = "Temperature_GH";
+            this.TemperatureChart.Series.Add(series17);
+            this.TemperatureChart.Series.Add(series18);
             this.TemperatureChart.Size = new System.Drawing.Size(1247, 332);
             this.TemperatureChart.TabIndex = 17;
             this.TemperatureChart.Text = "chart1";
-            title6.Name = "Title1";
-            title6.Text = "Temperature";
-            this.TemperatureChart.Titles.Add(title6);
+            title14.Name = "Title1";
+            title14.Text = "Temperature";
+            this.TemperatureChart.Titles.Add(title14);
             // 
             // PressureChart
             // 
             this.PressureChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea7.Name = "ChartArea1";
-            this.PressureChart.ChartAreas.Add(chartArea7);
-            legend7.Enabled = false;
-            legend7.Name = "Legend1";
-            this.PressureChart.Legends.Add(legend7);
+            chartArea15.Name = "ChartArea1";
+            this.PressureChart.ChartAreas.Add(chartArea15);
+            legend15.Enabled = false;
+            legend15.Name = "Legend1";
+            this.PressureChart.Legends.Add(legend15);
             this.PressureChart.Location = new System.Drawing.Point(22, 1169);
             this.PressureChart.Margin = new System.Windows.Forms.Padding(6);
             this.PressureChart.Name = "PressureChart";
             this.PressureChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series9.BorderWidth = 3;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series9.Legend = "Legend1";
-            series9.Name = "Pressure";
-            this.PressureChart.Series.Add(series9);
+            series19.BorderWidth = 3;
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series19.Legend = "Legend1";
+            series19.Name = "Pressure";
+            this.PressureChart.Series.Add(series19);
             this.PressureChart.Size = new System.Drawing.Size(1247, 332);
             this.PressureChart.TabIndex = 18;
             this.PressureChart.Text = "PressureChart";
-            title7.Name = "Title1";
-            title7.Text = "Pressure";
-            this.PressureChart.Titles.Add(title7);
+            title15.Name = "Title1";
+            title15.Text = "Pressure";
+            this.PressureChart.Titles.Add(title15);
             // 
             // panel6
             // 
@@ -1329,7 +1377,7 @@
             this.AS_PB_Duration.Size = new System.Drawing.Size(92, 29);
             this.AS_PB_Duration.TabIndex = 46;
             this.AS_PB_Duration.Value = new decimal(new int[] {
-            4,
+            6,
             0,
             0,
             0});
@@ -1480,27 +1528,27 @@
             // flowRateChart
             // 
             this.flowRateChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea8.Name = "ChartArea1";
-            this.flowRateChart.ChartAreas.Add(chartArea8);
-            legend8.Enabled = false;
-            legend8.Name = "Legend1";
-            this.flowRateChart.Legends.Add(legend8);
+            chartArea16.Name = "ChartArea1";
+            this.flowRateChart.ChartAreas.Add(chartArea16);
+            legend16.Enabled = false;
+            legend16.Name = "Legend1";
+            this.flowRateChart.Legends.Add(legend16);
             this.flowRateChart.Location = new System.Drawing.Point(22, 1855);
             this.flowRateChart.Margin = new System.Windows.Forms.Padding(6);
             this.flowRateChart.Name = "flowRateChart";
             this.flowRateChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series10.BorderWidth = 3;
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series10.Legend = "Legend1";
-            series10.Name = "Pressure";
-            this.flowRateChart.Series.Add(series10);
+            series20.BorderWidth = 3;
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series20.Legend = "Legend1";
+            series20.Name = "Pressure";
+            this.flowRateChart.Series.Add(series20);
             this.flowRateChart.Size = new System.Drawing.Size(1247, 332);
             this.flowRateChart.TabIndex = 39;
             this.flowRateChart.Text = "chart1";
-            title8.Name = "Title1";
-            title8.Text = "Flow Rate";
-            this.flowRateChart.Titles.Add(title8);
+            title16.Name = "Title1";
+            title16.Text = "Flow Rate";
+            this.flowRateChart.Titles.Add(title16);
             // 
             // panel7
             // 
@@ -1720,51 +1768,186 @@
             this.label11.TabIndex = 27;
             this.label11.Text = "Shot Log";
             // 
-            // ghHeaterValue
+            // steamClose
             // 
-            this.ghHeaterValue.AutoSize = true;
-            this.ghHeaterValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ghHeaterValue.Location = new System.Drawing.Point(201, 157);
-            this.ghHeaterValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.ghHeaterValue.Name = "ghHeaterValue";
-            this.ghHeaterValue.Size = new System.Drawing.Size(24, 25);
-            this.ghHeaterValue.TabIndex = 38;
-            this.ghHeaterValue.Text = "0";
+            this.steamClose.Location = new System.Drawing.Point(130, 155);
+            this.steamClose.Margin = new System.Windows.Forms.Padding(6);
+            this.steamClose.Name = "steamClose";
+            this.steamClose.Size = new System.Drawing.Size(99, 35);
+            this.steamClose.TabIndex = 40;
+            this.steamClose.Text = "CLOSE";
+            this.steamClose.UseVisualStyleBackColor = true;
+            this.steamClose.Click += new System.EventHandler(this.steamClose_Click);
             // 
-            // label33
+            // steamOpen
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(53, 150);
-            this.label33.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(119, 25);
-            this.label33.TabIndex = 37;
-            this.label33.Text = "GH Heater:";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.steamOpen.Location = new System.Drawing.Point(20, 155);
+            this.steamOpen.Margin = new System.Windows.Forms.Padding(6);
+            this.steamOpen.Name = "steamOpen";
+            this.steamOpen.Size = new System.Drawing.Size(99, 35);
+            this.steamOpen.TabIndex = 39;
+            this.steamOpen.Text = "OPEN";
+            this.steamOpen.UseVisualStyleBackColor = true;
+            this.steamOpen.Click += new System.EventHandler(this.steamOpen_Click);
             // 
-            // mainHeaterValue
+            // label32
             // 
-            this.mainHeaterValue.AutoSize = true;
-            this.mainHeaterValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainHeaterValue.Location = new System.Drawing.Point(201, 126);
-            this.mainHeaterValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.mainHeaterValue.Name = "mainHeaterValue";
-            this.mainHeaterValue.Size = new System.Drawing.Size(24, 25);
-            this.mainHeaterValue.TabIndex = 36;
-            this.mainHeaterValue.Text = "0";
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(15, 124);
+            this.label32.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(85, 25);
+            this.label32.TabIndex = 37;
+            this.label32.Text = "Steam: ";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label35
+            // SteamValveIndicator
             // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(38, 124);
-            this.label35.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(141, 25);
-            this.label35.TabIndex = 35;
-            this.label35.Text = "Main Heater: ";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SteamValveIndicator.AutoSize = true;
+            this.SteamValveIndicator.BackColor = System.Drawing.Color.Red;
+            this.SteamValveIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SteamValveIndicator.ForeColor = System.Drawing.Color.White;
+            this.SteamValveIndicator.Location = new System.Drawing.Point(106, 124);
+            this.SteamValveIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.SteamValveIndicator.Name = "SteamValveIndicator";
+            this.SteamValveIndicator.Size = new System.Drawing.Size(104, 25);
+            this.SteamValveIndicator.TabIndex = 38;
+            this.SteamValveIndicator.Text = "CLOSED";
+            this.SteamValveIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // valveSteam
+            // 
+            this.valveSteam.Location = new System.Drawing.Point(13, 270);
+            this.valveSteam.Margin = new System.Windows.Forms.Padding(6);
+            this.valveSteam.Name = "valveSteam";
+            this.valveSteam.Size = new System.Drawing.Size(224, 35);
+            this.valveSteam.TabIndex = 41;
+            this.valveSteam.Text = "VALVE STEAM";
+            this.valveSteam.UseVisualStyleBackColor = true;
+            this.valveSteam.Click += new System.EventHandler(this.valveSteam_Click);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(506, 61);
+            this.label36.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(119, 25);
+            this.label36.TabIndex = 41;
+            this.label36.Text = "GH Heater:";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(491, 29);
+            this.label38.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(141, 25);
+            this.label38.TabIndex = 39;
+            this.label38.Text = "Main Heater: ";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // HexTempValue
+            // 
+            this.HexTempValue.AutoSize = true;
+            this.HexTempValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HexTempValue.Location = new System.Drawing.Point(441, 94);
+            this.HexTempValue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.HexTempValue.Name = "HexTempValue";
+            this.HexTempValue.Size = new System.Drawing.Size(24, 25);
+            this.HexTempValue.TabIndex = 44;
+            this.HexTempValue.Text = "0";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(278, 89);
+            this.label40.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(122, 25);
+            this.label40.TabIndex = 43;
+            this.label40.Text = "Hex Temp: ";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // steamHeaterIndicator
+            // 
+            this.steamHeaterIndicator.AutoSize = true;
+            this.steamHeaterIndicator.BackColor = System.Drawing.Color.Red;
+            this.steamHeaterIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.steamHeaterIndicator.ForeColor = System.Drawing.Color.White;
+            this.steamHeaterIndicator.Location = new System.Drawing.Point(38, 162);
+            this.steamHeaterIndicator.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.steamHeaterIndicator.Name = "steamHeaterIndicator";
+            this.steamHeaterIndicator.Size = new System.Drawing.Size(173, 25);
+            this.steamHeaterIndicator.TabIndex = 27;
+            this.steamHeaterIndicator.Text = "STEAMER OFF";
+            this.steamHeaterIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(16, 198);
+            this.label34.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(105, 25);
+            this.label34.TabIndex = 26;
+            this.label34.Text = "Set Point:";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // SteamHeatOffButton
+            // 
+            this.SteamHeatOffButton.Location = new System.Drawing.Point(130, 229);
+            this.SteamHeatOffButton.Margin = new System.Windows.Forms.Padding(6);
+            this.SteamHeatOffButton.Name = "SteamHeatOffButton";
+            this.SteamHeatOffButton.Size = new System.Drawing.Size(99, 35);
+            this.SteamHeatOffButton.TabIndex = 29;
+            this.SteamHeatOffButton.Text = "OFF";
+            this.SteamHeatOffButton.UseVisualStyleBackColor = true;
+            // 
+            // SteamHeatOnButton
+            // 
+            this.SteamHeatOnButton.Location = new System.Drawing.Point(20, 229);
+            this.SteamHeatOnButton.Margin = new System.Windows.Forms.Padding(6);
+            this.SteamHeatOnButton.Name = "SteamHeatOnButton";
+            this.SteamHeatOnButton.Size = new System.Drawing.Size(99, 35);
+            this.SteamHeatOnButton.TabIndex = 28;
+            this.SteamHeatOnButton.Text = "ON";
+            this.SteamHeatOnButton.UseVisualStyleBackColor = true;
+            // 
+            // steamTempInput
+            // 
+            this.steamTempInput.DecimalPlaces = 1;
+            this.steamTempInput.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.steamTempInput.Location = new System.Drawing.Point(136, 194);
+            this.steamTempInput.Margin = new System.Windows.Forms.Padding(6);
+            this.steamTempInput.Maximum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            0});
+            this.steamTempInput.Minimum = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            this.steamTempInput.Name = "steamTempInput";
+            this.steamTempInput.Size = new System.Drawing.Size(92, 29);
+            this.steamTempInput.TabIndex = 30;
+            this.steamTempInput.Value = new decimal(new int[] {
+            150,
+            0,
+            0,
+            0});
             // 
             // Form1
             // 
@@ -1817,6 +2000,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dullBrightSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.badGoodSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sourBitterSlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.steamTempInput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1931,9 +2115,21 @@
         private System.Windows.Forms.NumericUpDown RDrate;
         private System.Windows.Forms.Label saveNotifier;
         private System.Windows.Forms.Label ghHeaterValue;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label mainHeaterValue;
-        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button valveSteam;
+        private System.Windows.Forms.Button steamClose;
+        private System.Windows.Forms.Button steamOpen;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label SteamValveIndicator;
+        private System.Windows.Forms.Label HexTempValue;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label steamHeaterIndicator;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button SteamHeatOffButton;
+        private System.Windows.Forms.Button SteamHeatOnButton;
+        private System.Windows.Forms.NumericUpDown steamTempInput;
     }
 }
 
